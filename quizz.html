@@ -13,34 +13,35 @@
     <div class="quizz-container">
     <h1>Question 1 to 10</h1>
     <div class="progress">
-     <div></div>
+     <div class="progress-container"></div>
     </div>
     <h2>What is Html ?</h2>
-    <div class="option">
-        <input type="radio">
-        Programming Language
+    <div >
+        <input type="radio" class="option" id="a" name="option" >
+        <label for="" id="quizz-option1"></label>
     </div>
     <br>
-    <div class="option">
-        <input type="radio">
-        Dynamic Language
+    <div>
+        <input type="radio"  class="option" id="b" name="option" >
+      <label for=""id="quizz-option2"></label>
     </div>
     <br>
-    <div class="option">
-        <input type="radio">
-        Machine Language
+    <div >
+        <input type="radio"  class="option" id="c" name="option" >
+        <label for="" id="quizz-option3" ></label>
     </div>
     <br>
-    <div class="option">
-        <input type="radio">
-        Binary Language
+    <div>
+        <input type="radio"  class="option"  id="d" name="option" >
+        <label for="" id="quizz-option4"  ></label>
     </div>
 
 
-    <div class="submit-btn">Submit & continue &#8594;</div>
-  
+    <button class="submit-btn" onclick="Submit()">Submit & continue &#8594;</button>
+    <button class="previous-btn" onclick="previous()" >Previous</button>
+    <button class="next-btn" onclick="next()" >Next</button>
     </div>
 
-    <script src="../Javascript/quizz.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
