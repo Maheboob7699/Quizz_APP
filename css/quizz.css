@@ -40,9 +40,6 @@ body{
 
 
 .previous-btn{
-  display: none;
-}
+ display: none; 
+} 
 
-.next-btn{
-  display: none;
-}
