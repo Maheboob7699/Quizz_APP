@@ -29,14 +29,73 @@ body{
   font-size: 24px;
 }
 
+input[type="radio"] {
+  display: none;
+}
 
-.submit-btn{
+label {
+  display: inline-block;
+  padding: 10px 20px;
+  cursor: pointer;
+  
+  margin-right: 10px;
+}
+
+input[type="radio"]:checked + label {
+  background-color: yellow;
+  border-color: #4CAF50;
+  border-radius: 20px ;
+}
+
+label:hover {
+  background-color: #e0e0e0;
+  border-radius: 20px;
+}
+
+/* Optional: Add a hover effect */
+
+
+#quizz-option1{
+  font-size: 1.3rem;
+}
+#quizz-option2{
+  font-size: 1.3rem;
+}
+
+#quizz-option3{
+  font-size: 1.3rem;
+}
+
+#quizz-option4{
+  font-size: 1.3rem;
+}
+
+.previous-btn{
+  margin-top: 40px;
+  color: #8E8E93;
+  background-color: transparent;
+  border: none;
+  height: 50px;
+  width: 170px;
+  font-size: 1.5rem;
+}
+
+.next-btn{
+  background-color: transparent;
+  border: none;
+  font-size: 1.9rem;
+  color: #0948B4;
+  margin-left: 85%;
+}
+
+
+/* .submit-btn{
   border: none;
   color: #0948B4;
   font-size: 20px;
   margin-top: 40px;
   margin-left: 80%;
-}
+} */
 
 
 .previous-btn{

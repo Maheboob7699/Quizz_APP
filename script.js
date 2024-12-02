@@ -12,8 +12,9 @@ let emailSymbol = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
 
 let existingLogins = JSON.parse(localStorage.getItem("storeDetail")) || [];
 function Login() {
-  if (email.value == "") {
+  if (email.value == "" && password.value == "") {
     emailAlert.innerHTML = "Email is Empty";
+    passwordAlert.innerHTML = "Password is Empty";
 
   }
 
@@ -236,6 +237,8 @@ let progressContainer = document.querySelector(".progress-container");
 let index = 0;
 let score = 0;
 let progress = 10;
+let selectedAnswer =[];
+
 
 
 
@@ -281,10 +284,11 @@ function render(index) {
 function scoreQuiz() {
   selectOption.forEach((opt) => {
     if (opt.checked) {
+      selectedAnswer.push(opt.id);
       if (opt.id === localQuizz[index].ans) {
         score += 10;
         console.log(score);
-        
+        opt.checked = false;
       }
     }
   });
@@ -293,7 +297,7 @@ function scoreQuiz() {
 // scoreQuiz();
 
 function previous() {
- if(index<0){
+ if(index>0){
   index--;
   progress -= 10;
   render(index);
