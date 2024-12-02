@@ -106,7 +106,7 @@ function Signup() {
 
 
 
-
+//  qui
 
 
 const questionsAndAnswers = [
@@ -242,10 +242,8 @@ let progress = 10;
 
 
 function render(index) {
-  console.log(index)
-  if (index < localQuizz.length) {
-    console.log(index, questionRemain, localQuizz.length);
 
+  if (index <=localQuizz.length-1) {
     questionRemain.innerHTML = `Question ${index + 1} to ${localQuizz.length}`;
     question.textContent = localQuizz[index].q;
     option1.textContent = localQuizz[index].a;
@@ -253,11 +251,22 @@ function render(index) {
     option3.textContent = localQuizz[index].c;
     option4.textContent = localQuizz[index].d;
     progressContainer.style.width = `${progress}%`;
+    console.log(index,localQuizz.length-1);
+
+    if(index ===localQuizz.length-2 ){
+      questionRemain.innerHTML = ` last 2 Question Left`;
+    }
+
+     if(index ===localQuizz.length-1 ){
+      questionRemain.innerHTML = ` Hey This is last Question `;
+       nextBtn.innerHTML= "Sumbit";
+
+    }
+
   }
 
+  
   else if (index === localQuizz.length) {
-    questionRemain.innerHTML = `Question ${index + 1} to ${localQuizz.length}`;
-    console.log("final Score is", score);
     // let scoreArray = [];
     // scoreArray.push(score);
     // localStorage.setItem("scoreDetail",JSON.stringify(scoreArray));
@@ -274,12 +283,14 @@ function scoreQuiz() {
     if (opt.checked) {
       if (opt.id === localQuizz[index].ans) {
         score += 10;
+        console.log(score);
+        
       }
     }
   });
 }
 
-scoreQuiz();
+// scoreQuiz();
 
 function previous() {
  if(index<0){
@@ -291,6 +302,7 @@ function previous() {
 function next() {
   scoreQuiz();
   index++;
+  console.log("Your Score is",score);
   if(index>0){
     previousBtn.style.display = "block";
   }
@@ -301,12 +313,22 @@ function next() {
 
 function quizzpage(){
   render(index);
-  // scoreQuiz();
 }
 
 
+// Dashboard
+let scoreRender = JSON.parse(localStorage.getItem("scoreDetail"))
+let sortScore = scoreRender.sort((a,b)=> b - a)
 
-
+function DashboardPage(){
+  let rank1Display =document.querySelector(".rank1-display");
+  let rank2Display =document.querySelector(".rank2-display");
+  let rank3Display =document.querySelector(".rank3-display");
+  
+  rank1Display.innerText = sortScore[0];
+  rank2Display.innerText = sortScore[1];
+  rank3Display.innerText = sortScore[2];
+}
 
 
 
