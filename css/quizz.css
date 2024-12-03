@@ -12,7 +12,7 @@ body{
 
 .progress .progress-container{
   border-radius: 10px;
-  background-color: yellow;
+  background-color: #F3BD00;
   height: 20px;
   width: 0%;
  
@@ -42,7 +42,8 @@ label {
 }
 
 input[type="radio"]:checked + label {
-  background-color: yellow;
+  background-color:#F3BD00;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-color: #4CAF50;
   border-radius: 20px ;
 }

@@ -8,7 +8,12 @@ let loginBTn = document.querySelector(".login-btn");
 let emailAlert = document.querySelector(".email-alert");
 let passwordAlert = document.querySelector(".password-alert");
 
-let emailSymbol = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+let specialSymbol =  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+let patternSymbol = /^[a-zA-Z0-9!@#\$%\^\&*_=+-]{8,12}$/;
+
+let numberPattern = /\d/;
+let lowerCasePattern = /[a-z]/; 
+
 
 let existingLogins = JSON.parse(localStorage.getItem("storeDetail")) || [];
 function Login() {
@@ -18,17 +23,28 @@ function Login() {
 
   }
 
-  else if (!emailSymbol.test(email.value)) {
-    alert("Sepcial character is required in Email")
+  if (!email.value.includes("@")) {
+    emailAlert.innerHTML="Special character '@' is missing.";
+    return;
+}
+if (!email.value.includes(".com")) {
+  emailAlert.innerHTML="Special character 'com' is missing.";
+  return;
+}
+
+// Check if the email contains ".com" or other valid domain
+if (!email.includes(".com") && !email.match(/\.[a-zA-Z]{2,}$/)) {
+    alert("'.com' or a valid domain extension is missing.");
+    return;
+}
+
+  else if (!specialSymbol.test(email.value)) {
+    alert(" email is not valid");
     email.value = "";
     return
   }
 
-  else if (!emailSymbol.test(email.value)) {
-    emailAlert.innerHTML = "Email must contain at least one special character";
-    email.value = ""; // Clear email input if invalid
-    return;
-  }
+
 
   else if (email.value.length < 6) {
     emailAlert.innerHTML = "email is greater than 6";
@@ -45,11 +61,29 @@ function Login() {
   else if (password.value == "") {
     passwordAlert.innerHTML = "Password is Empty";
   }
+// else if(!patternSymbol.test(password.value)){
+//   passwordAlert.innerHTML = "Password must contain at least one symbol";
+//   password.value = "";
+//   return
+// }
+else if(!numberPattern.test(password.value)){
+  passwordAlert.innerHTML = "Password must contain at least one number";
+  password.value = "";
+  return
+}
 
-  else if (password.value == "") {
-    passwordAlert.innerHTML = "password is Empty";
-    return
-  }
+else if(!patternSymbol.test(password.value)){
+  passwordAlert.innerHTML = "Password must contain at least one special character";
+  password.value = "";
+  return
+}
+
+else if(!lowerCasePattern.test(password.value)){
+  passwordAlert.innerHTML = "Password must contain at least one lowercase";
+  password.value = "";
+  return
+}
+
 
   else if (password.value.length > 10) {
     passwordAlert.inerHTML = "password is less then 10";
@@ -61,6 +95,7 @@ function Login() {
       email: email.value,
       password: password.value,
     }
+    
 
     existingLogins.push(loginDetail);
     localStorage.setItem("storeDetail", JSON.stringify(existingLogins))
@@ -95,6 +130,9 @@ function Signup() {
   for (let i = 0; i < localLogin.length; i++) {
     if (signupEmail.value === localLogin[i].email && signupPassword.value === localLogin[i].password) {
       alert("Detail Match");
+      signupEmail.value = "";
+      signupPassword.value = "";
+
 
       window.location.href = "Start.html";
       return
@@ -134,13 +172,11 @@ let userDetail=[];
       }
       // userDetail.push(Details);
       // localStorage.setItem("startDetils",JSON.stringify(userDetail))
+      LocalDetail.push(Details)
+      localStorage.setItem("startDetils",JSON.stringify(LocalDetail))
       userName.value=="";
       userEmail.value=="";
       userContact.value=="";
-
-
-      LocalDetail.push(Details)
-      localStorage.setItem("startDetils",JSON.stringify(LocalDetail))
       alert("succesfully");
       window.location.href="quizz.html";
      
@@ -149,9 +185,9 @@ let userDetail=[];
   }
 
 
-  function StartPage(){
-    Start()
-  }
+  // function StartPage(){
+  //   Start()
+  // }
 
 
 
@@ -272,7 +308,7 @@ const questionsAndAnswers = [
 localStorage.setItem("quizzData", JSON.stringify(questionsAndAnswers))
 
 let localQuizz = JSON.parse(localStorage.getItem("quizzData"));
- LocalDetail = JSON.parse(localStorage.getItem("startDetils"));
+ LocalDetail = JSON.parse(localStorage.getItem("startDetils")) || [];
  
   
 console.log(localQuizz);
@@ -340,9 +376,12 @@ function render(index) {
 function scoreQuiz() {
   selectOption.forEach((opt) => {
     if (opt.checked) {
-      selectedAnswer.push(opt.id);
       if (opt.id === localQuizz[index].ans) {
+        selectedAnswer.push({ answerId: opt.id, index: index });
         score += 10;
+     
+        console.log(selectedAnswer);
+        
         console.log(score);
         opt.checked = false;
       }
@@ -350,11 +389,23 @@ function scoreQuiz() {
   });
 }
 
-// scoreQuiz();
+function previousData() {
+  if (selectedAnswer[index].answerId === localQuizz[index].ans) {
+    selectOption.forEach(opt => {
+      if (opt.id === selectedAnswer[index].answerId) {
+        opt.checked = true;
+      }
+    });
+    console.log("Previous Data");
+  }
+}
+
+
 
 function previous() {
  if(index>0){
   index--;
+  previousData();
   progress -= 10;
   render(index);
  }
@@ -377,16 +428,17 @@ function quizzpage(){
 
 
 // Dashboard
-let scoreRender = JSON.parse(localStorage.getItem("startDetils"));
+let scoreRender = JSON.parse(localStorage.getItem("startDetils")) || [];
 let sortedDetail = scoreRender.sort((a, b) => b.score - a.score);
-console.log(sortedDetail);
+console.log(sortedDetail[0].score);
 
 function DashboardPage(){
   let rank1Display = document.querySelector(".rank1-display");
   let rank2Display = document.querySelector(".rank2-display");
-  // let rank3Display =document.querySelector(".rank3-display");
+  let rank3Display =document.querySelector(".rank3-display");
   let  rank1Name = document.querySelector(".rank1-name");
   let  rank2Name = document.querySelector(".rank2-name");
+  let  rank3Name = document.querySelector(".rank3-name");
 
  
   
@@ -394,10 +446,18 @@ function DashboardPage(){
   rank2Display.innerText =  sortedDetail[1].score;
   rank1Name.innerText = sortedDetail[0].name;
   rank2Name.innerText =  sortedDetail[1].name;
- 
 
-  // rank3Display.innerText = sortedDetail[2].score;
+ let sortedName3 =(sortedDetail[2] && sortedDetail[2].name) ? sortedDetail[2].name : "No User";
+  let sortedScore3 = (sortedDetail[2] && sortedDetail[2].score) ? sortedDetail[2].score : "NO score";
+  rank3Name.innerText = sortedName3;
+  rank3Display.innerText = sortedScore3;
+
+  
+  // rank3Display.innerText = sortedScore3;
 }
+
+
+
 
 
 

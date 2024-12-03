@@ -11,6 +11,9 @@ body{
     align-items: center;
 
 }
+.required{
+    color: red;
+}
 
 .quizz-img {
     width: 326.6px;

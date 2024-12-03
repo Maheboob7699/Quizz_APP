@@ -22,7 +22,7 @@ p{
     background-color: #F4CE4A;
     margin-top: 50px;
     height: 100px;
- width: 80px;
+ width: auto;
 }
 
 
@@ -36,7 +36,7 @@ p{
     background-color:#F7E296;
     margin-top: 67px;
     height: 80px;
-    width: 80px;
+    width: auto;;
 
    }
 
