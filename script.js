@@ -106,8 +106,63 @@ function Signup() {
 }
 
 
+// Start 
 
-//  qui
+
+  let userName = document.querySelector("#userName");
+  let userEmail = document.querySelector("#userEmail");
+  let userContact = document.querySelector("#userContact");
+  let startBtn = document.querySelector(".startquiz-btn");
+
+
+let userDetail=[];
+
+  let LocalDetail = JSON.parse(localStorage.getItem("startDetils"));
+  console.log(LocalDetail);
+  
+
+  function Start(){
+    if(userName.value=="" && userEmail.value=="" && userContact.value==""){
+      alert("ll field re reuired");
+    }
+    else{
+      let Details={
+        name:userName.value,
+        email:userEmail.value,
+        contact:userContact.value,
+        score: 0,
+      }
+      // userDetail.push(Details);
+      // localStorage.setItem("startDetils",JSON.stringify(userDetail))
+      userName.value=="";
+      userEmail.value=="";
+      userContact.value=="";
+
+
+      LocalDetail.push(Details)
+      localStorage.setItem("startDetils",JSON.stringify(LocalDetail))
+      alert("succesfully");
+      window.location.href="quizz.html";
+     
+    }
+    
+  }
+
+
+  function StartPage(){
+    Start()
+  }
+
+
+
+
+
+
+
+
+
+
+// Quizz
 
 
 const questionsAndAnswers = [
@@ -216,10 +271,10 @@ const questionsAndAnswers = [
 
 localStorage.setItem("quizzData", JSON.stringify(questionsAndAnswers))
 
-
-
 let localQuizz = JSON.parse(localStorage.getItem("quizzData"));
-let localScore = JSON.parse(localStorage.getItem("scoreDetail"))
+ LocalDetail = JSON.parse(localStorage.getItem("startDetils"));
+ 
+  
 console.log(localQuizz);
 
 question = document.querySelector("h2");
@@ -270,11 +325,12 @@ function render(index) {
 
   
   else if (index === localQuizz.length) {
-    // let scoreArray = [];
-    // scoreArray.push(score);
-    // localStorage.setItem("scoreDetail",JSON.stringify(scoreArray));
-    localScore.push(score)
-    localStorage.setItem("scoreDetail", JSON.stringify(localScore))
+    for(i=0; i<LocalDetail.length; i++){
+      if(LocalDetail[i].score === 0){
+        LocalDetail[i].score  = score;
+    }
+  }
+    localStorage.setItem("startDetils",JSON.stringify(LocalDetail))
     window.location.href = "dashboard.html";
 
   }
@@ -321,18 +377,31 @@ function quizzpage(){
 
 
 // Dashboard
-let scoreRender = JSON.parse(localStorage.getItem("scoreDetail"))
-let sortScore = scoreRender.sort((a,b)=> b - a)
+let scoreRender = JSON.parse(localStorage.getItem("startDetils"));
+let sortedDetail = scoreRender.sort((a, b) => b.score - a.score);
+console.log(sortedDetail);
 
 function DashboardPage(){
-  let rank1Display =document.querySelector(".rank1-display");
-  let rank2Display =document.querySelector(".rank2-display");
-  let rank3Display =document.querySelector(".rank3-display");
+  let rank1Display = document.querySelector(".rank1-display");
+  let rank2Display = document.querySelector(".rank2-display");
+  // let rank3Display =document.querySelector(".rank3-display");
+  let  rank1Name = document.querySelector(".rank1-name");
+  let  rank2Name = document.querySelector(".rank2-name");
+
+ 
   
-  rank1Display.innerText = sortScore[0];
-  rank2Display.innerText = sortScore[1];
-  rank3Display.innerText = sortScore[2];
+  rank1Display.innerText =  sortedDetail[0].score;
+  rank2Display.innerText =  sortedDetail[1].score;
+  rank1Name.innerText = sortedDetail[0].name;
+  rank2Name.innerText =  sortedDetail[1].name;
+ 
+
+  // rank3Display.innerText = sortedDetail[2].score;
 }
+
+
+
+
 
 
 
