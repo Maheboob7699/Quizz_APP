@@ -25,11 +25,11 @@ function Login() {
 
   }
 
-  if (!email.value.includes("@")) {
+  else if (!email.value.includes("@")) {
     emailAlert.innerHTML="Special character '@' is missing.";
     return;
 }
-if (!email.value.includes(".com")) {
+ else if (!email.value.includes(".com")) {
   emailAlert.innerHTML="Special character 'com' is missing.";
   return;
 }
@@ -55,33 +55,29 @@ if (!email.value.includes(".com")) {
     return
   }
 
-  else if (password.value == "") {
+  if (password.value == "") {
     passwordAlert.innerHTML = "Password is Empty";
   }
 
-else if(!patternSymbol.test(password.value)){
-  passwordAlert.innerHTML = "Password must contain at least one symbol";
-  password.value = "";
-  return
-}
 
-else if(!numberPattern.test(password.value)){
-  passwordAlert.innerHTML = "Password must contain at least one number";
-  password.value = "";
-  return
-}
 
-else if(!patternSymbol.test(password.value)){
-  passwordAlert.innerHTML = "Password must contain at least one special character";
-  password.value = "";
-  return
-}
 
-else if(!lowerCasePattern.test(password.value)){
-  passwordAlert.innerHTML = "Password must contain at least one lowercase";
-  password.value = "";
-  return
-}
+  if (!numberPattern.test(password.value)) {
+    passwordAlert.innerHTML = "Password must contain at least one number";
+    password.value = "";
+    return;
+  }
+  if (!patternSymbol.test(password.value)) {
+    passwordAlert.innerHTML = "Password must be , and contain at least one special character";
+    password.value = "";
+    return;
+  }
+
+  if (!lowerCasePattern.test(password.value)) {
+    passwordAlert.innerHTML = "Password must contain at least one lowercase letter";
+    password.value = "";
+    return;
+  }
 
 
 
