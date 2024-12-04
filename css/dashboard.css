@@ -22,21 +22,24 @@ p{
     background-color: #F4CE4A;
     margin-top: 50px;
     height: 100px;
- width: auto;
+    width: 90px;
+    text-align: center;
 }
 
 
 .rank-list .rank1{
  background-color: #F3BD00;
- text-align: center;
  height: 150px;
- width: 80px;
+ width: 90px;
+ text-align: center;
 }
+
 .rank-list .rank3{
     background-color:#F7E296;
     margin-top: 67px;
     height: 80px;
-    width: auto;;
+    width: 90px;
+    text-align: center;
 
    }
 
@@ -54,5 +57,5 @@ align-items: center;
     margin-left: 30px;
 }
 .previous-rank div .rank-Score{
-    margin-left: 1000px;
+    margin-left: 800px;
 }

@@ -32,7 +32,7 @@ function Login() {
     return;
 }
  else if (!email.value.includes(".com")) {
-  emailAlert.innerHTML="Special character 'com' is missing.";
+  emailAlert.innerHTML="'com' is missing.";
   return;
 }
 
@@ -150,7 +150,7 @@ function Signup() {
   }
   
   else if (!signupEmail.value.includes(".com")) {
-    signupEmailError.innerHTML = "Special character '.com' is missing.";
+    signupEmailError.innerHTML = " '.com' is missing.";
     signupEmail.value = ""; 
     return;
   }
@@ -173,6 +173,12 @@ function Signup() {
     signupEmail.value = ""; 
     return;
   }
+  else if (signupPassword.value.length<6) {
+    signupPasswordError.innerHTML = "Password must be greater than 6";
+    signupPassword.value = "";
+    return;
+  }
+
 
    else if (!numberPattern.test(signupPassword.value)) {
     signupPasswordError.innerHTML = "Password must contain at least one number";
@@ -193,20 +199,42 @@ function Signup() {
 
 
 
-  for (let i = 0; i < localLogin.length; i++) {
-    if (signupEmail.value === localLogin[i].email && signupPassword.value === localLogin[i].password) {
-      alert("Detail Match");
-      signupEmail.value = "";
-      signupPassword.value = "";
-
-
-      window.location.href = "Start.html";
-      return
+  else{
+    let matchFound = false;
+    for (let i = 0; i < localLogin.length; i++) {
+      if (signupEmail.value === localLogin[i].email && signupPassword.value === localLogin[i].password) {
+        alert("Detail Match");
+        signupEmail.value = "";
+        signupPassword.value = "";
+        window.location.href = "Start.html";
+        return
+      }
     }
-    else {
-      alert("Detail is not match");
-    }
+    if (!matchFound) {
+         alert("Detail not Match");
+        }
+    
   }
+
+  // else {
+  //   let matchFound = false; 
+  //   for (let i = 0; i < localLogin.length; i++) {
+  //     if (signupEmail.value === localLogin[i].email && signupPassword.value === localLogin[i].password) {
+  //       alert("Detail Match");
+  //       signupEmail.value = "";
+  //       signupPassword.value = ""; 
+  //       window.location.href = "Start.html";
+  //       break; 
+  //     }
+  //   }
+  
+  //   if (!matchFound) {
+  //     alert("Detail not Match");
+  //   }
+  // }
+
+  
+ 
   
 }
 
@@ -350,12 +378,6 @@ function Signup() {
   // function StartPage(){
   //   Start()
   // }
-
-
-
-
-
-
 
 
 
@@ -535,36 +557,47 @@ function render(index) {
 
 }
 
+// function scoreQuiz() {
+//   selectOption.forEach((opt) => {
+//     if (opt.checked) {
+//       if (opt.id === localQuizz[index].ans) {
+//         selectedAnswer.push({ answerId: opt.id, index: index });
+//         score += 10;
+//         console.log(selectedAnswer);
+//         console.log(score);
+//         opt.checked = false;
+//       }
+     
+//     }
+   
+   
+//   });
+// }
+
 function scoreQuiz() {
   selectOption.forEach((opt) => {
     if (opt.checked) {
       if (opt.id === localQuizz[index].ans) {
         selectedAnswer.push({ answerId: opt.id, index: index });
         score += 10;
-     
         console.log(selectedAnswer);
-        
         console.log(score);
-        opt.checked = false;
       }
-     
+      opt.checked = false; // Uncheck after submitting answer
     }
-    opt.checked = false;
-   
   });
 }
 
+
 function previousData() {
-  if (selectedAnswer[index].answerId === localQuizz[index].ans) {
-    selectOption.forEach(opt => {
-      if (opt.id === selectedAnswer[index].answerId) {
-        opt.checked = true;
-      }
-    });
-    console.log("Previous Data");
+  if(selectedAnswer[index]){
+   selectOption.forEach((opt)=>{
+    if(opt.id === selectedAnswer[index].answerId){
+      opt.checked = true;
+    }
+   })
   }
 }
-
 
 
 function previous() {
