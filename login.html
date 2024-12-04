@@ -11,6 +11,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
+
+
     <div class="login-container">
         
      <div class="quizz-img">
@@ -33,10 +35,17 @@
         <label for="">
             password <span class="required">***</span>
         </label><br>
-            <input type="password" placeholder="password" id="pass-inpt">
-            <div class="pass-result" style="color: red;"></div>
+            <div class="password-input">
+                <input type="password" placeholder="password" id="pass-inpt">
+                <div  class="password-display" onclick="passwordShow()">
+                    <i class="fa-solid fa-eye-slash hide-password"></i>
+                  <i class="fa-regular fa-eye show-password"></i>
+                </div>
+            </div>
+            
         
      </div>
+
      <div class="password-alert"></div>
     
 
@@ -47,10 +56,15 @@
         <img src="google.png" alt="">
        </div>
        <p>Sign Up With Google</p>
+       
      </div>
+     <p class="sign-up">Dont have an account?<span> sign up ?</span></p>
+    
+    
      </div>
+     
     </div>
-    <p class="sign-up">Dont have an account?<span> sign up ?</span></p>
+    <!-- <p class="sign-up">Dont have an account?<span> sign up ?</span></p> -->
 
     <script src="script.js"></script>
 </body>

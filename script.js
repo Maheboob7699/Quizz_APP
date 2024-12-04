@@ -7,10 +7,12 @@ let password = document.querySelector("#pass-inpt");
 let loginBTn = document.querySelector(".login-btn");
 let emailAlert = document.querySelector(".email-alert");
 let passwordAlert = document.querySelector(".password-alert");
+let passordDisplay = document.querySelector(".password-display")
+let hidePassword= document.querySelector(".hide-password");
+let showPassword = document.querySelector(".show-password");
 
 let specialSymbol =  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 let patternSymbol = /^[a-zA-Z0-9!@#\$%\^\&*_=+-]{8,12}$/;
-
 let numberPattern = /\d/;
 let lowerCasePattern = /[a-z]/; 
 
@@ -32,11 +34,6 @@ if (!email.value.includes(".com")) {
   return;
 }
 
-// Check if the email contains ".com" or other valid domain
-if (!email.includes(".com") && !email.match(/\.[a-zA-Z]{2,}$/)) {
-    alert("'.com' or a valid domain extension is missing.");
-    return;
-}
 
   else if (!specialSymbol.test(email.value)) {
     alert(" email is not valid");
@@ -61,11 +58,13 @@ if (!email.includes(".com") && !email.match(/\.[a-zA-Z]{2,}$/)) {
   else if (password.value == "") {
     passwordAlert.innerHTML = "Password is Empty";
   }
-// else if(!patternSymbol.test(password.value)){
-//   passwordAlert.innerHTML = "Password must contain at least one symbol";
-//   password.value = "";
-//   return
-// }
+
+else if(!patternSymbol.test(password.value)){
+  passwordAlert.innerHTML = "Password must contain at least one symbol";
+  password.value = "";
+  return
+}
+
 else if(!numberPattern.test(password.value)){
   passwordAlert.innerHTML = "Password must contain at least one number";
   password.value = "";
@@ -85,9 +84,10 @@ else if(!lowerCasePattern.test(password.value)){
 }
 
 
-  else if (password.value.length > 10) {
-    passwordAlert.inerHTML = "password is less then 10";
-  }
+
+//   else if (password.value.length > 10) {
+//     passwordAlert.inerHTML = "password is less then 10";
+//   }
 
   else {
 
@@ -109,6 +109,23 @@ else if(!lowerCasePattern.test(password.value)){
 
   }
 }
+
+function passwordShow(){
+  let passwordShow = document.querySelector("#pass-inpt")
+  if(passwordShow.type === "password"){
+    passwordShow.type = "text";
+    showPassword.style.display="block";
+    hidePassword.style.display="none";
+    
+
+  }
+  else{
+    passwordShow.type ="password";
+    showPassword.style.display="none";
+    hidePassword.style.display="block";
+  }
+}
+
 
 // Signup
 
