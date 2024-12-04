@@ -140,6 +140,59 @@ function Signup() {
     return
   }
 
+  else if (!signupEmail.value.includes("@")) {
+    signupEmailError.innerHTML = "Special character '@' is missing.";
+    signupEmail.value == "";
+    return;
+}
+ else if (!signupEmail.value.includes(".com")) {
+  signupEmailError.innerHTML = "Special character 'com' is missing.";
+  signupEmail.value == "";
+  return;
+}
+
+
+  else if (!specialSymbol.test(signupEmail.value)) {
+    alert(" email is not valid");
+    signupEmail.value == "";
+    return
+  }
+
+
+
+  else if (signupEmail.value.length < 6) {
+    signupEmailError.innerHTML = "email is greater than 6";
+   signupEmail.value == "";
+    return
+  }
+
+  else if (signupEmail.value.length > 20) {
+    signupEmailError.innerHTML = "email is less than 20";
+   signupEmail.value == "";
+    return
+  }
+
+
+  if (!numberPattern.test(signupPassword.value)) {
+    signupPasswordError.innerHTML = "Password must contain at least one number";
+    signupPassword.value == "";
+    return;
+  }
+  if (!patternSymbol.test(signupPassword.value)) {
+    signupPasswordError.innerHTML = "Password must be , and contain at least one special character";
+    signupPassword.value == "";
+    return;
+  }
+
+  if (!lowerCasePattern.test(signupPassword.value)) {
+    signupPasswordError.innerHTML = "Password must contain at least one lowercase letter";
+   signupPassword.value == "";
+    return;
+  }
+
+
+
+
   for (let i = 0; i < localLogin.length; i++) {
     if (signupEmail.value === localLogin[i].email && signupPassword.value === localLogin[i].password) {
       alert("Detail Match");
@@ -154,7 +207,25 @@ function Signup() {
       alert("Detail is not match");
     }
   }
+  
 }
+
+ function SingupPassword(){
+  let passwordShow = document.querySelector("#sigIn-pass")
+  if(passwordShow.type === "password"){
+    passwordShow.type = "text";
+    showPassword.style.display="block";
+    hidePassword.style.display="none";
+    
+
+  }
+  else{
+    passwordShow.type ="password";
+    showPassword.style.display="none";
+    hidePassword.style.display="block";
+  }
+}
+
 
 
 // Start 

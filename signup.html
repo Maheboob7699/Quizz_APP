@@ -27,14 +27,23 @@
             <input type="email" placeholder="xyz@gmail.com" id="signIn-inpt">
             <div class="email-result" style="color: red;"></div>
      </div>
+
+
         <div class="sigunp-email-error"></div>
 
      <div>
         <label for="">
-            password
-        </label><br>
+            password <span class="required">***</span>
+        </label>
+          <div class="sigunp-password-input">
             <input type="password" placeholder="password" id="sigIn-pass">
-            <div class="pass-result" style="color: red;"></div>
+            <div  class="password-display" onclick="SingupPassword()">
+                <i class="fa-solid fa-eye-slash hide-password"></i>
+              <i class="fa-regular fa-eye show-password"></i>
+            </div>
+          </div>
+            <!-- <input type="password" placeholder="password" id="sigIn-pass"> -->
+            <!-- <div class="pass-result" style="color: red;"></div> -->
         
      </div>
      <div class="sigunp-password-error"></div>
@@ -47,15 +56,20 @@
        </div>
        <p>signup with google</p>
      </div>
+     <label for=""class="check-terms">
+        <input type="checkbox">
+        i accept <span>terms & condition</span>
+       </label><br>
+       <p class="sign-up">Dont have an account?<span> sign up ?</span></p>
      </div>
 
     </div>
 
-   <label for=""class="check-terms">
+   <!-- <label for=""class="check-terms">
     <input type="checkbox">
     i accept <span>terms & condition</span>
    </label><br>
-   <p class="sign-up">Dont have an account?<span> sign up ?</span></p>
+   <p class="sign-up">Dont have an account?<span> sign up ?</span></p> -->
 
     <script src="script.js"></script>
 </body>

@@ -192,10 +192,12 @@ body{
 }
 
 .signup-form {
-    height: 512px;
+    /* height: 512px; */
+    height: auto;
     width: 440px;
     margin-left: 140px;
     margin-top: 100px;
+    
 
 
 }
@@ -219,30 +221,57 @@ body{
     margin-top: 40px;
 }
 
-.signup-form div input {
+#signIn-inpt{
     width: 400px;
     height: 40px;
     gap: 0px;
     opacity: 0px;
     border-radius: 10px;
     border: 1px solid #344054;
+    position: relative;
+    top: 15px;
+}
 
 
+.sigunp-password-input{
+    width: 400px;
+    height: 50px;
+    gap: 0px;
+    opacity: 0px;
+    border-radius: 10px;
+    border: 1px solid #344054;
+    display: flex;
+    justify-content: space-evenly ;
+    align-items: center;
+    position: relative;
+    top: -15px;
+}
+.sigunp-password-input input{
+    width: 300px;
+    border: none;
+    outline: none;
+}
+.sigunp-password-error{
+    position: relative;
+    top: -23px;
 }
 
 .signIn-btn {
     width: 400px;
     height: 43px;
+    
     padding: 12px 24px 12px 24px;
     gap: 4px;
     border-radius: 10px;
     opacity: 0px;
-
     background-color: #F3BD00;
     border: none;
+    position: relative;
+    top: -15px;
 
 
 }
+
 
 
 .google-icon {
@@ -254,6 +283,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    top: -15px;
 
 }
 
@@ -272,8 +303,9 @@ body{
 
 }
 
-.check-terms {
-    margin-left: 600px;
+.check-terms input{
+   margin-top: 30px;
+   margin-left: 100px;
 }
 
 .check-terms span {
