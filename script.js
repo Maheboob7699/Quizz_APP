@@ -547,7 +547,10 @@ function scoreQuiz() {
         console.log(score);
         opt.checked = false;
       }
+     
     }
+    opt.checked = false;
+   
   });
 }
 
