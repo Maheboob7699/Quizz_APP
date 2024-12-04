@@ -134,61 +134,82 @@ let localLogin = JSON.parse(localStorage.getItem("storeDetail"))
 
 
 function Signup() {
-  if (signupEmail.value == "" && signupPassword.value == "") {
+  if (signupEmail.value === "" && signupPassword.value === "") {
     signupEmailError.innerHTML = "Email is Empty";
     signupPasswordError.innerHTML = "Password is Empty";
-    return
+    return;
   }
-
+  
+  // Check if email contains '@'
   else if (!signupEmail.value.includes("@")) {
     signupEmailError.innerHTML = "Special character '@' is missing.";
-    signupEmail.value == "";
+    signupEmail.value = ""; // Reset the email field
     return;
-}
- else if (!signupEmail.value.includes(".com")) {
-  signupEmailError.innerHTML = "Special character 'com' is missing.";
-  signupEmail.value == "";
-  return;
-}
-
-
+  }
+  
+  // Check if email contains '.com'
+  else if (!signupEmail.value.includes(".com")) {
+    signupEmailError.innerHTML = "Special character '.com' is missing.";
+    signupEmail.value = ""; // Reset the email field
+    return;
+  }
+  
+  // Check if email contains special symbols
   else if (!specialSymbol.test(signupEmail.value)) {
-    alert(" email is not valid");
-    signupEmail.value == "";
-    return
+    alert("Email is not valid");
+    signupEmail.value = ""; // Reset the email field
+    return;
   }
-
-
-
+  
+  // Check the length of the email
   else if (signupEmail.value.length < 6) {
-    signupEmailError.innerHTML = "email is greater than 6";
-   signupEmail.value == "";
-    return
+    signupEmailError.innerHTML = "Email must be at least 6 characters long.";
+    signupEmail.value = ""; // Reset the email field
+    return;
   }
-
+  
   else if (signupEmail.value.length > 20) {
-    signupEmailError.innerHTML = "email is less than 20";
-   signupEmail.value == "";
-    return
+    signupEmailError.innerHTML = "Email must be less than 20 characters.";
+    signupEmail.value = ""; // Reset the email field
+    return;
   }
-
 
   if (!numberPattern.test(signupPassword.value)) {
     signupPasswordError.innerHTML = "Password must contain at least one number";
-    signupPassword.value == "";
+    signupPassword.value = "";
     return;
   }
   if (!patternSymbol.test(signupPassword.value)) {
     signupPasswordError.innerHTML = "Password must be , and contain at least one special character";
-    signupPassword.value == "";
+    signupPassword.value = "";
     return;
   }
 
   if (!lowerCasePattern.test(signupPassword.value)) {
     signupPasswordError.innerHTML = "Password must contain at least one lowercase letter";
-   signupPassword.value == "";
+   signupPassword.value = "";
     return;
   }
+
+  // if (!numberPattern.test(signupPassword.value)) {
+  //   signupPasswordError.innerHTML = "Password must contain at least one number.";
+  //   signupPassword.value = "";  // Reset the password field
+  //   return;
+  // }
+  
+  // // Check if password contains at least one special character
+  // if (!patternSymbol.test(signupPassword.value)) {
+  //   signupPasswordError.innerHTML = "Password must contain at least one special character.";
+  //   signupPassword.value = "";  // Reset the password field
+  //   return;
+  // }
+  
+  // // Check if password contains at least one lowercase letter
+  // if (!lowerCasePattern.test(signupPassword.value)) {
+  //   signupPasswordError.innerHTML = "Password must contain at least one lowercase letter.";
+  //   signupPassword.value = "";  // Reset the password field
+  //   return;
+  // }
 
 
 
