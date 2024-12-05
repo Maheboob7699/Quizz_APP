@@ -45,6 +45,34 @@ box-shadow: 0px 20px 40px 0px #1C1C1E1A;
     border-radius: 6px;
     border: 1px solid #8E8E93;
 }
+.errorAlert{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.errorAlert div{
+    
+   
+}
+.errorAlert .username-alert{
+margin-left: 30px;
+margin-top: 10px;
+color: red;
+}
+
+.errorAlert .useremail-alert{
+    margin-top: 10px;
+    margin-right: 30px;
+    text-align: center;
+    color: red;
+}
+
+.errorAlert .usercontact-alert{
+    margin-top: 10px;
+    margin-right: 130px;
+    text-align: center;
+    color: red;
+}
 
 
 

@@ -273,6 +273,12 @@ function Signup() {
   let userEmail = document.querySelector("#userEmail");
   let userContact = document.querySelector("#userContact");
   let startBtn = document.querySelector(".startquiz-btn");
+  let userNameAlert = document.querySelector(".username-alert");
+  let userEmailAlert = document.querySelector(".useremail-alert");
+  let userContactAlert = document.querySelector(".usercontact-alert");
+ console.log(userNameAlert);
+ 
+
 
 
 
@@ -286,74 +292,77 @@ function Signup() {
     }
      else if(userName.value==""){
       alert("username is empty")
+      userNameAlert.innerText = "username is empty";
       userName.value="";
      }
     else if(!lowerCasePattern.test(userName.value)){
-      alert("username also conatain lower case")
+      // alert("username also conatain lower case")
+      userNameAlert.innerText = "username also conatain lower case";
       userName.value="";
 
     }
     else if(!upperCasepattern.test(userName.value)){
-      alert("username also conatain upper case")
+      userNameAlert.innerText = "username also conatain Upper case";
+
       userName.value="";
     }
     else if(userName.value.includes("@")){
-      alert("username not contain @ sumbol ")
+      userNameAlert.innerText = "username not contain '@' sumbol ";
       userName.value="";
     }
     else if(userName.value.includes(".com")){
-      alert("username not contain .com ")
+      userNameAlert.innerText ="username not contain '.com' sumbol "
       userName.value="";
     }
 
     else if(userEmail.value==""){
-      alert("email is empty")
+      userEmailAlert.innerText="email is empty";
       userEmail.value="";
      }
 
      else if (userEmail.value.length < 6) {
-      alert("email is greater than 6");
+      userEmailAlert.innerText="email is greater than 6";
       signupEmail.value = ""; 
       return;
     }
      else if (!userEmail.value.includes("@")) {
-     alert("email also contain @ symbol");
+      userEmailAlert.innerText="email also contain @ symbol";
      userEmail.value="";
       return;
     }
     
     else if (!userEmail.value.includes(".com")) {
-      alert("email also contain .com symbol");
+      userEmailAlert.innerText="email also contain .com symbol";
       userEmail.value=""; 
       return;
     }
     
    
     else if (!specialSymbol.test(userEmail.value)) {
-      alert("Email is not valid");
+      userEmailAlert.innerText="Email is not valid";
       signupEmail.value = "";
       return;
     }
     
     else if (userEmail.value.length > 20) {
-      alert("email is less than  20");
+      userEmailAlert.innerText="email is less than  20";
       userEmail.value = ""; 
       return;
     }
 
     else if ( userContact.value=="") {
-      alert("contact no  is Empty");
+      userContactAlert.innerText="contact no  is Empty";
       userContact.value = ""; 
       return;
     }
     else if ( userContact.value.length<6 ) {
-      alert("contact no  is less than 6 ");
+      userContactAlert.innerText="contact no  is greater than 6 ";
       userContact.value = ""; 
       return;
     }
 
     else if (!numberPattern.test(userContact.value)) {
-      alert("contact number contain only number");
+      userContactAlert.innerText="contact number contain only number";
       userContact.value = ""; 
       return;
     }
