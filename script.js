@@ -29,10 +29,13 @@ function Login() {
 
   else if (!email.value.includes("@")) {
     emailAlert.innerHTML="Special character '@' is missing.";
+  email.value="";
+
     return;
 }
  else if (!email.value.includes(".com")) {
   emailAlert.innerHTML="'com' is missing.";
+  email.value="";
   return;
 }
 
@@ -173,6 +176,13 @@ function Signup() {
     signupEmail.value = ""; 
     return;
   }
+  else if (signupPassword.value=="") {
+    signupPasswordError.innerHTML = "Password is Empty";
+    return;
+  }
+
+
+
   else if (signupPassword.value.length<6) {
     signupPasswordError.innerHTML = "Password must be greater than 6";
     signupPassword.value = "";
@@ -557,22 +567,6 @@ function render(index) {
 
 }
 
-// function scoreQuiz() {
-//   selectOption.forEach((opt) => {
-//     if (opt.checked) {
-//       if (opt.id === localQuizz[index].ans) {
-//         selectedAnswer.push({ answerId: opt.id, index: index });
-//         score += 10;
-//         console.log(selectedAnswer);
-//         console.log(score);
-//         opt.checked = false;
-//       }
-     
-//     }
-   
-   
-//   });
-// }
 
 function scoreQuiz() {
   selectOption.forEach((opt) => {
@@ -628,7 +622,7 @@ function quizzpage(){
 // Dashboard
 let scoreRender = JSON.parse(localStorage.getItem("startDetils")) || [];
 let sortedDetail = scoreRender.sort((a, b) => b.score - a.score);
-console.log(sortedDetail[0].score);
+console.log(sortedDetail);
 
 function DashboardPage(){
   let rank1Display = document.querySelector(".rank1-display");
