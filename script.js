@@ -692,6 +692,9 @@ function DashboardPage(){
   let rank1Img = document.querySelector(".rank1-img");
   let rank2Img = document.querySelector(".rank2-img");
   let rank3Img = document.querySelector(".rank3-img");
+  let rank1Ranking = document.querySelector(".rank1-ranking");
+  let rank2Ranking = document.querySelector(".rank2-ranking");
+  let rank3Ranking = document.querySelector(".rank3-ranking");
 
   
   rank1Display.innerText =  sortedDetail[0].score;
@@ -700,7 +703,11 @@ function DashboardPage(){
   // rank2Name.innerText =  sortedDetail[1].name;
  (sortedDetail[0]) ? rank1Img.style.display ="block" : "";
  (sortedDetail[1]) ? rank2Img.style.display ="block" : "";
- (sortedDetail[2]) ? rank2Img.style.display ="block" : "";
+ (sortedDetail[2]) ? rank3Img.style.display ="block" : "";
+
+ (sortedDetail[0]) ? rank1Ranking.innerText="#1" : "";
+ (sortedDetail[1]) ? rank2Ranking.innerText="#2" : "";
+ (sortedDetail[2]) ? rank3Ranking.innerText="#3" : "";
 
   let sortedName2 =(sortedDetail[1] && sortedDetail[1].name) ? sortedDetail[1].name : "No User";
   let sortedScore2 = (sortedDetail[1] && sortedDetail[1].score) ? sortedDetail[1].score : "No score";

@@ -1,57 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/dashboard.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/dashboard.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
+
 <body>
-    <div class="rank">
-        <h2>Wow Your Rank</h2>
-        <p>Supporting Text</p>
+  <div class="rank">
+    <h2>Wow Your Rank</h2>
+    <p>Supporting Text</p>
+   
+    <div class="rank-list">
+     
 
-        <img src="person.jpg" alt="" class="rank1-img">
-        <img src="person2.jpg" alt="" class="rank2-img">
-        <img src="person3.jpg" alt="" class="rank3-img">
-        <div class="rank-list">
-          <div class="rank2">
-            <h4 class="rank2-name"></h4>
-            <p class="rank2-display"></p>
-          </div>
-          <div class="rank1">
-            <h4 class="rank1-name"></h4>
-            <p class="rank1-display"></p>
-          </div>
-          <div class="rank3">
-            <h4 class="rank3-name"></h4>
-            <p class="rank3-display"></p>
-          </div>
+      <div class="rank2">
+        <div class="rank2-render">
+          <h3 class="rank2-ranking"></h3> <img src="person2.jpg" alt="" class="rank2-img">
         </div>
+        <div class="rank2-data">
+          <h4 class="rank2-name"></h4>
+          <p class="rank2-display"></p>
+        </div>
+      </div>
 
-        <div class="previous-rank">
-          <div>
-            <p class="rank-number">#4</p>
-            <p class="rank-name">Anuj</p>
-            <p class="rank-Score">250</p>
-          </div>
-          <div>
-            <p class="rank-number">#4</p>
-            <p class="rank-name">Dipu</p>
-            <p class="rank-Score">200</p>
-          </div>
-          <div>
-            <p class="rank-number">#4</p>
-            <p class="rank-name">Arjun</p>
-            <p class="rank-Score">190</p>
-          </div>
+      <div class="rank1">
+        <div class="rank1-render">
+          <h3 class="rank1-ranking"></h3> <img src="person.jpg" alt="" class="rank1-img">
         </div>
-    </div>
-    
-<script src="script.js"></script>
-<script>DashboardPage()</script>
+        <div class="rank1-data">
+          <h4 class="rank1-name"></h4>
+          <p class="rank1-display"></p>
+        </div>
+      </div>
+
+      <div class="rank3">
+        <div class="rank3-render">
+          <h3 class="rank3-ranking"></h3> <img src="person3.jpg" alt="" class="rank2-img">
+        </div>
+        <div class="rank3-data">
+          <h4 class="rank3-name"></h4>
+          <p class="rank3-display"></p>
+        </div>
+      </div>
+     
+
+      <!-- <div class="rank1">
+        <div class="rank1-render">
+          <h3 class="rank1-ranking">#1</h3> <img src="person.jpg" alt="" class="rank1-img">
+        </div>
+        <div class="rank1-data">
+          <h4 class="rank1-name"></h4>
+          <p class="rank1-display"></p>
+        </div>
+      </div> -->
+
+
+    <script src="script.js"></script>
+    <script>DashboardPage()</script>
 </body>
+
 </html>

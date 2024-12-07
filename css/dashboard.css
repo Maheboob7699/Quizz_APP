@@ -18,100 +18,138 @@ p{
     margin-top: 70px;
 }
 
-.rank-list .rank2{
-    background-color: #F4CE4A;
-    margin-top: 50px;
-    height: 100px;
-    width: 90px;
-    text-align: center;
-}
-
-
-.rank1-img{
-    height: 90px;
-    width: 90px;
-    border-radius: 50%;
-    position: relative;
-    top: 90px;
-    left: 620px;
-    display: none;
-
-}
-.rank2-img{
-    height: 90px;
-    width: 90px;
-    border-radius: 50%;
-    position: absolute;
-    top: 237px;
-    left: 515px;
-    display: none;
-    
-
-}
-.rank3-img{
-    height: 90px;
-    width: 90px;
-    border-radius: 50%;
-    position: absolute;
-    top: 260px;
-    left: 740px;
-    display: none;
-
-} 
-
-
-/* .rank2-img{
-    height: 90px;
-    width: 90px;
-    border-radius: 50%;
-    position: relative;
-    top: 230px;
-    left: 475px;
-    display: none;
-    
-
-}
-
-.rank3-img{
-    height: 90px;
-    width: 90px;
-    border-radius: 50%;
-    position: relative;
-    top: 155px;
-    left: 545px;
-
-} */
-
 
 .rank-list .rank1{
- background-color: #F3BD00;
- height: 150px;
- width: 90px;
- text-align: center;
-}
-
-.rank-list .rank3{
-    background-color:#F7E296;
-    margin-top: 67px;
-    height: 80px;
-    width: 90px;
+    background-color: #F3BD00;
+    height: 273px;
+    width: 210px;
     text-align: center;
-
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+    top: 52px;
    }
+   
+   .rank-list .rank2{
+    background-color: #F4CE4A;
+    margin-top: 60px;
+    height: 235px;
+    width: 210px;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+    top: 41px;
+   }
+   
+   .rank-list .rank3{
+    background-color: #F7E296;
+    margin-top: 50px;
+    height: 219px;
+    width: 210px;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    position: relative;
+    top: 55px;
+    
+      }
 
 
-.previous-rank div{
-    margin-top: 40px;
-    background-color: #FFFFFF;
-    box-shadow: 0px 8px 16px 0px #1C1C1E1A;
- display: flex;
-align-items: center;
- 
+
+
+.rank1-render{
+    height: 200px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    margin: auto;
+    /* position: relative;
+    top:-100px; */
+    position: absolute;
+    top: -125px; 
+}
+.rank1-data{
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    margin: auto;
+}
+.rank1-img{
+    height: 125px;
+    width: 125px;
+    border-radius: 50%;
+    border: 5px solid #F3BD00;
+    margin-left: 37px;
+    
+
 }
 
-.previous-rank div .rank-name{
-    margin-left: 30px;
+.rank2-render{
+    height: 200px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    margin: auto;
+    /* position: relative;
+    top:-100px; */
+    position: absolute;
+    top: -122px; 
 }
-.previous-rank div .rank-Score{
-    margin-left: 800px;
+.rank2-data{
+    position: absolute;
+    top: 85px;
+    width: 100%;
+    margin: auto;
 }
+.rank2-img{
+    height: 125px;
+    width: 125px;
+    border-radius: 50%;
+    border: 5px solid #F4CE4A;
+    margin-left: 37px;
+    
+
+}
+
+
+
+
+.rank3-render{
+    height: 200px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    margin: auto;
+    /* position: relative;
+    top:-100px; */
+    position: absolute;
+    top: -112px; 
+}
+.rank3-data{
+    position: absolute;
+    top: 77px;
+    width: 100%;
+    margin: auto;
+}
+.rank3-img{
+    height: 125px;
+    width: 125px;
+    border-radius: 50%;
+    border: 5px solid #F7E296;
+    margin-left: 37px;
+    
+    
+
+}
+
+
+
+
+
