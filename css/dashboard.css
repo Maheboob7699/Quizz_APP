@@ -87,6 +87,12 @@ p{
     
 
 }
+.rank1-ranking{
+    font-size: 3rem;
+    margin-left: 5px;
+    color: #F3BD00;
+    margin-bottom: -10px;
+}
 
 .rank2-render{
     height: 200px;

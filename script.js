@@ -705,7 +705,7 @@ function DashboardPage(){
  (sortedDetail[1]) ? rank2Img.style.display ="block" : "";
  (sortedDetail[2]) ? rank3Img.style.display ="block" : "";
 
- (sortedDetail[0]) ? rank1Ranking.innerText="#1" : "";
+
  (sortedDetail[1]) ? rank2Ranking.innerText="#2" : "";
  (sortedDetail[2]) ? rank3Ranking.innerText="#3" : "";
 
