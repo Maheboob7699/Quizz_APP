@@ -83,6 +83,7 @@ p{
     border-radius: 50%;
     border: 5px solid #F3BD00;
     margin-left: 37px;
+    display: none;
     
 
 }
@@ -112,6 +113,7 @@ p{
     border-radius: 50%;
     border: 5px solid #F4CE4A;
     margin-left: 37px;
+    display: none;
     
 
 }
@@ -144,6 +146,7 @@ p{
     border-radius: 50%;
     border: 5px solid #F7E296;
     margin-left: 37px;
+    display: none;
     
     
 
