@@ -48,8 +48,8 @@ p{
     height: 219px;
     width: 210px;
     text-align: center;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     position: relative;
     top: 55px;
     
