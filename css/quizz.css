@@ -1,6 +1,38 @@
 body{
     font-family: "Roboto", sans-serif;
 }
+.quizz-navbar{
+  height: 60px;
+  border-bottom: 1px solid rgb(112, 110, 110);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.quizz-detail{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+.quizz-detail img{
+  height: 50px;
+  width: 70px;
+  border-radius: 50%;
+}
+
+.login-logout{
+  height: 100px;
+  width: 100px;
+  background-color: #dddcd6;
+  margin-left: 93%;
+  border-radius: 10px;
+  margin-top: -10px;
+  display: none;
+}
+
+.login-logout p{
+text-align: center;
+}
 
 .progress{
     width: 95%;
@@ -87,6 +119,11 @@ label:hover {
   font-size: 1.9rem;
   color: #0948B4;
   margin-left: 85%;
+}
+
+.next-btn:hover {
+  background-color: #e0e0e0;
+  border-radius: 10px;
 }
 
 

@@ -27,6 +27,62 @@ p{
 }
 
 
+.rank1-img{
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    position: relative;
+    top: 90px;
+    left: 620px;
+    display: none;
+
+}
+.rank2-img{
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    position: absolute;
+    top: 237px;
+    left: 515px;
+    display: none;
+    
+
+}
+.rank3-img{
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    position: absolute;
+    top: 260px;
+    left: 740px;
+    display: none;
+
+} 
+
+
+/* .rank2-img{
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    position: relative;
+    top: 230px;
+    left: 475px;
+    display: none;
+    
+
+}
+
+.rank3-img{
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    position: relative;
+    top: 155px;
+    left: 545px;
+
+} */
+
+
 .rank-list .rank1{
  background-color: #F3BD00;
  height: 150px;

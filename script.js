@@ -272,6 +272,8 @@ function Signup() {
   let userName = document.querySelector("#userName");
   let userEmail = document.querySelector("#userEmail");
   let userContact = document.querySelector("#userContact");
+  // let logoutBtn = document.querySelector(".logout");
+  // let loginLogout = document.querySelector(".login-logout");
   let startBtn = document.querySelector(".startquiz-btn");
   let userNameAlert = document.querySelector(".username-alert");
   let userEmailAlert = document.querySelector(".useremail-alert");
@@ -279,14 +281,26 @@ function Signup() {
  console.log(userNameAlert);
  
 
-
-
-
+//  let logout = true;
+//  logoutBtn.addEventListener("click",function(){
+//  if(logout){
+//   loginLogout.style.display = "block";
+//  logout = false;
+//  return
+//  }
+//  else{
+//   loginLogout.style.display = "none";
+//  logout = true;
+//  return
+//  }
+  
+// })
   let LocalDetail = JSON.parse(localStorage.getItem("startDetils")) || [];
   console.log(LocalDetail);
   
 
-  function Start(){
+  function Start(){;
+
     if(userName.value=="" && userEmail.value=="" && userContact.value==""){
       alert("All field are required");
     }
@@ -577,51 +591,86 @@ function render(index) {
 }
 
 
+// function scoreQuiz() {
+//   let optionSelected  = false;
+//   selectOption.forEach((opt) => {
+//     if (opt.checked) {
+//       if (opt.id === localQuizz[index].ans) {
+//         selectedAnswer.push({ answerId: opt.id, index: index });
+//         score += 10;
+//         optionSelected=true;
+//         console.log(selectedAnswer);
+//         console.log(score);
+//       }
+//       opt.checked = false; // Uncheck after submitting answer
+//     }
+//   });
+
+//   if(!optionSelected){
+//     alert("option is not select");
+//     return
+//   }
+// }
+
+
 function scoreQuiz() {
+  let optionSelected = false;
   selectOption.forEach((opt) => {
-    if (opt.checked) {
+    if (opt.checked) { 
+      selectedAnswer.push({ answerId: opt.id, index: index });
+      optionSelected = true; 
       if (opt.id === localQuizz[index].ans) {
-        selectedAnswer.push({ answerId: opt.id, index: index });
-        score += 10;
+        // selectedAnswer.push({ answerId: opt.id, index: index });
+        score += 10; 
         console.log(selectedAnswer);
         console.log(score);
       }
-      opt.checked = false; // Uncheck after submitting answer
+
+      opt.checked = false; 
+      index++; 
+      progress += 10; 
     }
   });
+
+
+  if (!optionSelected) {
+    alert("Please select an option before proceeding!");
+    return; 
+  }
 }
 
 
 function previousData() {
-  if(selectedAnswer[index]){
-   selectOption.forEach((opt)=>{
-    if(opt.id === selectedAnswer[index].answerId){
-      opt.checked = true;
-    }
-   })
+  if (selectedAnswer[index]) { // Check if there is a saved answer for this question
+    selectOption.forEach((opt) => {
+      if (opt.id === selectedAnswer[index].answerId) {
+        opt.checked = true; // Check the previously selected option
+      }
+    });
   }
 }
-
 
 function previous() {
- if(index>0){
-  index--;
-  previousData();
-  progress -= 10;
-  render(index);
- }
-}
-function next() {
-  scoreQuiz();
-  index++;
-  console.log("Your Score is",score);
-  if(index>0){
-    previousBtn.style.display = "block";
+  if (index > 0) { 
+    index--;
+    previousData(); 
+    progress -= 10; 
+    render(index); 
   }
-  progress += 10;
-  render(index);
 }
 
+function next() {
+  scoreQuiz(); 
+  // index++; 
+  console.log("Your Score is", score);
+  
+  if (index > 0) { 
+    previousBtn.style.display = "block";
+  }
+  
+  // progress += 10; 
+  render(index); 
+}
 
 function quizzpage(){
   render(index);
@@ -640,16 +689,26 @@ function DashboardPage(){
   let  rank1Name = document.querySelector(".rank1-name");
   let  rank2Name = document.querySelector(".rank2-name");
   let  rank3Name = document.querySelector(".rank3-name");
+  let rank1Img = document.querySelector(".rank1-img");
+  let rank2Img = document.querySelector(".rank2-img");
+  let rank3Img = document.querySelector(".rank3-img");
 
- 
   
   rank1Display.innerText =  sortedDetail[0].score;
-  rank2Display.innerText =  sortedDetail[1].score;
+  // rank2Display.innerText =  sortedDetail[1].score;
   rank1Name.innerText = sortedDetail[0].name;
-  rank2Name.innerText =  sortedDetail[1].name;
+  // rank2Name.innerText =  sortedDetail[1].name;
+ (sortedDetail[0]) ? rank1Img.style.display ="block" : "";
+ (sortedDetail[1]) ? rank2Img.style.display ="block" : "";
+ (sortedDetail[2]) ? rank2Img.style.display ="block" : "";
+
+  let sortedName2 =(sortedDetail[1] && sortedDetail[1].name) ? sortedDetail[1].name : "No User";
+  let sortedScore2 = (sortedDetail[1] && sortedDetail[1].score) ? sortedDetail[1].score : "No score";
+  rank2Name.innerText = sortedName2;
+  rank2Display.innerText = sortedScore2;
 
  let sortedName3 =(sortedDetail[2] && sortedDetail[2].name) ? sortedDetail[2].name : "No User";
-  let sortedScore3 = (sortedDetail[2] && sortedDetail[2].score) ? sortedDetail[2].score : "NO score";
+  let sortedScore3 = (sortedDetail[2] && sortedDetail[2].score) ? sortedDetail[2].score : "No score";
   rank3Name.innerText = sortedName3;
   rank3Display.innerText = sortedScore3;
 
