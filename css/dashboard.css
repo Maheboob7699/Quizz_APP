@@ -77,6 +77,14 @@ p{
     width: 100%;
     margin: auto;
 }
+
+.rank1-data p{
+
+    position: absolute;
+    top: 5.5rem;
+    margin: auto;
+    width: 90%;
+}
 .rank1-img{
     height: 125px;
     width: 125px;
@@ -92,6 +100,9 @@ p{
     margin-left: 5px;
     color: #F3BD00;
     margin-bottom: -10px;
+}
+.rank1-name{
+    font-size: 2rem;
 }
 
 .rank2-render{
@@ -123,6 +134,16 @@ p{
     
 
 }
+.rank2-name{
+    font-size: 2rem;
+}
+.rank2-data p{
+
+    position: absolute;
+    top: 5.5rem;
+    margin: auto;
+    width: 100%;
+}
 
 
 
@@ -152,7 +173,7 @@ p{
     border-radius: 50%;
     border: 5px solid #F7E296;
     margin-left: 37px;
-    display: none;
+    /* display: none; */
     
     
 
