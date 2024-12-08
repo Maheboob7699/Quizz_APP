@@ -41,6 +41,9 @@ body{
 .login-form p {
     color: gray;
 }
+.sigunp-user-error{
+    color: red;
+}
 
 .email-alert{
     color: red;
@@ -63,6 +66,18 @@ body{
     border: 1px solid #344054;
 
 } */
+
+
+
+#user-inpt{
+    width: 400px;
+    height: 40px;
+    gap: 0px;
+    opacity: 0px;
+    border-radius: 10px;
+    margin-top: 10px;
+    border: 1px solid #344054;
+}
 
 #email-inpt{
     width: 400px;
@@ -173,6 +188,11 @@ body{
     font-weight: 700;
     color: #0948B4;
     line-height: 19.2px;
+}
+
+.sign-up span a{
+    text-decoration: none;
+    color: #0948B4;
 }
 
 /* signup */
