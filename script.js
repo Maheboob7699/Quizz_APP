@@ -16,7 +16,7 @@ let localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
 
 
 function Signup() {
-  if (userFullName.value==="" && signupEmail.value === "" && signupPassword.value === "") {
+  if (userFullName.value === "" && signupEmail.value === "" && signupPassword.value === "") {
 
     signupUserError.innerText = "user Name is Empty";
     signupEmailError.innerHTML = "Email is Empty";
@@ -24,117 +24,117 @@ function Signup() {
     return;
   }
 
-  else if(userFullName.value==""){
+  else if (userFullName.value == "") {
     signupUserError.innerText = "user name is Empty";
     return;
   }
 
-  else if(userFullName.value.length<6){
+  else if (userFullName.value.length < 6) {
     signupUserError.innerText = "user name is less than 6";
-    userFullName.value= "";
+    userFullName.value = "";
     return;
   }
 
-  else if(userFullName.value.includes("@")){
+  else if (userFullName.value.includes("@")) {
     signupUserError.innerText = "user name not contain  @";
-    userFullName.value= "";
+    userFullName.value = "";
     return;
   }
 
-  else if(userFullName.value.includes(".com")){
+  else if (userFullName.value.includes(".com")) {
     signupUserError.innerText = "user name not contain  .com";
-    userFullName.value= "";
+    userFullName.value = "";
     return;
   }
 
 
-  
-  else if (signupEmail.value=="") {
+
+  else if (signupEmail.value == "") {
     signupEmailError.innerHTML = "email is empty";
-    signupEmail.value = ""; 
+    signupEmail.value = "";
     return;
   }
-  
- 
+
+
   else if (!signupEmail.value.includes("@")) {
     signupEmailError.innerHTML = "Special character '@' is missing.";
-    signupEmail.value = ""; 
+    signupEmail.value = "";
     return;
   }
-  
+
   else if (!signupEmail.value.includes(".com")) {
     signupEmailError.innerHTML = " '.com' is missing.";
-    signupEmail.value = ""; 
+    signupEmail.value = "";
     return;
   }
-  
- 
+
+
   else if (!specialSymbol.test(signupEmail.value)) {
     alert("Email is not valid");
     signupEmail.value = "";
     return;
   }
-  
+
   else if (signupEmail.value.length < 6) {
     signupEmailError.innerHTML = "Email must be at least 6 characters long.";
-    signupEmail.value = ""; 
+    signupEmail.value = "";
     return;
   }
-  
+
   else if (signupEmail.value.length > 20) {
     signupEmailError.innerHTML = "Email must be less than 20 characters.";
-    signupEmail.value = ""; 
+    signupEmail.value = "";
     return;
   }
-  else if (signupPassword.value=="") {
+  else if (signupPassword.value == "") {
     signupPasswordError.innerHTML = "Password is Empty";
     return;
   }
 
 
 
-  else if (signupPassword.value.length<6) {
+  else if (signupPassword.value.length < 6) {
     signupPasswordError.innerHTML = "Password must be greater than 6";
     signupPassword.value = "";
     return;
   }
 
 
-   else if (!numberPattern.test(signupPassword.value)) {
+  else if (!numberPattern.test(signupPassword.value)) {
     signupPasswordError.innerHTML = "Password must contain at least one number";
     signupPassword.value = "";
     return;
   }
-   else if (!patternSymbol.test(signupPassword.value)) {
+  else if (!patternSymbol.test(signupPassword.value)) {
     signupPasswordError.innerHTML = "Password must be  contain at least one special character";
     signupPassword.value = "";
     return;
   }
 
-   else if (!lowerCasePattern.test(signupPassword.value)) {
+  else if (!lowerCasePattern.test(signupPassword.value)) {
     signupPasswordError.innerHTML = "Password must contain at least one lowercase letter";
-   signupPassword.value = "";
+    signupPassword.value = "";
     return;
   }
 
-  else{
+  else {
     let loginDetail = {
-           name: userFullName.value,
-            email: signupEmail.value,
-            password: signupPassword.value,
-            quizzScore : 0,
-          }
-          
-      
-          localLogin.push(loginDetail);
-          localStorage.setItem("UserDetail", JSON.stringify(localLogin))
-      
-          userFullName.value="",
-            signupEmail.value="",
-        signupPassword.value = "";
-      
-          alert("Login succesfully");
-          window.location.href = 'login.html';
+      name: userFullName.value,
+      email: signupEmail.value,
+      password: signupPassword.value,
+      quizzScore: 0,
+    }
+
+
+    localLogin.push(loginDetail);
+    localStorage.setItem("UserDetail", JSON.stringify(localLogin))
+
+    userFullName.value = "",
+      signupEmail.value = "",
+      signupPassword.value = "";
+
+    alert("Login succesfully");
+    window.location.href = 'login.html';
   }
 
 
@@ -153,25 +153,25 @@ function Signup() {
   //   if (!matchFound) {
   //        alert("Detail not Match");
   //       }
-    
+
   // }
 
-  
+
 }
 
- function SingupPassword(){
+function SingupPassword() {
   let passwordShow = document.querySelector("#sigIn-pass")
-  if(passwordShow.type === "password"){
+  if (passwordShow.type === "password") {
     passwordShow.type = "text";
-    showPassword.style.display="block";
-    hidePassword.style.display="none";
-    
+    showPassword.style.display = "block";
+    hidePassword.style.display = "none";
+
 
   }
-  else{
-    passwordShow.type ="password";
-    showPassword.style.display="none";
-    hidePassword.style.display="block";
+  else {
+    passwordShow.type = "password";
+    showPassword.style.display = "none";
+    hidePassword.style.display = "block";
   }
 }
 // Login 
@@ -181,15 +181,15 @@ let loginBTn = document.querySelector(".login-btn");
 let emailAlert = document.querySelector(".email-alert");
 let passwordAlert = document.querySelector(".password-alert");
 let passordDisplay = document.querySelector(".password-display")
-let hidePassword= document.querySelector(".hide-password");
+let hidePassword = document.querySelector(".hide-password");
 let showPassword = document.querySelector(".show-password");
 
-let specialSymbol =  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+let specialSymbol = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 let patternSymbol = /^[a-zA-Z0-9!@#\$%\^\&*_=+-]{8,12}$/;
 let numberPattern = /\d/;
-let upperCasepattern =  /[A-Z]/;
-let lowerCasePattern = /[a-z]/; 
- localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
+let upperCasepattern = /[A-Z]/;
+let lowerCasePattern = /[a-z]/;
+localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
 
 
 function Login() {
@@ -198,24 +198,24 @@ function Login() {
     passwordAlert.innerHTML = "Password is Empty";
 
   }
-  else if (email.value.length <6) {
-    emailAlert.innerHTML="email is less than 6 ";
-  email.value="";
+  else if (email.value.length < 6) {
+    emailAlert.innerHTML = "email is less than 6 ";
+    email.value = "";
 
     return;
-}
+  }
 
   else if (!email.value.includes("@")) {
-    emailAlert.innerHTML="Special character '@' is missing.";
-  email.value="";
+    emailAlert.innerHTML = "Special character '@' is missing.";
+    email.value = "";
 
     return;
-}
- else if (!email.value.includes(".com")) {
-  emailAlert.innerHTML="'com' is missing.";
-  email.value="";
-  return;
-}
+  }
+  else if (!email.value.includes(".com")) {
+    emailAlert.innerHTML = "'com' is missing.";
+    email.value = "";
+    return;
+  }
 
 
   else if (!specialSymbol.test(email.value)) {
@@ -224,7 +224,7 @@ function Login() {
     return
   }
 
-   else if (password.value == "") {
+  else if (password.value == "") {
     passwordAlert.innerHTML = "Password is Empty";
   }
 
@@ -246,11 +246,11 @@ function Login() {
     return;
   }
 
-//   else if (password.value.length > 10) {
-//     passwordAlert.inerHTML = "password is less then 10";
-//   }
+  //   else if (password.value.length > 10) {
+  //     passwordAlert.inerHTML = "password is less then 10";
+  //   }
 
-    else{
+  else {
     let matchFound = false;
     for (let i = 0; i < localLogin.length; i++) {
       if (email.value === localLogin[i].email && password.value === localLogin[i].password) {
@@ -263,137 +263,138 @@ function Login() {
     }
     if (!matchFound) {
       email.value = "";
-        password.value = "";
-         alert("User detail is not Match");
-        }
-    
+      password.value = "";
+      alert("User detail is not Match");
+    }
+
   }
 
 }
 
-function passwordShow(){
+function passwordShow() {
   let passwordShow = document.querySelector("#pass-inpt")
-  if(passwordShow.type === "password"){
+  if (passwordShow.type === "password") {
     passwordShow.type = "text";
-    showPassword.style.display="block";
-    hidePassword.style.display="none";
-    
+    showPassword.style.display = "block";
+    hidePassword.style.display = "none";
+
 
   }
-  else{
-    passwordShow.type ="password";
-    showPassword.style.display="none";
-    hidePassword.style.display="block";
+  else {
+    passwordShow.type = "password";
+    showPassword.style.display = "none";
+    hidePassword.style.display = "block";
   }
 }
 
 
 // Start 
 
-  let userName = document.querySelector("#userName");
-  let userEmail = document.querySelector("#userEmail");
-  let userContact = document.querySelector("#userContact");
-  let startBtn = document.querySelector(".startquiz-btn");
-  let userNameAlert = document.querySelector(".username-alert");
-  let userEmailAlert = document.querySelector(".useremail-alert");
-  let userContactAlert = document.querySelector(".usercontact-alert");
- console.log(userNameAlert);
-  localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
+let userName = document.querySelector("#userName");
+let userEmail = document.querySelector("#userEmail");
+let userContact = document.querySelector("#userContact");
+let startBtn = document.querySelector(".startquiz-btn");
+let userNameAlert = document.querySelector(".username-alert");
+let userEmailAlert = document.querySelector(".useremail-alert");
+let userContactAlert = document.querySelector(".usercontact-alert");
+console.log(userNameAlert);
+localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
 
-  function Start(){;
+function Start() {
+  ;
 
-    if(userName.value=="" && userEmail.value=="" && userContact.value==""){
-      alert("All field are required");
-    }
-     else if(userName.value==""){
-      alert("username is empty")
-      userNameAlert.innerText = "username is empty";
-      userName.value="";
-     }
-  
-    else if(userName.value.includes("@")){
-      userNameAlert.innerText = "username not contain '@' sumbol ";
-      userName.value="";
-    }
-    else if(userName.value.includes(".com")){
-      userNameAlert.innerText ="username not contain '.com' sumbol "
-      userName.value="";
-    }
-
-    else if(userEmail.value==""){
-      userEmailAlert.innerText="email is empty";
-      userEmail.value="";
-     }
-
-     else if (userEmail.value.length < 6) {
-      userEmailAlert.innerText="email is greater than 6";
-      signupEmail.value = ""; 
-      return;
-    }
-     else if (!userEmail.value.includes("@")) {
-      userEmailAlert.innerText="email also contain @ symbol";
-     userEmail.value="";
-      return;
-    }
-    
-    else if (!userEmail.value.includes(".com")) {
-      userEmailAlert.innerText="email also contain .com symbol";
-      userEmail.value=""; 
-      return;
-    }
-    
-   
-    else if (!specialSymbol.test(userEmail.value)) {
-      userEmailAlert.innerText="Email is not valid";
-      signupEmail.value = "";
-      return;
-    }
-    
-    else if (userEmail.value.length > 20) {
-      userEmailAlert.innerText="email is less than  20";
-      userEmail.value = ""; 
-      return;
-    }
-
-    else if ( userContact.value=="") {
-      userContactAlert.innerText="contact no  is Empty";
-      userContact.value = ""; 
-      return;
-    }
-    else if ( userContact.value.length<6 ) {
-      userContactAlert.innerText="contact no  is greater than 6 ";
-      userContact.value = ""; 
-      return;
-    }
-
-    else if (!numberPattern.test(userContact.value)) {
-      userContactAlert.innerText="contact number contain only number";
-      userContact.value = ""; 
-      return;
-    }
-
-    else{
-      let userFound = false;
-      for (let i = 0; i < localLogin.length; i++) {
-        if (userName.value === localLogin[i].name && userEmail.value === localLogin[i].email) {
-          alert("Detail Match");
-          userName.value = "";
-          userEmail.value = "";
-          userFound=true;
-          window.location.href = "quizz.html";
-          return
-        }
-      }
-      if (!userFound) {
-          userName.value = "";
-          userEmail.value = "";
-           userContact.value="";
-           alert("User detail is not Match");
-          }
-      
-    }
-    
+  if (userName.value == "" && userEmail.value == "" && userContact.value == "") {
+    alert("All field are required");
   }
+  else if (userName.value == "") {
+    alert("username is empty")
+    userNameAlert.innerText = "username is empty";
+    userName.value = "";
+  }
+
+  else if (userName.value.includes("@")) {
+    userNameAlert.innerText = "username not contain '@' sumbol ";
+    userName.value = "";
+  }
+  else if (userName.value.includes(".com")) {
+    userNameAlert.innerText = "username not contain '.com' sumbol "
+    userName.value = "";
+  }
+
+  else if (userEmail.value == "") {
+    userEmailAlert.innerText = "email is empty";
+    userEmail.value = "";
+  }
+
+  else if (userEmail.value.length < 6) {
+    userEmailAlert.innerText = "email is greater than 6";
+    signupEmail.value = "";
+    return;
+  }
+  else if (!userEmail.value.includes("@")) {
+    userEmailAlert.innerText = "email also contain @ symbol";
+    userEmail.value = "";
+    return;
+  }
+
+  else if (!userEmail.value.includes(".com")) {
+    userEmailAlert.innerText = "email also contain .com symbol";
+    userEmail.value = "";
+    return;
+  }
+
+
+  else if (!specialSymbol.test(userEmail.value)) {
+    userEmailAlert.innerText = "Email is not valid";
+    signupEmail.value = "";
+    return;
+  }
+
+  else if (userEmail.value.length > 20) {
+    userEmailAlert.innerText = "email is less than  20";
+    userEmail.value = "";
+    return;
+  }
+
+  else if (userContact.value == "") {
+    userContactAlert.innerText = "contact no  is Empty";
+    userContact.value = "";
+    return;
+  }
+  else if (userContact.value.length < 6) {
+    userContactAlert.innerText = "contact no  is greater than 6 ";
+    userContact.value = "";
+    return;
+  }
+
+  else if (!numberPattern.test(userContact.value)) {
+    userContactAlert.innerText = "contact number contain only number";
+    userContact.value = "";
+    return;
+  }
+
+  else {
+    let userFound = false;
+    for (let i = 0; i < localLogin.length; i++) {
+      if (userName.value === localLogin[i].name && userEmail.value === localLogin[i].email) {
+        alert("Detail Match");
+        userName.value = "";
+        userEmail.value = "";
+        userFound = true;
+        window.location.href = "quizz.html";
+        return
+      }
+    }
+    if (!userFound) {
+      userName.value = "";
+      userEmail.value = "";
+      userContact.value = "";
+      alert("User detail is not Match");
+    }
+
+  }
+
+}
 
 const questionsAndAnswers = [
   {
@@ -408,7 +409,7 @@ const questionsAndAnswers = [
   },
   {
     q: "What does CSS stand for?",
-
+    
     a: "Cascading Style Sheets",
     b: "Cascading Script Sheets",
     c: "Custom Style Sheets",
@@ -502,9 +503,9 @@ const questionsAndAnswers = [
 localStorage.setItem("quizzData", JSON.stringify(questionsAndAnswers))
 
 let localQuizz = JSON.parse(localStorage.getItem("quizzData"));
- localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
- 
-  
+localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
+
+
 console.log(localQuizz);
 
 question = document.querySelector("h2");
@@ -522,7 +523,7 @@ let progressContainer = document.querySelector(".progress-container");
 let index = 0;
 let score = 0;
 let progress = 10;
-let selectedAnswer =[];
+let selectedAnswer = [];
 
 function render(index) {
   if (index <= localQuizz.length - 1) {
@@ -547,20 +548,20 @@ function render(index) {
 
     nextBtn.style.display = index === localQuizz.length ? "none" : "block";
     previousBtn.style.display = index === 0 ? "none" : "block";
-  } 
-  
+  }
+
   else {
     for (let i = 0; i < localLogin.length; i++) { // Corrected loop condition
-        // Ensure quizzScore is initialized properly
-        if (localLogin[i].quizzScore === 0) {
-            localLogin[i].quizzScore = score; // Assign the score
-        }
+      // Ensure quizzScore is initialized properly
+      if (localLogin[i].quizzScore === 0) {
+        localLogin[i].quizzScore = score; // Assign the score
+      }
     }
     localStorage.setItem("UserDetail", JSON.stringify(localLogin)); // Save updated array
     console.log(localLogin);
 
     window.location.href = "dashboard.html";
-}
+  }
 }
 
 function scoreQuiz() {
@@ -588,25 +589,25 @@ function scoreQuiz() {
 function scoreQuiz() {
   let optionSelected = false;
   selectOption.forEach((opt) => {
-    if (opt.checked) { 
+    if (opt.checked) {
       selectedAnswer.push({ answerId: opt.id, index: index });
-      optionSelected = true; 
+      optionSelected = true;
       if (opt.id === localQuizz[index].ans) {
         // selectedAnswer.push({ answerId: opt.id, index: index });
-        score += 10; 
+        score += 10;
         console.log(selectedAnswer);
         console.log(score);
       }
-      opt.checked = false; 
-      index++; 
-      progress += 10; 
+      opt.checked = false;
+      index++;
+      progress += 10;
     }
   });
 
 
   if (!optionSelected) {
     alert("Please select an option before proceeding!");
-    return; 
+    return;
   }
 }
 
@@ -622,28 +623,28 @@ function previousData() {
 }
 
 function previous() {
-  if (index > 0) { 
+  if (index > 0) {
     index--;
-    previousData(); 
-    progress -= 10; 
-    render(index); 
+    previousData();
+    progress -= 10;
+    render(index);
   }
 }
 
 function next() {
-  scoreQuiz(); 
+  scoreQuiz();
   // index++; 
   console.log("Your Score is", score);
-  
-  if (index > 0) { 
+
+  if (index > 0) {
     previousBtn.style.display = "block";
   }
-  
+
   // progress += 10; 
-  render(index); 
+  render(index);
 }
 
-function quizzpage(){
+function quizzpage() {
   render(index);
 }
 
@@ -653,44 +654,42 @@ let scoreRender = JSON.parse(localStorage.getItem("UserDetail")) || [];
 let sortedDetail = scoreRender.sort((a, b) => b.score - a.score);
 console.log(sortedDetail[0].quizzScore);
 
-function DashboardPage(){
+function DashboardPage() {
   let rank1Display = document.querySelector(".rank1-display");
   let rank2Display = document.querySelector(".rank2-display");
-  let rank3Display =document.querySelector(".rank3-display");
-  let  rank1Name = document.querySelector(".rank1-name");
-  let  rank2Name = document.querySelector(".rank2-name");
-  let  rank3Name = document.querySelector(".rank3-name");
+  let rank3Display = document.querySelector(".rank3-display");
+  let rank1Name = document.querySelector(".rank1-name");
+  let rank2Name = document.querySelector(".rank2-name");
+  let rank3Name = document.querySelector(".rank3-name");
   let rank1Img = document.querySelector(".rank1-img");
   let rank2Img = document.querySelector(".rank2-img");
   let rank3Img = document.querySelector(".rank3-img");
   let rank2Ranking = document.querySelector(".rank2-ranking");
   let rank3Ranking = document.querySelector(".rank3-ranking");
 
-  
-  rank1Display.innerText =  sortedDetail[0].quizzScore;
+
+  rank1Display.innerText = sortedDetail[0].quizzScore;
   // rank2Display.innerText =  sortedDetail[1].score;
   rank1Name.innerText = sortedDetail[0].name;
   // rank2Name.innerText =  sortedDetail[1].name;
- (sortedDetail[0]) ? rank1Img.style.display ="block" : "";
- (sortedDetail[1]) ? rank2Img.style.display ="block" : "";
- (sortedDetail[2]) ? rank3Img.style.display ="block" : "";
+  (sortedDetail[0]) ? rank1Img.style.display = "block" : "";
+  (sortedDetail[1]) ? rank2Img.style.display = "block" : "";
+  (sortedDetail[2]) ? rank3Img.style.display = "block" : "";
 
 
- (sortedDetail[1]) ? rank2Ranking.innerText="#2" : "";
- (sortedDetail[2]) ? rank3Ranking.innerText="#3" : "";
+  (sortedDetail[1]) ? rank2Ranking.innerText = "#2" : "";
+  (sortedDetail[2]) ? rank3Ranking.innerText = "#3" : "";
 
-  let sortedName2 =(sortedDetail[1] && sortedDetail[1].name) ? sortedDetail[1].name : "No User";
+  let sortedName2 = (sortedDetail[1] && sortedDetail[1].name) ? sortedDetail[1].name : "No User";
   let sortedScore2 = (sortedDetail[1] && sortedDetail[1].score) ? sortedDetail[1].score : "No score";
   rank2Name.innerText = sortedName2;
   rank2Display.innerText = sortedScore2;
 
- let sortedName3 =(sortedDetail[2] && sortedDetail[2].name) ? sortedDetail[2].name : "No User";
+  let sortedName3 = (sortedDetail[2] && sortedDetail[2].name) ? sortedDetail[2].name : "No User";
   let sortedScore3 = (sortedDetail[2] && sortedDetail[2].score) ? sortedDetail[2].score : "No score";
   rank3Name.innerText = sortedName3;
   rank3Display.innerText = sortedScore3;
 
-  
-  // rank3Display.innerText = sortedScore3;
 }
 
 
