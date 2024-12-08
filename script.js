@@ -8,6 +8,7 @@
 let signupEmail = document.querySelector("#signIn-inpt");
 let signupPassword = document.querySelector("#sigIn-pass");
 let userFullName = document.querySelector("#user-inpt");
+let signupCheck = document.querySelector("#check-signup");
 let signupEmailError = document.querySelector(".sigunp-email-error");
 let signupPasswordError = document.querySelector(".sigunp-password-error");
 let signupUserError = document.querySelector(".sigunp-user-error");
@@ -117,6 +118,11 @@ function Signup() {
     return;
   }
 
+
+  else if(!signupCheck.checked){
+    alert("please select checked box");
+  }
+
   else {
     let loginDetail = {
       name: userFullName.value,
@@ -132,6 +138,7 @@ function Signup() {
     userFullName.value = "",
       signupEmail.value = "",
       signupPassword.value = "";
+      signupCheck.checked = false;
 
     alert("Login succesfully");
     window.location.href = 'login.html';
@@ -409,7 +416,7 @@ const questionsAndAnswers = [
   },
   {
     q: "What does CSS stand for?",
-    
+
     a: "Cascading Style Sheets",
     b: "Cascading Script Sheets",
     c: "Custom Style Sheets",
@@ -652,7 +659,7 @@ function quizzpage() {
 // Dashboard
 let scoreRender = JSON.parse(localStorage.getItem("UserDetail")) || [];
 let sortedDetail = scoreRender.sort((a, b) => b.score - a.score);
-console.log(sortedDetail[0].quizzScore);
+console.log(sortedDetail[1].quizzScore);
 
 function DashboardPage() {
   let rank1Display = document.querySelector(".rank1-display");
@@ -669,9 +676,9 @@ function DashboardPage() {
 
 
   rank1Display.innerText = sortedDetail[0].quizzScore;
-  // rank2Display.innerText =  sortedDetail[1].score;
+ 
   rank1Name.innerText = sortedDetail[0].name;
-  // rank2Name.innerText =  sortedDetail[1].name;
+
   (sortedDetail[0]) ? rank1Img.style.display = "block" : "";
   (sortedDetail[1]) ? rank2Img.style.display = "block" : "";
   (sortedDetail[2]) ? rank3Img.style.display = "block" : "";
@@ -681,7 +688,7 @@ function DashboardPage() {
   (sortedDetail[2]) ? rank3Ranking.innerText = "#3" : "";
 
   let sortedName2 = (sortedDetail[1] && sortedDetail[1].name) ? sortedDetail[1].name : "No User";
-  let sortedScore2 = (sortedDetail[1] && sortedDetail[1].score) ? sortedDetail[1].score : "No score";
+  let sortedScore2 = (sortedDetail[1] && sortedDetail[1].quizzScore) ? sortedDetail[1].quizzScore : "No score";
   rank2Name.innerText = sortedName2;
   rank2Display.innerText = sortedScore2;
 

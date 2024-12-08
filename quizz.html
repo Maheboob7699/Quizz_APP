@@ -1,64 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/quizz.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/quizz.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
+
 <body>
-    <div class="quizz-navbar">
-        <div ><img src="techpatshala.svg" alt=""></div>
-        <div class="quizz-detail">
-          <div>Edit Quizzes</div>
-          <div>All Quizzes</div>
-          <div>
-            <img src="person.jpg" alt="" class="logout"><br>
-          </div>
-        </div>
+  <div class="quizz-navbar">
+    <div><img src="techpatshala.svg" alt=""></div>
+    <div class="quizz-detail">
+      <div>Edit Quizzes</div>
+      <div>All Quizzes</div>
+      <div>
+        <img src="person.jpg" alt="" class="logout"><br>
       </div>
-      <div class="login-logout">
-        <p>setting</p>
-        <p>logout</p>
-      </div>
-    <div class="quizz-container">
+    </div>
+  </div>
+  <div class="login-logout">
+    <p>setting</p>
+    <p>logout</p>
+  </div>
+  <div class="quizz-container">
     <h1>Question 1 to 10</h1>
     <div class="progress">
-     <div class="progress-container"></div>
+      <div class="progress-container"></div>
     </div>
     <h2>What is Html ?</h2>
-    <div >
-        <input type="radio" class="option" id="a" name="option" >
-        <label for="a" class="option" id="quizz-option1">
-            
+    <div>
+      <input type="radio" class="option" id="a" name="option">
+      <label for="a" class="option" id="quizz-option1">
 
-        </label>
+
+      </label>
     </div>
     <br>
     <div>
-        <input type="radio"  class="option" id="b" name="option" >
+      <input type="radio" class="option" id="b" name="option">
       <label for="b" class="option" id="quizz-option2"></label>
     </div>
     <br>
-    <div >
-        <input type="radio"  class="option" id="c" name="option" >
-        <label for="c"  class="option" id="quizz-option3" ></label>
+    <div>
+      <input type="radio" class="option" id="c" name="option">
+      <label for="c" class="option" id="quizz-option3"></label>
     </div>
     <br>
     <div>
-        <input type="radio"  class="option"  id="d" name="option" >
-        <label for="d" class="option" id="quizz-option4"  ></label>
+      <input type="radio" class="option" id="d" name="option">
+      <label for="d" class="option" id="quizz-option4"></label>
     </div>
 
 
-    <button class="previous-btn" onclick="previous()" >&#8592;Previous</button>
-    <button class="next-btn" onclick="next()" >Next&#8594;</button>
-    </div>
+    <button class="previous-btn" onclick="previous()">&#8592;Previous</button>
+    <button class="next-btn" onclick="next()">Next&#8594;</button>
+  </div>
 
-    <script src="script.js"></script>
-    <script>quizzpage()</script>
+  <script src="script.js"></script>
+  <script>quizzpage()</script>
 </body>
+
 </html>
