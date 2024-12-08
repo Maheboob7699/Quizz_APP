@@ -26,6 +26,12 @@ function Login() {
     passwordAlert.innerHTML = "Password is Empty";
 
   }
+  else if (email.value.lrngth <=6) {
+    emailAlert.innerHTML="email is less than 6 ";
+  email.value="";
+
+    return;
+}
 
   else if (!email.value.includes("@")) {
     emailAlert.innerHTML="Special character '@' is missing.";
@@ -46,25 +52,15 @@ function Login() {
     return
   }
 
-
-
-  else if (email.value.length < 6) {
-    emailAlert.innerHTML = "email is greater than 6";
-    email.value = "";
-    return
-  }
-
-  else if (email.value.length > 20) {
-    emailAlert.innerHTML = "email is less than 20";
-    email.value = "";
-    return
-  }
+  // else if (email.value.length > 20) {
+  //   emailAlert.innerHTML = "email is less than 20";
+  //   email.value = "";
+  //   return
+  // }
 
    else if (password.value == "") {
     passwordAlert.innerHTML = "Password is Empty";
   }
-
-
 
 
   else if (!numberPattern.test(password.value)) {
@@ -83,8 +79,6 @@ function Login() {
     password.value = "";
     return;
   }
-
-
 
 //   else if (password.value.length > 10) {
 //     passwordAlert.inerHTML = "password is less then 10";
@@ -590,29 +584,6 @@ function render(index) {
 
 }
 
-
-// function scoreQuiz() {
-//   let optionSelected  = false;
-//   selectOption.forEach((opt) => {
-//     if (opt.checked) {
-//       if (opt.id === localQuizz[index].ans) {
-//         selectedAnswer.push({ answerId: opt.id, index: index });
-//         score += 10;
-//         optionSelected=true;
-//         console.log(selectedAnswer);
-//         console.log(score);
-//       }
-//       opt.checked = false; // Uncheck after submitting answer
-//     }
-//   });
-
-//   if(!optionSelected){
-//     alert("option is not select");
-//     return
-//   }
-// }
-
-
 function scoreQuiz() {
   let optionSelected = false;
   selectOption.forEach((opt) => {
@@ -625,7 +596,6 @@ function scoreQuiz() {
         console.log(selectedAnswer);
         console.log(score);
       }
-
       opt.checked = false; 
       index++; 
       progress += 10; 
