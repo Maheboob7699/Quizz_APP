@@ -288,9 +288,7 @@ function passwordShow(){
 }
 
 
-
 // Start 
-
 
   let userName = document.querySelector("#userName");
   let userEmail = document.querySelector("#userEmail");
@@ -374,12 +372,6 @@ function passwordShow(){
       return;
     }
 
-    // else{
-    //   alert("succesfully");
-    //   window.location.href="quizz.html";
-     
-    // }
-
     else{
       let userFound = false;
       for (let i = 0; i < localLogin.length; i++) {
@@ -402,17 +394,6 @@ function passwordShow(){
     }
     
   }
-
-
-  // function StartPage(){
-  //   Start()
-  // }
-
-
-
-
-// Quizz
-
 
 const questionsAndAnswers = [
   {
@@ -543,48 +524,6 @@ let score = 0;
 let progress = 10;
 let selectedAnswer =[];
 
-
-
-
-
-
-// function render(index) {
-
-//   if (index <=localQuizz.length-1) {
-//     questionRemain.innerHTML = `Question ${index + 1} to ${localQuizz.length}`;
-//     question.textContent = localQuizz[index].q;
-//     option1.textContent = localQuizz[index].a;
-//     option2.textContent = localQuizz[index].b;
-//     option3.textContent = localQuizz[index].c;
-//     option4.textContent = localQuizz[index].d;
-//     progressContainer.style.width = `${progress}%`;
-//     console.log(index,localQuizz.length-1);
-
-//     if(index ===localQuizz.length-2 ){
-//       questionRemain.innerHTML = ` last 2 Question Left`;
-//     }
-
-//      if(index ===localQuizz.length-1 ){
-//       questionRemain.innerHTML = ` Hey This is last Question `;
-//        nextBtn.innerHTML= "Sumbit";
-
-//     }
-
-//   }
-
-  
-//   else if (index === localQuizz.length) {
-//     for(i=0; i<localScore.length; i++){
-//       if(localScore[i].score === 0){
-//         localScore[i].score  = score;
-//     }
-//   }
-//     localStorage.setItem("userDetail",JSON.stringify(localScore))
-//     window.location.href = "dashboard.html";
-
-//   }
-
-// }
 function render(index) {
   if (index <= localQuizz.length - 1) {
     questionRemain.innerHTML = `Question ${index + 1} of ${localQuizz.length}`;
@@ -724,7 +663,6 @@ function DashboardPage(){
   let rank1Img = document.querySelector(".rank1-img");
   let rank2Img = document.querySelector(".rank2-img");
   let rank3Img = document.querySelector(".rank3-img");
-  // let rank1Ranking = document.querySelector(".rank1-ranking");
   let rank2Ranking = document.querySelector(".rank2-ranking");
   let rank3Ranking = document.querySelector(".rank3-ranking");
 
