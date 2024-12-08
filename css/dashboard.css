@@ -200,7 +200,7 @@ p{
 }
 .rank3-data{
     position: absolute;
-    top: 77px;
+    top: 70px;
     width: 100%;
     margin: auto;
 }
@@ -214,6 +214,9 @@ p{
     
     
 
+}
+.rank3-name{
+    font-size: 2rem;
 }
 .random-rank{
     width: 100%;
