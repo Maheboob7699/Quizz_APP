@@ -266,7 +266,7 @@ body{
     justify-content: space-evenly ;
     align-items: center;
     position: relative;
-    top: -15px;
+    top: -10px;
 }
 .sigunp-password-input input{
     width: 300px;
