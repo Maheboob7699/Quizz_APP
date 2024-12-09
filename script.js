@@ -659,7 +659,6 @@ function quizzpage() {
 // Dashboard
 let scoreRender = JSON.parse(localStorage.getItem("UserDetail")) || [];
 let sortedDetail = scoreRender.sort((a, b) => b.score - a.score);
-console.log(sortedDetail[1].quizzScore);
 
 function DashboardPage() {
   let rank1Display = document.querySelector(".rank1-display");
