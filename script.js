@@ -172,47 +172,6 @@ function Signup() {
 
   }
 
-
-//   else {
-//     let duplicateUser = false;
-    
-//     // Check if any user in localLogin already has the same full name, email, or password
-//     for (let i = 0; i < localLogin.length; i++) {
-//         if (localLogin[i].name === userFullName.value || 
-//             localLogin[i].email === signupEmail.value || 
-//             localLogin[i].password === signupPassword.value) {
-//             duplicateUser = true;
-//             break; // Exit loop once a duplicate is found
-//         }
-//     }
-    
-//     if (!duplicateUser) {
-//         // Create a new user object and add it to localLogin
-//         let loginDetail = {
-//             name: userFullName.value,
-//             email: signupEmail.value,
-//             password: signupPassword.value,
-//             quizzScore: 0,
-//         };
-//         localLogin.push(loginDetail);
-        
-//         // Save the updated localLogin array to localStorage
-//         localStorage.setItem("UserDetail", JSON.stringify(localLogin));
-
-//         // Clear input fields and uncheck the checkbox
-//         userFullName.value = "";
-//         signupEmail.value = "";
-//         signupPassword.value = "";
-//         signupCheck.checked = false;
-
-//         // Redirect to login page
-//         alert("Login successfully");
-//         window.location.href = 'login.html';
-//     } else {
-//         // If duplicate user is found
-//         alert("User already exists");
-//     }
-// }
 }
 
 function SingupPassword() {
