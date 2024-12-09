@@ -163,15 +163,13 @@ function Signup() {
       signupEmail.value = "",
       signupPassword.value = "";
       signupCheck.checked = false;
-    alert("Login succesfully");
+    alert("signup succesfully");
     window.location.href = 'login.html';
     }
     else{
       alert("User is already exist");
     }
-
   }
-
 }
 
 function SingupPassword() {
@@ -207,6 +205,7 @@ let numberPattern = /\d/;
 let upperCasepattern = /[A-Z]/;
 let lowerCasePattern = /[a-z]/;
 localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
+let targetedScore =  JSON.parse (localStorage.getItem("updatedScore"))||[];
 
 
 function Login() {
@@ -267,10 +266,16 @@ function Login() {
     let matchFound = false;
     for (let i = 0; i < localLogin.length; i++) {
       if (email.value === localLogin[i].email && password.value === localLogin[i].password) {
-        alert("Detail Match");
+        let updatedName = {
+          name: localLogin[i].name,
+        }
+        targetedScore.push(updatedName);
+        localStorage.setItem("updatedScore", JSON.stringify(targetedScore))
+        
         email.value = "";
         password.value = "";
-        window.location.href = "Start.html";
+        alert("login Succesfully")
+        window.location.href = "quizz.html";
         return
       }
     }
@@ -310,8 +315,6 @@ console.log(userNameAlert);
 localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
 
 function Start() {
-  ;
-
   if (userName.value == "" && userEmail.value == "" && userContact.value == "") {
     alert("All field are required");
   }
@@ -563,8 +566,9 @@ function render(index) {
       if (localLogin[i].quizzScore === 0) {
         localLogin[i].quizzScore = score;
       }
+    
     }
-    localStorage.setItem("UserDetail", JSON.stringify(localLogin)); // Save updated array
+    localStorage.setItem("UserDetail", JSON.stringify(localLogin));
     console.log(localLogin);
 
     window.location.href = "dashboard.html";
@@ -657,10 +661,15 @@ function quizzpage() {
 let scoreRender = JSON.parse(localStorage.getItem("UserDetail")) || [];
 let sortedDetail = scoreRender.sort((a, b) => b.score - a.score);
 
+
+
+
+
 function DashboardPage() {
   let rank1Display = document.querySelector(".rank1-display");
   let rank2Display = document.querySelector(".rank2-display");
   let rank3Display = document.querySelector(".rank3-display");
+  let currentRank = document.querySelector(".current-rank");
   let rank1Name = document.querySelector(".rank1-name");
   let rank2Name = document.querySelector(".rank2-name");
   let rank3Name = document.querySelector(".rank3-name");
@@ -670,9 +679,17 @@ function DashboardPage() {
   let rank2Ranking = document.querySelector(".rank2-ranking");
   let rank3Ranking = document.querySelector(".rank3-ranking");
 
+let userIndex = 0;
+for(let i=1; i<localLogin.length; i++){
+  if(userIndex<i){
+    userIndex = i;
+  }
+  console.log("user index",userIndex);
+}
+
+  currentRank.innerText = `# ${userIndex+1}`;
 
   rank1Display.innerText = sortedDetail[0].quizzScore;
- 
   rank1Name.innerText = sortedDetail[0].name;
 
   (sortedDetail[0]) ? rank1Img.style.display = "block" : "";
@@ -685,6 +702,7 @@ function DashboardPage() {
 
   let sortedName2 = (sortedDetail[1] && sortedDetail[1].name) ? sortedDetail[1].name : "No User";
   let sortedScore2 = (sortedDetail[1] && sortedDetail[1].quizzScore) ? sortedDetail[1].quizzScore : "No score";
+  
   rank2Name.innerText = sortedName2;
   rank2Display.innerText = sortedScore2;
 
