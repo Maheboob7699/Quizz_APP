@@ -120,50 +120,99 @@ function Signup() {
 
 
   else if(!signupCheck.checked){
-    alert("please select checked box");
+    alert("please accept terms and condition");
   }
 
-  else {
-    let loginDetail = {
+  // else {
+  //   let loginDetail = {
+  //     name: userFullName.value,
+  //     email: signupEmail.value,
+  //     password: signupPassword.value,
+  //     quizzScore: 0,
+  //   }
+
+  //   localLogin.push(loginDetail);
+  //   localStorage.setItem("UserDetail", JSON.stringify(localLogin))
+  //   userFullName.value = "",
+  //     signupEmail.value = "",
+  //     signupPassword.value = "";
+  //     signupCheck.checked = false;
+
+  //   alert("Login succesfully");
+  //   window.location.href = 'login.html';
+  // }
+
+  else{
+    let userDuplicate = false;
+    for(let i=0 ;i<localLogin.length; i++){
+      if(localLogin[i].name === userFullName.value || localLogin[i].name === signupEmail.value || localLogin[i].password === signupPassword.value){
+        userDuplicate = true;
+        break;
+      }
+    }
+    if(!userDuplicate){
+        let loginDetail = {
       name: userFullName.value,
       email: signupEmail.value,
       password: signupPassword.value,
       quizzScore: 0,
     }
-
-
     localLogin.push(loginDetail);
     localStorage.setItem("UserDetail", JSON.stringify(localLogin))
-
     userFullName.value = "",
       signupEmail.value = "",
       signupPassword.value = "";
       signupCheck.checked = false;
-
     alert("Login succesfully");
     window.location.href = 'login.html';
+    }
+    else{
+      alert("User is already exist");
+    }
+
   }
 
 
+//   else {
+//     let duplicateUser = false;
+    
+//     // Check if any user in localLogin already has the same full name, email, or password
+//     for (let i = 0; i < localLogin.length; i++) {
+//         if (localLogin[i].name === userFullName.value || 
+//             localLogin[i].email === signupEmail.value || 
+//             localLogin[i].password === signupPassword.value) {
+//             duplicateUser = true;
+//             break; // Exit loop once a duplicate is found
+//         }
+//     }
+    
+//     if (!duplicateUser) {
+//         // Create a new user object and add it to localLogin
+//         let loginDetail = {
+//             name: userFullName.value,
+//             email: signupEmail.value,
+//             password: signupPassword.value,
+//             quizzScore: 0,
+//         };
+//         localLogin.push(loginDetail);
+        
+//         // Save the updated localLogin array to localStorage
+//         localStorage.setItem("UserDetail", JSON.stringify(localLogin));
 
-  // else{
-  //   let matchFound = false;
-  //   for (let i = 0; i < localLogin.length; i++) {
-  //     if (signupEmail.value === localLogin[i].email && signupPassword.value === localLogin[i].password) {
-  //       alert("Detail Match");
-  //       signupEmail.value = "";
-  //       signupPassword.value = "";
-  //       window.location.href = "Start.html";
-  //       return
-  //     }
-  //   }
-  //   if (!matchFound) {
-  //        alert("Detail not Match");
-  //       }
+//         // Clear input fields and uncheck the checkbox
+//         userFullName.value = "";
+//         signupEmail.value = "";
+//         signupPassword.value = "";
+//         signupCheck.checked = false;
 
-  // }
-
-
+//         // Redirect to login page
+//         alert("Login successfully");
+//         window.location.href = 'login.html';
+//     } else {
+//         // If duplicate user is found
+//         alert("User already exists");
+//     }
+// }
 }
 
 function SingupPassword() {
@@ -181,6 +230,8 @@ function SingupPassword() {
     hidePassword.style.display = "block";
   }
 }
+
+
 // Login 
 let email = document.querySelector("#email-inpt");
 let password = document.querySelector("#pass-inpt");
@@ -253,10 +304,6 @@ function Login() {
     return;
   }
 
-  //   else if (password.value.length > 10) {
-  //     passwordAlert.inerHTML = "password is less then 10";
-  //   }
-
   else {
     let matchFound = false;
     for (let i = 0; i < localLogin.length; i++) {
@@ -273,11 +320,8 @@ function Login() {
       password.value = "";
       alert("User detail is not Match");
     }
-
   }
-
 }
-
 function passwordShow() {
   let passwordShow = document.querySelector("#pass-inpt")
   if (passwordShow.type === "password") {
@@ -296,7 +340,6 @@ function passwordShow() {
 
 
 // Start 
-
 let userName = document.querySelector("#userName");
 let userEmail = document.querySelector("#userEmail");
 let userContact = document.querySelector("#userContact");
@@ -522,7 +565,6 @@ let option1 = document.querySelector("#quizz-option1");
 let option2 = document.querySelector("#quizz-option2");
 let option3 = document.querySelector("#quizz-option3");
 let option4 = document.querySelector("#quizz-option4");
-// let SubmitBtn = document.querySelector(".submit-btn");
 let previousBtn = document.querySelector(".previous-btn");
 let nextBtn = document.querySelector(".next-btn");
 let progressContainer = document.querySelector(".progress-container");
@@ -558,10 +600,9 @@ function render(index) {
   }
 
   else {
-    for (let i = 0; i < localLogin.length; i++) { // Corrected loop condition
-      // Ensure quizzScore is initialized properly
+    for (let i = 0; i < localLogin.length; i++) { 
       if (localLogin[i].quizzScore === 0) {
-        localLogin[i].quizzScore = score; // Assign the score
+        localLogin[i].quizzScore = score;
       }
     }
     localStorage.setItem("UserDetail", JSON.stringify(localLogin)); // Save updated array
@@ -600,7 +641,6 @@ function scoreQuiz() {
       selectedAnswer.push({ answerId: opt.id, index: index });
       optionSelected = true;
       if (opt.id === localQuizz[index].ans) {
-        // selectedAnswer.push({ answerId: opt.id, index: index });
         score += 10;
         console.log(selectedAnswer);
         console.log(score);
@@ -620,10 +660,10 @@ function scoreQuiz() {
 
 
 function previousData() {
-  if (selectedAnswer[index]) { // Check if there is a saved answer for this question
+  if (selectedAnswer[index]) { 
     selectOption.forEach((opt) => {
       if (opt.id === selectedAnswer[index].answerId) {
-        opt.checked = true; // Check the previously selected option
+        opt.checked = true; 
       }
     });
   }
@@ -640,14 +680,12 @@ function previous() {
 
 function next() {
   scoreQuiz();
-  // index++; 
   console.log("Your Score is", score);
 
   if (index > 0) {
     previousBtn.style.display = "block";
   }
 
-  // progress += 10; 
   render(index);
 }
 
