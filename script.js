@@ -688,12 +688,12 @@ function DashboardPage() {
   let rank4Name = document.querySelector(".rank4-name");
   let rank5Name = document.querySelector(".rank5-name");
   let rank6Name = document.querySelector(".rank6-name");
-  let rank1Score = document.querySelector(".rank1-display");
-  let rank2Score = document.querySelector(".rank2-display");
-  let rank3Score = document.querySelector(".rank3-display");
-  let rank4Score = document.querySelector(".rank4-display");
-  let rank5Score = document.querySelector(".rank5-display");
-  let rank6Score = document.querySelector(".rank6-display");
+  let rank1Score = document.querySelector(".rank1-score");
+  let rank2Score = document.querySelector(".rank2-score");
+  let rank3Score = document.querySelector(".rank3-score");
+  let rank4Score = document.querySelector(".rank4-score");
+  let rank5Score = document.querySelector(".rank5-score");
+  let rank6Score = document.querySelector(".rank6-score");
   let currentRank = document.querySelector(".current-rank");
   let rank1Img = document.querySelector(".rank1-img");
   let rank2Img = document.querySelector(".rank2-img");
@@ -710,7 +710,7 @@ for(let i=1; i<localLogin.length; i++){
 }
 
   currentRank.innerText = `# ${userIndex+1}`;
-  
+
   rank1Name.innerText = sortedDetail[0].name;
   rank1Score.innerText = sortedDetail[0].quizzScore;
 
