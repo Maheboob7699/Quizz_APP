@@ -8,6 +8,11 @@ body{
     justify-content: space-between;
     align-items: center;
   }
+  .logout-btn{
+    background-color: transparent;
+    border: none;
+  }
+ 
   
   .quizz-detail {
     display: flex;
@@ -22,20 +27,7 @@ body{
     border-radius: 50%;
   }
   
-  .login-logout {
-    height: 100px;
-    width: 100px;
-    background-color: #dddcd6;
-    margin-left: 93%;
-    border-radius: 10px;
-    margin-top: -10px;
-    display: none;
-  }
-  
-  .login-logout p {
-    text-align: center;
-  }
-  
+
 
 h2{
     text-align: center;
@@ -44,6 +36,39 @@ p{
     text-align: center;
     color: #8E8E93;
 }
+
+.login-logout {
+    height: 100px;
+    width: 90px;
+    background-color: #F3BD00;
+    border-radius: 10px;
+    position: absolute;
+    top: 70px;
+    left: 83%;
+    /* margin-left: 83%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+  
+  }
+  .login-logout p{
+    color: black;
+  }
+
+  
+  .login-logout  a{
+    text-decoration: none;
+    padding-left: 25px;
+    color: black;
+   
+    
+  }
+  
+  .login-logout p {
+    text-align: center;
+  }
 
 .rank-list{
     display: flex;
@@ -236,12 +261,31 @@ p{
     margin-top: 100px;
  background: #FFFFFF;
     box-shadow: 0px 8px 16px 0px #1C1C1E1A;
-
+    display: flex;
+    align-items: center;
+    gap: 50px;
 }
+
+ .rank4-display{
+    margin-left: 70%;
+ }
+ .rank5-display{
+    margin-left: 70%;
+ }
+ .rank6-display{
+    margin-left: 70%;
+ }
+
+.random-rank p{
+     text-align: right;
+     color: black;
+}
+
 
 .random-rank h2{
     text-align: left;
     padding-left: 30px;
+    padding-bottom: 5px;
 }
 
 

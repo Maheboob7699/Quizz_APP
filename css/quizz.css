@@ -10,6 +10,10 @@ body {
   align-items: center;
 }
 
+.logout-btn{
+  background-color: transparent;
+  border: none;
+}
 .quizz-detail {
   display: flex;
   justify-content: center;
@@ -25,12 +29,30 @@ body {
 
 .login-logout {
   height: 100px;
-  width: 100px;
-  background-color: #dddcd6;
-  margin-left: 93%;
+  width: 90px;
+  background-color: #F3BD00;
   border-radius: 10px;
-  margin-top: -10px;
+  position: absolute;
+  top: 70px;
+  left: 83%;
+  /* margin-left: 83%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   display: none;
+
+}
+
+.login-logout p{
+  color: black;
+}
+
+.login-logout  a{
+  text-decoration: none;
+  padding-left: 25px;
+ 
+  
 }
 
 .login-logout p {
@@ -124,6 +146,8 @@ label:hover {
   font-size: 1.9rem;
   color: #0948B4;
   margin-left: 85%;
+  margin-top: -47px;
+
 }
 
 .next-btn:hover {
