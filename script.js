@@ -688,12 +688,12 @@ function DashboardPage() {
   let rank4Name = document.querySelector(".rank4-name");
   let rank5Name = document.querySelector(".rank5-name");
   let rank6Name = document.querySelector(".rank6-name");
-  let rank1Display = document.querySelector(".rank1-display");
-  let rank2Display = document.querySelector(".rank2-display");
-  let rank3Display = document.querySelector(".rank3-display");
-  let rank4Display = document.querySelector(".rank4-display");
-  let rank5Display = document.querySelector(".rank5-display");
-  let rank6Display = document.querySelector(".rank6-display");
+  let rank1Score = document.querySelector(".rank1-display");
+  let rank2Score = document.querySelector(".rank2-display");
+  let rank3Score = document.querySelector(".rank3-display");
+  let rank4Score = document.querySelector(".rank4-display");
+  let rank5Score = document.querySelector(".rank5-display");
+  let rank6Score = document.querySelector(".rank6-display");
   let currentRank = document.querySelector(".current-rank");
   let rank1Img = document.querySelector(".rank1-img");
   let rank2Img = document.querySelector(".rank2-img");
@@ -710,9 +710,9 @@ for(let i=1; i<localLogin.length; i++){
 }
 
   currentRank.innerText = `# ${userIndex+1}`;
-
-  rank1Display.innerText = sortedDetail[0].quizzScore;
+  
   rank1Name.innerText = sortedDetail[0].name;
+  rank1Score.innerText = sortedDetail[0].quizzScore;
 
   (sortedDetail[0]) ? rank1Img.style.display = "block" : "";
   (sortedDetail[1]) ? rank2Img.style.display = "block" : "";
@@ -725,27 +725,27 @@ for(let i=1; i<localLogin.length; i++){
   let sortedName2 = (sortedDetail[1] && sortedDetail[1].name) ? sortedDetail[1].name : "No User";
   let sortedScore2 = (sortedDetail[1] && sortedDetail[1].quizzScore) ? sortedDetail[1].quizzScore : "No score";
   rank2Name.innerText = sortedName2;
-  rank2Display.innerText = sortedScore2;
+  rank2Score.innerText = sortedScore2;
 
   let sortedName3 = (sortedDetail[2] && sortedDetail[2].name) ? sortedDetail[2].name : "No User";
   let sortedScore3 = (sortedDetail[2] && sortedDetail[2].quizzScore) ? sortedDetail[2].quizzScore : "No score";
   rank3Name.innerText = sortedName3;
-  rank3Display.innerText = sortedScore3;
+  rank3Score.innerText = sortedScore3;
 
   let sortedName4 = (sortedDetail[3] && sortedDetail[3].name) ? sortedDetail[3].name : "No User";
   let sortedScore4 = (sortedDetail[3] && sortedDetail[3].quizzScore) ? sortedDetail[3].quizzScore : "No score";
   rank4Name.innerText = sortedName4;
-  rank4Display.innerText = sortedScore4;
+  rank4Score.innerText = sortedScore4;
 
   let sortedName5 = (sortedDetail[4] && sortedDetail[4].name) ? sortedDetail[4].name : "No User";
   let sortedScore5 = (sortedDetail[4] && sortedDetail[4].quizzScore) ? sortedDetail[4].quizzScore : "No score";
   rank5Name.innerText = sortedName5;
-  rank5Display.innerText = sortedScore5;
+  rank5Score.innerText = sortedScore5;
 
   let sortedName6 = (sortedDetail[5] && sortedDetail[5].name) ? sortedDetail[5].name : "No User";
   let sortedScore6 = (sortedDetail[5] && sortedDetail[5].quizzScore) ? sortedDetail[5].quizzScore : "No score";
   rank6Name.innerText = sortedName6;
-  rank6Display.innerText = sortedScore6;
+  rank6Score.innerText = sortedScore6;
 
 }
 
