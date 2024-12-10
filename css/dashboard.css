@@ -154,7 +154,7 @@ p{
     border-radius: 50%;
     border: 5px solid #F3BD00;
     margin-left: 37px;
-    display: none;
+   
     
 
 }
@@ -280,7 +280,6 @@ p{
      text-align: right;
      color: black;
 }
-
 
 .random-rank h2{
     text-align: left;

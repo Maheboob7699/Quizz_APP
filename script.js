@@ -714,13 +714,13 @@ for(let i=1; i<localLogin.length; i++){
   rank1Name.innerText = sortedDetail[0].name;
   rank1Score.innerText = sortedDetail[0].quizzScore;
 
-  (sortedDetail[0]) ? rank1Img.style.display = "block" : "";
-  (sortedDetail[1]) ? rank2Img.style.display = "block" : "";
-  (sortedDetail[2]) ? rank3Img.style.display = "block" : "";
+  // (sortedDetail[0]) ? rank1Img.style.display = "block" : "";
+  // (sortedDetail[1]) ? rank2Img.style.display = "block" : "";
+  // (sortedDetail[2]) ? rank3Img.style.display = "block" : "";
 
 
-  (sortedDetail[1]) ? rank2Ranking.innerText = "#2" : "";
-  (sortedDetail[2]) ? rank3Ranking.innerText = "#3" : "";
+  // (sortedDetail[1]) ? rank2Ranking.innerText = "#2" : "";
+  // (sortedDetail[2]) ? rank3Ranking.innerText = "#3" : "";
 
   let sortedName2 = (sortedDetail[1] && sortedDetail[1].name) ? sortedDetail[1].name : "No User";
   let sortedScore2 = (sortedDetail[1] && sortedDetail[1].quizzScore) ? sortedDetail[1].quizzScore : "No score";
