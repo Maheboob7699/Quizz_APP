@@ -529,11 +529,21 @@ let previousBtn = document.querySelector(".previous-btn");
 let nextBtn = document.querySelector(".next-btn");
 let progressContainer = document.querySelector(".progress-container");
 let loginLogout = document.querySelector(".login-logout");
+let currentUser = document.querySelector(".current-user");
 
 let index = 0;
 let score = 0;
 let progress = 10;
 let selectedAnswer = [];
+let currentIndex  = 0;
+
+for (let i= 0; i<localLogin.length; i++){
+    if(currentIndex<i){
+      currentIndex =i;
+    }
+}
+
+currentUser.innerText = ` Hi ${localLogin[currentIndex].name}`;
 
 let logout = false;
 
@@ -586,31 +596,13 @@ function render(index) {
     }
     localStorage.setItem("UserDetail", JSON.stringify(localLogin));
     console.log(localLogin);
+    alert("are you sure to submit ")
 
     window.location.href = "dashboard.html";
   }
 }
 
-function scoreQuiz() {
-  let optionSelected = false;
-  selectOption.forEach((opt) => {
-    if (opt.checked) {
-      selectedAnswer[index] = { answerId: opt.id, index: index };
-      optionSelected = true;
-      if (opt.id === localQuizz[index].ans) {
-        score += 10;
-      }
-      opt.checked = false;
-      index++;
-      progress = ((index + 1) / localQuizz.length) * 100;
-    }
-  });
 
-  if (!optionSelected) {
-    alert("Please select an option before proceeding!");
-    return;
-  }
-}
 
 
 function scoreQuiz() {
@@ -700,6 +692,8 @@ function DashboardPage() {
   let rank3Img = document.querySelector(".rank3-img");
   let rank2Ranking = document.querySelector(".rank2-ranking");
   let rank3Ranking = document.querySelector(".rank3-ranking");
+
+
 
 let userIndex = 0;
 for(let i=1; i<localLogin.length; i++){
