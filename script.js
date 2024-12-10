@@ -145,7 +145,7 @@ function Signup() {
   else{
     let userDuplicate = false;
     for(let i=0 ;i<localLogin.length; i++){
-      if(localLogin[i].name === userFullName.value || localLogin[i].name === signupEmail.value || localLogin[i].password === signupPassword.value){
+      if(localLogin[i].name === userFullName.value && localLogin[i].name === signupEmail.value && localLogin[i].password === signupPassword.value){
         userDuplicate = true;
         break;
       }
@@ -570,7 +570,7 @@ function render(index) {
 
     if (index === localQuizz.length - 1) {
       questionRemain.innerHTML = `Hey, This is the Last Question!`;
-      nextBtn.innerHTML = "Submit";
+      nextBtn.innerHTML = "Submit & Continue&#8594;";
     }
 
     nextBtn.style.display = index === localQuizz.length ? "none" : "block";
@@ -579,7 +579,7 @@ function render(index) {
 
   else {
     for (let i = 0; i < localLogin.length; i++) { 
-      if (localLogin[i].quizzScore === 0) {
+      if (localLogin[i].quizzScore === 0  ||  score > localLogin[i].quizzScore) {
         localLogin[i].quizzScore = score;
       }
     
