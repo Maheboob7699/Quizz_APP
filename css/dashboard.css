@@ -1,6 +1,6 @@
 body{
     font-family: "Roboto", sans-serif;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 
 }
 .quizz-navbar {
@@ -272,32 +272,6 @@ p{
     width: 100%;
 }
 
-/* .prevoius-rank{
-    background: #FFFFFF;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 70px;
-    padding: 20px; 
-} */
-/* 
-.prevoius-rank{
-    content: "";
-    position: relative;
-    top: -23px;
-    left: 0;
-    width: 100%;
-    height: 460px;
-    background: #FFFFFF;
-    border-radius: 71% 72% 0 0;
-    border: 84px/32px  0 0 ;
-    border-radius: 100px/32px;
-    box-shadow: 0px -8px 40px 0px #1C1C1E1A;
-
-} */
-
 .prevoius-rank{
     content: "";
     position: relative;
@@ -306,21 +280,10 @@ p{
     background: #FFFFFF;
     left: 0;
     width: 106%;
-    height: 323px;
+    height: 379px;
     border-radius: 916px / 155px;
     margin-left: -39px;
-
 }
-/* .prevoius-rank ::after {
-      content: "";
-    position: absolute;
-    top: -7%;
-    left: 0;
-    width: 100%;
-    height: 64%;
-    background: #3498db;
-    border-radius: 100% 100% 0 0;
-  } */
 
 .random-rank-4{
     width: 100%;
@@ -368,15 +331,14 @@ p{
     width: 100%;
     height: 60px;
     margin-top: 100px;
- background: #FFFFFF;
+    background: #FFFFFF;
     box-shadow: 0px 8px 16px 0px #1C1C1E1A;
     display: flex;
     align-items: center;
     gap: 50px;
     margin-top: 50px;
     position: relative;
-    top: 125px;
-    bottom: 40px;
+    top: 115px;
 }
 .random-rank-6 h2{
     margin-left: 86px;
@@ -390,7 +352,7 @@ p{
     margin-left: 70%;
  }
  .rank5-score{
-    margin-left: 70%;
+    margin-left: 66%;
  }
  .rank6-score{
     margin-left: 70%;

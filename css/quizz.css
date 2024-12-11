@@ -48,7 +48,6 @@ body {
   position: absolute;
   top: 70px;
   left: 83%;
-  /* margin-left: 83%; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -124,7 +123,7 @@ label:hover {
   border-radius: 20px;
 }
 
-/* Optional: Add a hover effect */
+
 
 
 #quizz-option1 {
@@ -158,7 +157,7 @@ label:hover {
   border: none;
   font-size: 1.9rem;
   color: #0948B4;
-  margin-left: 85%;
+  margin-left: 80%;
   margin-top: -47px;
 
 }
@@ -169,13 +168,7 @@ label:hover {
 }
 
 
-/* .submit-btn{
-  border: none;
-  color: #0948B4;
-  font-size: 20px;
-  margin-top: 40px;
-  margin-left: 80%;
-} */
+
 
 
 .previous-btn {

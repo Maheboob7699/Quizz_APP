@@ -123,25 +123,7 @@ function Signup() {
     alert("please accept terms and condition");
   }
 
-  // else {
-  //   let loginDetail = {
-  //     name: userFullName.value,
-  //     email: signupEmail.value,
-  //     password: signupPassword.value,
-  //     quizzScore: 0,
-  //   }
-
-  //   localLogin.push(loginDetail);
-  //   localStorage.setItem("UserDetail", JSON.stringify(localLogin))
-  //   userFullName.value = "",
-  //     signupEmail.value = "",
-  //     signupPassword.value = "";
-  //     signupCheck.checked = false;
-
-  //   alert("Login succesfully");
-  //   window.location.href = 'login.html';
-  // }
-
+  
   else{
     let userDuplicate = false;
     for(let i=0 ;i<localLogin.length; i++){
@@ -560,8 +542,6 @@ let logout = false;
   
  }
 
-
-
 function render(index) {
   if (index <= localQuizz.length - 1) {
     questionRemain.innerHTML = `Question ${index + 1} of ${localQuizz.length}`;
@@ -610,6 +590,8 @@ function scoreQuiz() {
   selectOption.forEach((opt) => {
     if (opt.checked) {
       selectedAnswer.push({ answerId: opt.id, index: index });
+      console.log(selectedAnswer);
+      
       optionSelected = true;
       if (opt.id === localQuizz[index].ans) {
         score += 10;
@@ -652,7 +634,6 @@ function previous() {
 function next() {
   scoreQuiz();
   console.log("Your Score is", score);
-
   if (index > 0) {
     previousBtn.style.display = "block";
   }
@@ -687,12 +668,6 @@ function DashboardPage() {
   let rank5Score = document.querySelector(".rank5-score");
   let rank6Score = document.querySelector(".rank6-score");
   let currentRank = document.querySelector(".current-rank");
-  let rank1Img = document.querySelector(".rank1-img");
-  let rank2Img = document.querySelector(".rank2-img");
-  let rank3Img = document.querySelector(".rank3-img");
-  let rank2Ranking = document.querySelector(".rank2-ranking");
-  let rank3Ranking = document.querySelector(".rank3-ranking");
-
 
 
 let userIndex = 0;
@@ -701,20 +676,13 @@ for(let i=1; i<localLogin.length; i++){
     userIndex = i;
   }
   console.log("user index",userIndex);
+
 }
 
   currentRank.innerText = `# ${userIndex+1}`;
 
   rank1Name.innerText = sortedDetail[0].name;
   rank1Score.innerText = sortedDetail[0].quizzScore;
-
-  // (sortedDetail[0]) ? rank1Img.style.display = "block" : "";
-  // (sortedDetail[1]) ? rank2Img.style.display = "block" : "";
-  // (sortedDetail[2]) ? rank3Img.style.display = "block" : "";
-
-
-  // (sortedDetail[1]) ? rank2Ranking.innerText = "#2" : "";
-  // (sortedDetail[2]) ? rank3Ranking.innerText = "#3" : "";
 
   let sortedName2 = (sortedDetail[1] && sortedDetail[1].name) ? sortedDetail[1].name : "No User";
   let sortedScore2 = (sortedDetail[1] && sortedDetail[1].quizzScore) ? sortedDetail[1].quizzScore : "No score";
@@ -740,6 +708,8 @@ for(let i=1; i<localLogin.length; i++){
   let sortedScore6 = (sortedDetail[5] && sortedDetail[5].quizzScore) ? sortedDetail[5].quizzScore : "No score";
   rank6Name.innerText = sortedName6;
   rank6Score.innerText = sortedScore6;
+
+ 
 
 }
 
