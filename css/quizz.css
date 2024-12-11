@@ -41,8 +41,8 @@ body {
 }
 
 .login-logout {
-  height: 100px;
-  width: 90px;
+  height: 121px;
+  width: 128px;
   background-color: #F3BD00;
   border-radius: 10px;
   position: absolute;
@@ -62,7 +62,7 @@ body {
 
 .login-logout  a{
   text-decoration: none;
-  padding-left: 25px;
+  padding-left: 33%;
  
   
 }
