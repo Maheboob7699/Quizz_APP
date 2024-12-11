@@ -16,7 +16,13 @@ let signupUserError = document.querySelector(".sigunp-user-error");
 let localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
 
 
-function Signup() {
+
+function signUp() {
+
+
+  let random = Math.floor(Math.random()*localLogin.length)
+  console.log(random);
+  
   if (userFullName.value === "" && signupEmail.value === "" && signupPassword.value === "") {
 
     signupUserError.innerText = "user Name is Empty";
@@ -154,7 +160,7 @@ function Signup() {
   }
 }
 
-function SingupPassword() {
+function singupPassword() {
   let passwordShow = document.querySelector("#sigIn-pass")
   if (passwordShow.type === "password") {
     passwordShow.type = "text";
@@ -295,7 +301,7 @@ let userEmailAlert = document.querySelector(".useremail-alert");
 let userContactAlert = document.querySelector(".usercontact-alert");
 localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
 
-function Start() {
+function start() {
   if (userName.value == "" && userEmail.value == "" && userContact.value == "") {
     alert("All field are required");
   }
@@ -490,10 +496,124 @@ const questionsAndAnswers = [
     d: "Assigns a value to a variable",
 
     ans: "b",
-  }
+  },
+
+
+  // 
+  {
+    q: "Which tag is used to create a hyperlink in HTML?",
+    a: "<link>",
+    b: "<a>",
+    c: "<href>",
+    d: "<hlink>",
+    ans: "b",
+  },
+  {
+    q: "Which CSS property is used to change text color?",
+    a: "font-color",
+    b: "color",
+    c: "text-color",
+    d: "background-color",
+    ans: "b",
+  },
+  {
+    q: "Which attribute is used in HTML to include an external JavaScript file?",
+    a: "href",
+    b: "src",
+    c: "link",
+    d: "script",
+    ans: "b",
+  },
+  {
+    q: "Which of the following is a semantic HTML element?",
+    a: "<div>",
+    b: "<section>",
+    c: "<span>",
+    d: "<i>",
+    ans: "b",
+  },
+  {
+    q: "In CSS, what does the `z-index` property control?",
+    a: "The stacking order of elements",
+    b: "The zoom level of elements",
+    c: "The width of an element",
+    d: "The height of an element",
+    ans: "a",
+  },
+  {
+    q: "What does `===` do in JavaScript?",
+    a: "Assigns a value to a variable",
+    b: "Compares both value and type without type conversion",
+    c: "Compares two strings only",
+    d: "Checks if a variable is defined",
+    ans: "b",
+  },
+  {
+    q: "What is the purpose of the `useEffect` hook in React?",
+    a: "To manage state in functional components",
+    b: "To apply side effects in functional components",
+    c: "To define lifecycle methods in class components",
+    d: "To fetch API data in a synchronous way",
+    ans: "b",
+  },
+  {
+    q: "What is the default port for a React development server?",
+    a: "8000",
+    b: "3000",
+    c: "5000",
+    d: "8080",
+    ans: "b",
+  },
+  {
+    q: "How can you add inline styles in React?",
+    a: "Using the `style` attribute with a string",
+    b: "Using the `class` attribute",
+    c: "Using the `style` attribute with a JavaScript object",
+    d: "Using external CSS files only",
+    ans: "c",
+  },
+  {
+    q: "Which tag is used to include metadata in an HTML document?",
+    a: "<header>",
+    b: "<footer>",
+    c: "<meta>",
+    d: "<info>",
+    ans: "c",
+  },
+
+
+
 ];
 
-localStorage.setItem("quizzData", JSON.stringify(questionsAndAnswers))
+let randomQuestion  = [];
+
+
+for(let i=0; i< 10; i++){
+  let randomNumber = Math.floor(Math.random()*questionsAndAnswers.length);
+    if(!randomQuestion.includes(randomNumber)){
+      console.log("random number is",randomNumber);
+    let questandAns ={
+      q : questionsAndAnswers[randomNumber].q,
+      a : questionsAndAnswers[randomNumber].a,
+      b : questionsAndAnswers[randomNumber].b,
+      c : questionsAndAnswers[randomNumber].c,
+      d : questionsAndAnswers[randomNumber].d,
+      ans : questionsAndAnswers[randomNumber].ans,
+    }
+    randomQuestion.push(questandAns)
+  
+  
+  }
+  
+}
+console.log(randomQuestion);
+
+
+// localStorage.setItem("quizzData", JSON.stringify(questionsAndAnswers))
+// let localQuizz = JSON.parse(localStorage.getItem("quizzData"));
+// localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
+
+localStorage.setItem("quizzData", JSON.stringify(randomQuestion))
 let localQuizz = JSON.parse(localStorage.getItem("quizzData"));
 localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
 
@@ -519,13 +639,13 @@ let progress = 10;
 let selectedAnswer = [];
 let currentIndex  = 0;
 
-for (let i= 0; i<localLogin.length; i++){
-    if(currentIndex<i){
-      currentIndex =i;
+for (let i = 1; i < localLogin.length; i++){
+    if(currentIndex < i){
+      currentIndex =   i;
     }
 }
 
-currentUser.innerText = ` Hi ${localLogin[currentIndex].name}`;
+currentUser.innerHTML = ` Hi ${localLogin[currentIndex].name}`;
 
 let logout = false;
 
@@ -631,6 +751,9 @@ function previous() {
   }
 }
 
+// random number
+
+
 function next() {
   scoreQuiz();
   console.log("Your Score is", score);
@@ -641,7 +764,7 @@ function next() {
   render(index);
 }
 
-function quizzpage() {
+function quizzPage() {
   render(index);
 }
 
@@ -654,7 +777,7 @@ let sortedDetail = scoreRender.sort((a, b) => b.score - a.score);
 
 
 
-function DashboardPage() {
+function dashboardPage() {
   let rank1Name = document.querySelector(".rank1-name");
   let rank2Name = document.querySelector(".rank2-name");
   let rank3Name = document.querySelector(".rank3-name");
