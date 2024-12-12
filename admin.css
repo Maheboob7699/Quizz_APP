@@ -1,0 +1,115 @@
+
+
+body{
+
+    font-family: "Roboto", sans-serif;
+}
+
+
+.admin-navbar{
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid grey;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.admin-navbar div{
+    display: flex;
+}
+.techpatshala-img{
+    margin-left: 30px;
+}
+.admin-bar{
+    margin-left :40px;
+}
+
+.admin-main{
+    height: 600px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+
+.admin-section{
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40px;
+}
+.admin-section p{
+    padding-right: 30px;
+}
+
+
+.admin-section i{
+    margin: auto;
+   
+}
+.menu-section p{
+ padding-top: 10px;
+   
+}
+
+.menu-section{
+    width: 150px;
+    height: 100vh;
+  
+    
+    box-shadow: 0px 8px 16px 0px #1C1C1E1A;
+   
+}
+
+.home{
+    cursor: pointer;
+}
+
+.home span{
+    margin-left: 10px;
+}
+
+  .home.clicked i, .home.clicked span {
+    color: orange; /* Change this to your desired clicked color */
+  }
+
+.user {
+    margin-top: 10px;
+    
+}
+
+.user span{
+    margin-left:10px;
+}
+
+.quizz{
+    margin-top: 10px;
+}
+
+.quizz span{
+    margin-left: 10px;
+}
+
+.user-data{
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Ensures borders collapse into a single line */
+  }
+  th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid black; /* Adds horizontal line between rows */
+  }
+  th {
+    background-color: #daf0f3; 
+  }
+  .veiw-result-btn{
+    background: transparent;
+    color:  blue;
+    border: none;
+  }

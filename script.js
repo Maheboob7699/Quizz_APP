@@ -20,9 +20,9 @@ let localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
 function signUp() {
 
 
-  let random = Math.floor(Math.random()*localLogin.length)
+  let random = Math.floor(Math.random() * localLogin.length)
   console.log(random);
-  
+
   if (userFullName.value === "" && signupEmail.value === "" && signupPassword.value === "") {
 
     signupUserError.innerText = "user Name is Empty";
@@ -125,36 +125,36 @@ function signUp() {
   }
 
 
-  else if(!signupCheck.checked){
+  else if (!signupCheck.checked) {
     alert("please accept terms and condition");
   }
 
-  
-  else{
+
+  else {
     let userDuplicate = false;
-    for(let i=0 ;i<localLogin.length; i++){
-      if(localLogin[i].name === userFullName.value && localLogin[i].name === signupEmail.value && localLogin[i].password === signupPassword.value){
+    for (let i = 0; i < localLogin.length; i++) {
+      if (localLogin[i].name === userFullName.value && localLogin[i].name === signupEmail.value && localLogin[i].password === signupPassword.value) {
         userDuplicate = true;
         break;
       }
     }
-    if(!userDuplicate){
-        let loginDetail = {
-      name: userFullName.value,
-      email: signupEmail.value,
-      password: signupPassword.value,
-      quizzScore: 0,
-    }
-    localLogin.push(loginDetail);
-    localStorage.setItem("UserDetail", JSON.stringify(localLogin))
-    userFullName.value = "",
-      signupEmail.value = "",
-      signupPassword.value = "";
+    if (!userDuplicate) {
+      let loginDetail = {
+        name: userFullName.value,
+        email: signupEmail.value,
+        password: signupPassword.value,
+        quizzScore: 0,
+      }
+      localLogin.push(loginDetail);
+      localStorage.setItem("UserDetail", JSON.stringify(localLogin))
+      userFullName.value = "",
+        signupEmail.value = "",
+        signupPassword.value = "";
       signupCheck.checked = false;
-    alert("signup succesfully");
-    window.location.href = 'login.html';
+      alert("signup succesfully");
+      window.location.href = 'login.html';
     }
-    else{
+    else {
       alert("User is already exist");
     }
   }
@@ -193,7 +193,7 @@ let numberPattern = /\d/;
 let upperCasepattern = /[A-Z]/;
 let lowerCasePattern = /[a-z]/;
 localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
-let targetedScore =  JSON.parse (localStorage.getItem("updatedScore"))||[];
+let targetedScore = JSON.parse(localStorage.getItem("updatedScore")) || [];
 
 
 function Login() {
@@ -259,7 +259,7 @@ function Login() {
         }
         targetedScore.push(updatedName);
         localStorage.setItem("updatedScore", JSON.stringify(targetedScore))
-        
+
         email.value = "";
         password.value = "";
         alert("login Succesfully")
@@ -585,26 +585,26 @@ const questionsAndAnswers = [
 
 ];
 
-let randomQuestion  = [];
+let randomQuestion = [];
 
 
-for(let i=0; i< 10; i++){
-  let randomNumber = Math.floor(Math.random()*questionsAndAnswers.length);
-    if(!randomQuestion.includes(randomNumber)){
-      console.log("random number is",randomNumber);
-    let questandAns ={
-      q : questionsAndAnswers[randomNumber].q,
-      a : questionsAndAnswers[randomNumber].a,
-      b : questionsAndAnswers[randomNumber].b,
-      c : questionsAndAnswers[randomNumber].c,
-      d : questionsAndAnswers[randomNumber].d,
-      ans : questionsAndAnswers[randomNumber].ans,
+for (let i = 0; i < 10; i++) {
+  let randomNumber = Math.floor(Math.random() * questionsAndAnswers.length);
+  if (!randomQuestion.includes(randomNumber)) {
+    console.log("random number is", randomNumber);
+    let questandAns = {
+      q: questionsAndAnswers[randomNumber].q,
+      a: questionsAndAnswers[randomNumber].a,
+      b: questionsAndAnswers[randomNumber].b,
+      c: questionsAndAnswers[randomNumber].c,
+      d: questionsAndAnswers[randomNumber].d,
+      ans: questionsAndAnswers[randomNumber].ans,
     }
     randomQuestion.push(questandAns)
-  
-  
+
+
   }
-  
+
 }
 console.log(randomQuestion);
 
@@ -637,30 +637,30 @@ let index = 0;
 let score = 0;
 let progress = 10;
 let selectedAnswer = [];
-let currentIndex  = 0;
+let currentIndex = 0;
 
-for (let i = 1; i < localLogin.length; i++){
-    if(currentIndex < i){
-      currentIndex =   i;
-    }
+for (let i = 1; i < localLogin.length; i++) {
+  if (currentIndex < i) {
+    currentIndex = i;
+  }
 }
 
 currentUser.innerHTML = ` Hi ${localLogin[currentIndex].name}`;
 
 let logout = false;
 
- function logoutBtn(){
-  
-   if(!logout){
-    loginLogout.style.display= "block";
-    logout= true;
-   }
-   else{
-    loginLogout.style.display= "none";
+function logoutBtn() {
+
+  if (!logout) {
+    loginLogout.style.display = "block";
+    logout = true;
+  }
+  else {
+    loginLogout.style.display = "none";
     logout = false;
-   }
-  
- }
+  }
+
+}
 
 function render(index) {
   if (index <= localQuizz.length - 1) {
@@ -688,11 +688,11 @@ function render(index) {
   }
 
   else {
-    for (let i = 0; i < localLogin.length; i++) { 
-      if (localLogin[i].quizzScore === 0  ||  score > localLogin[i].quizzScore) {
+    for (let i = 0; i < localLogin.length; i++) {
+      if (localLogin[i].quizzScore === 0 || score > localLogin[i].quizzScore) {
         localLogin[i].quizzScore = score;
       }
-    
+
     }
     localStorage.setItem("UserDetail", JSON.stringify(localLogin));
     console.log(localLogin);
@@ -711,7 +711,7 @@ function scoreQuiz() {
     if (opt.checked) {
       selectedAnswer.push({ answerId: opt.id, index: index });
       console.log(selectedAnswer);
-      
+
       optionSelected = true;
       if (opt.id === localQuizz[index].ans) {
         score += 10;
@@ -733,10 +733,10 @@ function scoreQuiz() {
 
 
 function previousData() {
-  if (selectedAnswer[index]) { 
+  if (selectedAnswer[index]) {
     selectOption.forEach((opt) => {
       if (opt.id === selectedAnswer[index].answerId) {
-        opt.checked = true; 
+        opt.checked = true;
       }
     });
   }
@@ -793,16 +793,16 @@ function dashboardPage() {
   let currentRank = document.querySelector(".current-rank");
 
 
-let userIndex = 0;
-for(let i=1; i<localLogin.length; i++){
-  if(userIndex<i){
-    userIndex = i;
+  let userIndex = 0;
+  for (let i = 1; i < localLogin.length; i++) {
+    if (userIndex < i) {
+      userIndex = i;
+    }
+    console.log("user index", userIndex);
+
   }
-  console.log("user index",userIndex);
 
-}
-
-  currentRank.innerText = `# ${userIndex+1}`;
+  currentRank.innerText = `# ${userIndex + 1}`;
 
   rank1Name.innerText = sortedDetail[0].name;
   rank1Score.innerText = sortedDetail[0].quizzScore;
@@ -832,11 +832,61 @@ for(let i=1; i<localLogin.length; i++){
   rank6Name.innerText = sortedName6;
   rank6Score.innerText = sortedScore6;
 
- 
 
 }
 
+// admin
 
+function admin() {
+  let home = document.querySelector(".home");
+  let tableContainer = document.getElementById("table-container")
+  let scoreRender = JSON.parse(localStorage.getItem("UserDetail")) || [];
+  let sortedDetail = scoreRender.sort((a, b) => b.score - a.score);
+
+  home.addEventListener("click", function () {
+    this.classList.add('clicked');
+  })
+
+
+  let table = document.createElement("table");
+  let headerRow = document.createElement("tr");
+  let headers = ["Sr No.", "Name", "Email id", "Scores", "Action"];
+  headers.forEach(header => {
+    let th = document.createElement("th");
+    th.textContent = header;
+    headerRow.appendChild(th);
+  });
+  table.appendChild(headerRow);
+
+  sortedDetail.forEach((user, index) => {
+    let row = document.createElement("tr");
+    let tdSrNo = document.createElement("td");
+    tdSrNo.textContent = index + 1;
+    let tdName = document.createElement("td");
+    tdName.textContent = user.name;
+    let tdEmail = document.createElement("td");
+    tdEmail.textContent = user.email;
+    let tdScores = document.createElement("td");
+    tdScores.textContent = user.quizzScore;
+    let tdAction = document.createElement("td");
+    let actionButton = document.createElement("button");
+    actionButton.classList = "veiw-result-btn"
+    actionButton.textContent = "view result";
+    tdAction.appendChild(actionButton);
+
+    row.appendChild(tdSrNo);
+    row.appendChild(tdName);
+    row.appendChild(tdEmail);
+    row.appendChild(tdScores);
+    row.appendChild(tdAction);
+
+    table.appendChild(row);
+
+  })
+
+  tableContainer.appendChild(table);
+
+}
 
 
 
