@@ -854,8 +854,6 @@ sideBar.addEventListener("click",function(){
   
 })
 
-
-
   home.addEventListener("click", function () {
     this.classList.add('clicked');
     adminStart.style.display = "none";
