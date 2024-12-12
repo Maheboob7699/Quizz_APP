@@ -71,6 +71,15 @@ body{
     margin-left: 10px;
 }
 
+.rotate{
+    transition-delay: 0.2s;
+transition-duration: 1s ;
+color: red;
+transform: rotate(360deg);
+
+
+}
+
   .home.clicked i, .home.clicked span {
     color: orange; /* Change this to your desired clicked color */
   }
@@ -94,6 +103,13 @@ body{
 
 .user-data{
     width: 100%;
+
+}
+
+.admin-start{
+font-size: 3rem;
+ text-align: center;
+padding-top: 170px;
 }
 
 table {

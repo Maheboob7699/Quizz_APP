@@ -586,15 +586,16 @@ const questionsAndAnswers = [
 ];
 
 let randomQuestion = [];
-let usedIndices = new Set();  // Use Set to store unique indices
+let usedIndices = new Set();  
 
 for (let i = 0; i < 10; i++) {
   let randomNumber = Math.floor(Math.random() * questionsAndAnswers.length);
   
   if (usedIndices.has(randomNumber)) {
-    i--; // Decrease i to retry this iteration
+    i--;
+
   } else {
-    usedIndices.add(randomNumber); // Mark the index as used
+    usedIndices.add(randomNumber); 
     console.log("random number is", randomNumber);
     
     let questandAns = {
@@ -609,7 +610,6 @@ for (let i = 0; i < 10; i++) {
   }
 }
 
-console.log(randomQuestion); // 
 
 // localStorage.setItem("quizzData", JSON.stringify(questionsAndAnswers))
 // let localQuizz = JSON.parse(localStorage.getItem("quizzData"));
@@ -692,7 +692,7 @@ function render(index) {
 
   else {
     for (let i = 0; i < localLogin.length; i++) {
-      if (localLogin[i].quizzScore === 0 || score > localLogin[i].quizzScore) {
+      if (localLogin[i].quizzScore === 0) {
         localLogin[i].quizzScore = score;
       }
 
@@ -842,18 +842,24 @@ function dashboardPage() {
 
 function admin() {
   let home = document.querySelector(".home");
+  let sideBar = document.querySelector(".bar");
+  let adminStart = document.querySelector(".admin-start");
   let tableContainer = document.getElementById("table-container")
   let scoreRender = JSON.parse(localStorage.getItem("UserDetail")) || [];
   let sortedDetail = scoreRender.sort((a, b) => b.score - a.score);
-  //  console.log(sortedDetail);
-   
+
+
+sideBar.addEventListener("click",function(){
+  this.classList.add('rotate');
+  
+})
+
+
 
   home.addEventListener("click", function () {
     this.classList.add('clicked');
-  })
-
-
-  let table = document.createElement("table");
+    adminStart.style.display = "none";
+    let table = document.createElement("table");
   let headerRow = document.createElement("tr");
   let headers = ["Sr No.", "Name", "Email id", "Scores", "Action"];
   headers.forEach(header => {
@@ -889,6 +895,10 @@ function admin() {
 
   })
   tableContainer.appendChild(table);
+  })
+
+
+  
 }
 
 
