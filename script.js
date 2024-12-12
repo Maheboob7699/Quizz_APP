@@ -586,12 +586,17 @@ const questionsAndAnswers = [
 ];
 
 let randomQuestion = [];
-
+let usedIndices = new Set();  // Use Set to store unique indices
 
 for (let i = 0; i < 10; i++) {
   let randomNumber = Math.floor(Math.random() * questionsAndAnswers.length);
-  if (!randomQuestion.includes(randomNumber)) {
+  
+  if (usedIndices.has(randomNumber)) {
+    i--; // Decrease i to retry this iteration
+  } else {
+    usedIndices.add(randomNumber); // Mark the index as used
     console.log("random number is", randomNumber);
+    
     let questandAns = {
       q: questionsAndAnswers[randomNumber].q,
       a: questionsAndAnswers[randomNumber].a,
@@ -599,15 +604,12 @@ for (let i = 0; i < 10; i++) {
       c: questionsAndAnswers[randomNumber].c,
       d: questionsAndAnswers[randomNumber].d,
       ans: questionsAndAnswers[randomNumber].ans,
-    }
-    randomQuestion.push(questandAns)
-
-
+    };
+    randomQuestion.push(questandAns);
   }
-
 }
-console.log(randomQuestion);
 
+console.log(randomQuestion); // 
 
 // localStorage.setItem("quizzData", JSON.stringify(questionsAndAnswers))
 // let localQuizz = JSON.parse(localStorage.getItem("quizzData"));
@@ -639,7 +641,7 @@ let progress = 10;
 let selectedAnswer = [];
 let currentIndex = 0;
 
-for (let i = 1; i < localLogin.length; i++) {
+for (let i = 0; i < localLogin.length; i++) {
   if (currentIndex < i) {
     currentIndex = i;
   }
@@ -647,8 +649,9 @@ for (let i = 1; i < localLogin.length; i++) {
 
 currentUser.innerHTML = ` Hi ${localLogin[currentIndex].name}`;
 
-let logout = false;
 
+
+let logout = false;
 function logoutBtn() {
 
   if (!logout) {
@@ -842,6 +845,8 @@ function admin() {
   let tableContainer = document.getElementById("table-container")
   let scoreRender = JSON.parse(localStorage.getItem("UserDetail")) || [];
   let sortedDetail = scoreRender.sort((a, b) => b.score - a.score);
+  //  console.log(sortedDetail);
+   
 
   home.addEventListener("click", function () {
     this.classList.add('clicked');
@@ -883,9 +888,7 @@ function admin() {
     table.appendChild(row);
 
   })
-
   tableContainer.appendChild(table);
-
 }
 
 
