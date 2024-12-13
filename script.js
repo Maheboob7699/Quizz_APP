@@ -846,17 +846,31 @@ function admin() {
   let quizzSection = document.querySelector(".quizz-section");
   let quizzContainer = document.querySelector(".quizz-conatiner");
   let sideBar = document.querySelector(".bar");
+  let addQuestion = document.querySelector(".add-question");
   let adminStart = document.querySelector(".admin-start");
+  let cancleButton = document.querySelector(".cancle-button");
+  let createQuestion = document.querySelector(".create-questions");
   let tableContainer = document.getElementById("table-container")
   let scoreRender = JSON.parse(localStorage.getItem("UserDetail")) || [];
   let localQuizz = JSON.parse(localStorage.getItem("quizzData")) || [];
   let sortedDetail = scoreRender.sort((a, b) => b.score - a.score);
 
-  let rowData = document.querySelector(".row-data");
 
   sideBar.addEventListener("click", function () {
     this.classList.add('rotate');
 
+  })
+  addQuestion.addEventListener("click",function(){
+    createQuestion.style.display= "block";
+    
+  })
+
+
+
+
+  cancleButton.addEventListener("click",function(){
+    createQuestion.style.display= "none";
+    
   })
 
   home.addEventListener("click", function () {
