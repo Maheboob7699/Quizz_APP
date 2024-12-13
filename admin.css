@@ -66,6 +66,9 @@ body{
 .home{
     cursor: pointer;
 }
+.quizz-menu{
+    cursor: pointer;
+}
 
 .home span{
     margin-left: 10px;
@@ -79,25 +82,28 @@ transform: rotate(360deg);
 
 
 }
-
   .home.clicked i, .home.clicked span {
     color: orange; /* Change this to your desired clicked color */
   }
 
-.user {
+.user-menu {
     margin-top: 10px;
     
 }
 
-.user span{
+.user-menu span{
     margin-left:10px;
 }
 
-.quizz{
+.quizz-menu{
     margin-top: 10px;
 }
 
-.quizz span{
+.quizz-menu.clicked i, .quizz-menu.clicked span{
+    color: orange;
+}
+
+.quizz-menu span{
     margin-left: 10px;
 }
 
@@ -129,3 +135,34 @@ table {
     color:  blue;
     border: none;
   }
+
+
+  .quizz-section{
+    width: 100%;
+    height: 500px;
+    margin-top: 40px;
+    display: none;
+}
+
+.quizz-section h1{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid gray;
+}
+.add-question{
+    background-color: green;
+    border: none;
+    height: 25px;
+    border-radius: 5px;
+    color: white;
+    margin-left: 84%;
+}
+
+.quizz-conatiner{
+    margin-top: 20px;
+    width: 100%;
+}
+
+
+
+
