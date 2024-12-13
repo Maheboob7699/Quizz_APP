@@ -118,7 +118,7 @@ font-size: 3rem;
 padding-top: 170px;
 }
 
-table {
+ table {
     width: 100%;
     border-collapse: collapse; /* Ensures borders collapse into a single line */
   }
@@ -162,6 +162,50 @@ table {
     margin-top: 20px;
     width: 100%;
 }
+
+
+
+.quizz-conatiner table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  .quizz-conatiner table th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .quizz-conatiner table th {
+    background-color: #c0e5e7;
+  }
+  
+  .quizz-conatiner table tr:hover {
+    background-color: #ddd;
+  }
+
+  .row-data{
+    cursor: pointer;
+  }
+
+
+  .show-quizz{
+   height: 20px;
+   border: none;
+    background-color: rgb(156, 214, 156);
+    border-radius: 5px;
+  }
+  .edit-quizz{
+    margin-left: 10px;
+  }
+  .delete-quizz{
+    margin-left: 10px;
+  }
+
+
+  
+  
 
 
 

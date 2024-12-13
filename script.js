@@ -850,9 +850,9 @@ function admin() {
   let tableContainer = document.getElementById("table-container")
   let scoreRender = JSON.parse(localStorage.getItem("UserDetail")) || [];
   let localQuizz = JSON.parse(localStorage.getItem("quizzData")) || [];
-
   let sortedDetail = scoreRender.sort((a, b) => b.score - a.score);
 
+  let rowData = document.querySelector(".row-data");
 
   sideBar.addEventListener("click", function () {
     this.classList.add('rotate');
@@ -934,7 +934,10 @@ function admin() {
     tableQuizz.appendChild(quizzRow);
 
     localQuizz.forEach((quizzData, index) => {
+     
+      
       let row = document.createElement("tr");
+      row.className= 'row-data'
 
       let tdSrNo = document.createElement("td");
       tdSrNo.textContent = index + 1;
@@ -972,8 +975,17 @@ function admin() {
       row.appendChild(tdAction);
 
       tableQuizz.appendChild(row);
+
+      row.addEventListener("click",function(){
+        console.log("index is",index);
+        
+      })
+  
+
+     
     })
 
+  
     console.log(tableQuizz);
     quizzContainer.appendChild(tableQuizz)
 
