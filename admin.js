@@ -205,8 +205,7 @@ quizz.addEventListener("click", function () {
                 quizzRender.appendChild(quizzDisplay);
                 quizzRender.style.display = "block";
 
-                let cancleDetails = document.querySelector(".cancle-details");
-                cancleDetails.addEventListener("click",function(){
+                quizzDisplay.querySelector(".cancle-details").addEventListener("click",function(){
                     quizzRender.style.display = "none";
                 })
             });
