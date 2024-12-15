@@ -145,11 +145,13 @@ function signUp() {
         password: signupPassword.value,
         quizzScore: 0,
       }
+
       let userDetails={
         name: userFullName.value,
         email: signupEmail.value,
         date: new Date(),
-        questions:"",
+        questions:localQuizz,
+      
       }
       localLogin.push(loginDetail);
       localStorage.setItem("UserDetail", JSON.stringify(localLogin))
@@ -203,7 +205,7 @@ let numberPattern = /\d/;
 let upperCasepattern = /[A-Z]/;
 let lowerCasePattern = /[a-z]/;
 localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
-let targetedScore = JSON.parse(localStorage.getItem("updatedScore")) || [];
+
 
 
 function Login() {
@@ -264,12 +266,6 @@ function Login() {
     let matchFound = false;
     for (let i = 0; i < localLogin.length; i++) {
       if (email.value === localLogin[i].email && password.value === localLogin[i].password) {
-        let updatedName = {
-          name: localLogin[i].name,
-        }
-        targetedScore.push(updatedName);
-        localStorage.setItem("updatedScore", JSON.stringify(targetedScore))
-
         email.value = "";
         password.value = "";
         alert("login Succesfully")
@@ -648,7 +644,7 @@ let currentUser = document.querySelector(".current-user");
 let index = 0;
 let score = 0;
 let progress = 10;
-let selectedAnswer = [];
+let selectedAnswer = JSON.parse(localStorage.getItem("UserScore"))||[];
 let currentIndex = 0;
 
 for (let i = 0; i < localLogin.length; i++) {
@@ -711,14 +707,6 @@ function render(index) {
     console.log(localLogin);
     alert("are you sure to submit ")
 
-    for(let i=0; i<localUser.length; i++){
-       if(localUser[i].questions===""){
-       localUser[i].questions= localQuizz;
-       }
-    }
-
-    localStorage.setItem("UserViewDetails", JSON.stringify(localUser))
-
     window.location.href = "dashboard.html";
   }
 }
@@ -730,8 +718,19 @@ function scoreQuiz() {
   let optionSelected = false;
   selectOption.forEach((opt) => {
     if (opt.checked) {
-      selectedAnswer.push({ answerId: opt.id, index: index });
-      console.log(selectedAnswer);
+      let alreadySelected = false;
+
+      for(let i=0; i<selectedAnswer.length; i++){
+        if(selectedAnswer[i].index === index){
+          alreadySelected = true;
+          alert("already slected")
+          break
+        }
+      }
+      if(!alreadySelected){
+        selectedAnswer.push({ answerId: opt.id, index: index });
+      }
+
 
       optionSelected = true;
       if (opt.id === localQuizz[index].ans) {
