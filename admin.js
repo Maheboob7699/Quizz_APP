@@ -206,7 +206,7 @@ quizz.addEventListener("click", function () {
                 editOption4.value = quizzData.d;
                 editSelectAnswer.value = quizzData.ans;
                 editQuestions.style.display = "block";
-                
+
                 editCancleButton.addEventListener("click", function () {
                     editQuestions.style.display = "none";
                 })
@@ -220,7 +220,8 @@ quizz.addEventListener("click", function () {
                     quizzData.c = editOption3.value;
                     quizzData.c = editOption4.value;
                    quizzData.ans = editSelectAnswer.value;
-                    localStorage.setItem("quizzData",JSON.stringify(quizzData))
+                   localQuizz[index] = quizzData;
+                    localStorage.setItem("quizzData",JSON.stringify(localQuizz))
                     editQuestions.style.display="none";
                 })
             })

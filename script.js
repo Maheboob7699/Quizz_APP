@@ -14,7 +14,7 @@ let signupPasswordError = document.querySelector(".sigunp-password-error");
 let signupUserError = document.querySelector(".sigunp-user-error");
 
 let localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
-
+let localUser = JSON.parse(localStorage.getItem("UserViewDetails")) || [];
 
 
 function signUp() {
@@ -145,8 +145,18 @@ function signUp() {
         password: signupPassword.value,
         quizzScore: 0,
       }
+      let userDetails={
+        name: userFullName.value,
+        email: signupEmail.value,
+        date: new Date(),
+        questions:"",
+      }
       localLogin.push(loginDetail);
       localStorage.setItem("UserDetail", JSON.stringify(localLogin))
+      localUser.push(userDetails)
+      localStorage.setItem("UserViewDetails", JSON.stringify(localUser))
+
+
       userFullName.value = "",
         signupEmail.value = "",
         signupPassword.value = "";
@@ -700,6 +710,14 @@ function render(index) {
     localStorage.setItem("UserDetail", JSON.stringify(localLogin));
     console.log(localLogin);
     alert("are you sure to submit ")
+
+    for(let i=0; i<localUser.length; i++){
+       if(localUser[i].questions===""){
+       localUser[i].questions= localQuizz;
+       }
+    }
+
+    localStorage.setItem("UserViewDetails", JSON.stringify(localUser))
 
     window.location.href = "dashboard.html";
   }
