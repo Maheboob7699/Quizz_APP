@@ -23,8 +23,29 @@ let questionSelect = document.querySelector(".select-option");
 let selectAnswer = document.querySelector("#select-answer");
 let sumbitCreateQuestion = document.querySelector(".sumbit-create-question");
 let quizzRender = document.querySelector(".quizz-show");
+let cancleDetail = document.querySelector(".cancel-details");
 
-console.log(selectAnswer.value);
+
+
+let displayQuestion = document.querySelector(".display-question");
+let displayOption1 = document.querySelector(".display-option1");
+let displayOption2 = document.querySelector(".display-option2");
+let displayOption3 = document.querySelector(".display-option3");
+let displayOption4 = document.querySelector(".display-option4");
+let displayAnswer = document.querySelector(".display-answer");
+let cancle
+console.log(displayQuestion);
+
+
+let editQuestions = document.querySelector(".edit-questions");
+let editQuest = document.querySelector("#edit-question-input");
+let editOption1 = document.querySelector("#edit-option1-input");
+let editOption2 = document.querySelector("#edit-option2-input");
+let editOption3 = document.querySelector("#edit-option3-input");
+let editOption4 = document.querySelector("#edit-option4-input");
+let editSelectAnswer = document.querySelector("#edit-select-answer");
+let editCancleButton = document.querySelector(".edit-cancle-button");
+let submitEditButton = document.querySelector(".sumbit-edit-question");
 
 sideBar.addEventListener("click", function () {
     this.classList.add('rotate');
@@ -144,7 +165,7 @@ quizz.addEventListener("click", function () {
             editButton.appendChild(editIcon);
 
             let deleteButton = document.createElement("button");
-              deleteButton.classList = "delete-quizz";
+            deleteButton.classList = "delete-quizz";
             let deleteIcon = document.createElement("i");
             deleteIcon.classList.add("fa-solid", "fa-trash-can");
             deleteButton.appendChild(deleteIcon);
@@ -159,60 +180,54 @@ quizz.addEventListener("click", function () {
 
             tableQuizz.appendChild(row);
 
-
-            row.addEventListener("click", function () {
+            //   if user click show icon then particular form is show
+            showButton.addEventListener("click", function () {
                 console.log("index is", index);
                 console.log("items is ", quizzData);
-                let quizzDisplay = document.createElement("div");
-            
-                quizzDisplay.innerHTML = `
-                                  <div class="display-quizz-data">
-                                  <h2>Question Details </h2>
-                                  <div class="cancle-details">
-                                       <i class="fa-solid fa-xmark"></i>
-                                     </div>
-                                   <div class="quizz-display">
-                                    <div>
-                                       Question
-                                      <h3 class="display-question">${quizzData.q}</h3>
-                   
-                                    </div>
-                                 <div>
-                                    option a
-                                     <h3 class="display-option1">${quizzData.a}</h3>
-                                 </div>
-                                  <div>
-                                      option b
-                                      <h3 class="display-option2">${quizzData.b}</h3>
-                                  </div>
-
-                                  <div>
-                                    option c
-                                    <h3 class="display-option3">${quizzData.c}</h3> 
-                                  </div>
-
-                                <div>
-                                 option d
-                                 <h3 class="display-option4">${quizzData.d}</h3> 
-                                </div>
-
-                                <div>
-                                  Correct Answer
-                                  <h3 class="display-answer"> correct option is ${quizzData.ans}</h3> 
-                                </div>
-                           </div>
-                       </div>             `
-                quizzRender.appendChild(quizzDisplay);
-                quizzRender.style.display = "block";
-
-                quizzDisplay.querySelector(".cancle-details").addEventListener("click",function(){
-                    quizzRender.style.display = "none";
+                displayAnswer.innerHTML = quizzData.q;
+                displayOption1.innerHTML = quizzData.a;
+                displayOption2.innerHTML = quizzData.b;
+                displayOption3.innerHTML = quizzData.c;
+                displayOption4.innerHTML = quizzData.d;
+                displayAnswer.innerHTML = quizzData.ans;
+                quizzRender.style.display="block";
+                cancleDetail.addEventListener("click",function(){
+                    quizzRender.style.display="none";
                 })
             });
 
+            // if user click on edit then change it
+            editButton.addEventListener("click", function () {
+                console.log(quizzData);
+                editQuest.value = quizzData.q;
+                editOption1.value = quizzData.a;
+                editOption2.value = quizzData.b;
+                editOption3.value = quizzData.c;
+                editOption4.value = quizzData.d;
+                editSelectAnswer.value = quizzData.ans;
+                editQuestions.style.display = "block";
+                
+                editCancleButton.addEventListener("click", function () {
+                    editQuestions.style.display = "none";
+                })
+
+
+                submitEditButton.addEventListener("click", function () {
+                    console.log("edit submit");
+                    quizzData.q = editQuest.value;
+                    quizzData.a = editOption1.value;
+                    quizzData.b = editOption2.value;
+                    quizzData.c = editOption3.value;
+                    quizzData.c = editOption4.value;
+                   quizzData.ans = editSelectAnswer.value;
+                    localStorage.setItem("quizzData",JSON.stringify(quizzData))
+                    editQuestions.style.display="none";
+                })
+            })
+
+            // if user click delete then specific row will be delete
             deleteButton.addEventListener("click", function () {
                 row.remove();
-
                 localQuizz.splice(index, 1);
                 localStorage.setItem("quizzData", JSON.stringify(localQuizz));
                 showQuizz();
@@ -228,6 +243,8 @@ quizz.addEventListener("click", function () {
         createQuestion.style.display = "block";
 
     })
+
+
 
     sumbitCreateQuestion.addEventListener("click", function () {
         let insertQuestionandAns = {
