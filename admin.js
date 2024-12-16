@@ -25,6 +25,10 @@ let sumbitCreateQuestion = document.querySelector(".sumbit-create-question");
 let quizzRender = document.querySelector(".quizz-show");
 let cancleDetail = document.querySelector(".cancel-details");
 
+let testInformation = document.querySelector(".test-information");
+let userTestDetails = document.querySelector(".user-personal-details");
+let userName = document.querySelector(".user-name");
+let userEmail = document.querySelector(".user-email");
 
 
 let displayQuestion = document.querySelector(".display-question");
@@ -33,7 +37,7 @@ let displayOption2 = document.querySelector(".display-option2");
 let displayOption3 = document.querySelector(".display-option3");
 let displayOption4 = document.querySelector(".display-option4");
 let displayAnswer = document.querySelector(".display-answer");
-let cancle
+
 console.log(displayQuestion);
 
 
@@ -106,6 +110,84 @@ home.addEventListener("click", function () {
 
         table.appendChild(row);
 
+        actionButton.addEventListener("click", function () {
+            let userView = JSON.parse(localStorage.getItem("UserViewDetails"));
+            console.log(user);
+            
+            console.log("index is",index);
+            userName.innerText = userView[index].name;
+            userEmail.innerText = userView[index].email;
+            let questionsRender = userView[index].questions;
+            questionsRender.forEach((data) => {
+                console.log(data.q);
+                let testStore = document.createElement("div");
+                testStore.className = "test-store";
+
+                let questiondiv = document.createElement("div");
+                questiondiv.className="question";
+                let questionHeading = document.createElement("h3");
+                questionHeading.textContent = "Question";
+                let question = document.createElement("div");
+                question.textContent = data.q;
+
+                 questiondiv.appendChild(questionHeading);
+                 questiondiv.appendChild(question);
+
+
+                let option1div = document.createElement("div");
+                option1div.className="option-1";
+                let option1heading = document.createElement("h3"); 
+                option1heading.textContent = "Option 1"; 
+                let option1 = document.createElement("div"); 
+                option1.textContent = data.a; 
+                option1div.appendChild(option1heading); 
+                option1div.appendChild(option1);
+
+                let option2div = document.createElement("div");
+                option2div.className="option-2";
+                let option2heading = document.createElement("h3"); 
+                option2heading.textContent = "Option 2"; 
+                let option2 = document.createElement("div"); 
+                option2.textContent = data.b; 
+                option2div.appendChild(option2heading); 
+                option2div.appendChild(option2);
+
+                let option3div = document.createElement("div");
+                option3div.className="option-3";
+                let option3heading = document.createElement("h3"); 
+                option3heading.textContent = "Option 3"; 
+                let option3 = document.createElement("div"); 
+                option3.textContent = data.c; 
+                option3div.appendChild(option3heading); 
+                option3div.appendChild(option3);
+
+                let option4div = document.createElement("div");
+                option4div.className="option-4";
+                let option4heading = document.createElement("h3"); 
+                option4heading.textContent = "Option 4"; 
+                let option4 = document.createElement("div"); 
+                option4.textContent = data.d; 
+                option4div.appendChild(option4heading); 
+                option4div.appendChild(option4);
+
+
+
+              
+                testStore.appendChild(questiondiv);
+                testStore.appendChild(option1div);
+                testStore.appendChild(option2div);
+                testStore.appendChild(option3div);
+                testStore.appendChild(option4div);
+                testInformation.appendChild(testStore);
+                tableContainer.style.display = "none";
+                userTestDetails.style.display ="block";
+
+
+            })
+
+
+        })
+
     })
     tableContainer.appendChild(table);
 })
@@ -116,6 +198,7 @@ quizz.addEventListener("click", function () {
 
     adminStart.style.display = "none";
     tableContainer.style.display = "none";
+    userTestDetails.style.display="none";
     quizzSection.style.display = "block";
 
     if (quizzContainer.querySelector("table")) {
@@ -190,9 +273,9 @@ quizz.addEventListener("click", function () {
                 displayOption3.innerHTML = quizzData.c;
                 displayOption4.innerHTML = quizzData.d;
                 displayAnswer.innerHTML = quizzData.ans;
-                quizzRender.style.display="block";
-                cancleDetail.addEventListener("click",function(){
-                    quizzRender.style.display="none";
+                quizzRender.style.display = "block";
+                cancleDetail.addEventListener("click", function () {
+                    quizzRender.style.display = "none";
                 })
             });
 
@@ -219,10 +302,10 @@ quizz.addEventListener("click", function () {
                     quizzData.b = editOption2.value;
                     quizzData.c = editOption3.value;
                     quizzData.c = editOption4.value;
-                   quizzData.ans = editSelectAnswer.value;
-                   localQuizz[index] = quizzData;
-                    localStorage.setItem("quizzData",JSON.stringify(localQuizz))
-                    editQuestions.style.display="none";
+                    quizzData.ans = editSelectAnswer.value;
+                    localQuizz[index] = quizzData;
+                    localStorage.setItem("quizzData", JSON.stringify(localQuizz))
+                    editQuestions.style.display = "none";
                 })
             })
 

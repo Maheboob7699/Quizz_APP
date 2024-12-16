@@ -66,6 +66,110 @@ body {
 
 }
 
+/* user personal test details  */
+
+.user-personal-details{
+  width: 88%;
+  height: 600px;
+  /* background-color: aqua; */
+  border-radius: 10px;
+  position: absolute;
+  top: 100px;
+  display: none;
+}
+
+.user-information{
+  display: flex;
+    gap: 10px;
+    height: 50px;
+    width: 96%;
+    border-radius: 3px;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 8px 16px 0px #1C1C1E1A;
+}
+.user-information h2{
+  padding-left: 10px;
+  margin-top: 8px;
+}
+.user-test-details{
+  border: 1px solid rgb(243 237 237);
+  border-radius: 5px;
+    height: auto;
+    width: 96%;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.user-test-details .test-data{
+  height: 60px;
+    width: 100%;
+    /* margin-left: 10px; */
+    border-radius: 3px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 8px 16px 0px #1C1C1E1A;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.test-information{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* border: 1px solid grey; */
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+ 
+}
+
+.test-store{
+  width: 98%;
+  height: auto;
+  /* border: 1px solid grey; */
+  background-color: #FFFFFF;
+  box-shadow: 0px 8px 16px 0px #1C1C1E1A;
+  margin-left: 10px;
+  border-radius: 10px;
+
+}
+.question{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 10px;
+}
+.option-1{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 10px;
+}
+
+.option-2{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 10px;
+}
+
+.option-3{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 10px;
+}
+
+.option-4{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 10px;
+}
+
+
+/* user personal  test details  end */
+
 .home {
   cursor: pointer;
 }
