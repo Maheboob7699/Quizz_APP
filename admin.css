@@ -133,6 +133,10 @@ body {
   border-radius: 10px;
 
 }
+.options {
+  border-radius: 7px;
+   height: 30px;
+}
 .question{
   display: flex;
   align-items: center;

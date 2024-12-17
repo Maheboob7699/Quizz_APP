@@ -14,10 +14,10 @@ let signupPasswordError = document.querySelector(".sigunp-password-error");
 let signupUserError = document.querySelector(".sigunp-user-error");
 
 let localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
-let localUser = JSON.parse(localStorage.getItem("UserViewDetails")) || [];
 
 
 function signUp() {
+ 
 
 
   let random = Math.floor(Math.random() * localLogin.length)
@@ -146,17 +146,17 @@ function signUp() {
         quizzScore: 0,
       }
 
-      let userDetails={
-        name: userFullName.value,
-        email: signupEmail.value,
-        date: new Date(),
-        questions:localQuizz,
+      // let userDetails={
+      //   name: userFullName.value,
+      //   email: signupEmail.value,
+      //   date: new Date(),
+      //   questions:localQuizz,
       
-      }
+      // }
       localLogin.push(loginDetail);
       localStorage.setItem("UserDetail", JSON.stringify(localLogin))
-      localUser.push(userDetails)
-      localStorage.setItem("UserViewDetails", JSON.stringify(localUser))
+      // localUser.push(userDetails)
+      // localStorage.setItem("UserViewDetails", JSON.stringify(localUser))
 
 
       userFullName.value = "",
@@ -205,6 +205,8 @@ let numberPattern = /\d/;
 let upperCasepattern = /[A-Z]/;
 let lowerCasePattern = /[a-z]/;
 localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
+
+let localUser = JSON.parse(localStorage.getItem("UserViewDetails")) || [];
 
 
 
@@ -269,6 +271,16 @@ function Login() {
         email.value = "";
         password.value = "";
         alert("login Succesfully")
+
+        let userDetails = {
+          name: localLogin[i].name, // Assuming this is a form field
+          email: email.value, // Assuming this is a form field
+          date: new Date(),
+          questions: "", // Store quiz questions or data
+      };
+
+      localUser.push(userDetails); // Push user data to the local storage array
+      localStorage.setItem("UserViewDetails", JSON.stringify(localUser)); 
         window.location.href = "quizz.html";
         return
       }
@@ -617,11 +629,29 @@ for (let i = 0; i < 10; i++) {
 }
 
 
-// localStorage.setItem("quizzData", JSON.stringify(questionsAndAnswers))
-// let localQuizz = JSON.parse(localStorage.getItem("quizzData"));
-// localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
 
-localStorage.setItem("quizzData", JSON.stringify(randomQuestion))
+ localUser = JSON.parse(localStorage.getItem("UserViewDetails")) || [];
+
+
+ for (let i = 0; i < localUser.length; i++) {
+  if (localUser[i].questions === "") {
+    localUser[i].questions = randomQuestion; 
+  }
+  
+    if(!localUser[i].questions === localUser[i].questions){
+      localUser[i].questions = randomQuestion; 
+    }
+    
+  
+}
+
+
+
+localStorage.setItem("quizzData", JSON.stringify(randomQuestion));
+localStorage.setItem("UserViewDetails", JSON.stringify(localUser));
+ 
+
+
 let localQuizz = JSON.parse(localStorage.getItem("quizzData"));
 localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
 
