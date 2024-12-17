@@ -645,6 +645,7 @@ let index = 0;
 let score = 0;
 let progress = 10;
 let selectedAnswer = JSON.parse(localStorage.getItem("UserScore"))||[];
+let selectedId=[];
 let currentIndex = 0;
 
 for (let i = 0; i < localLogin.length; i++) {
@@ -703,7 +704,9 @@ function render(index) {
       }
 
     }
+    selectedAnswer.push(selectedId)
     localStorage.setItem("UserDetail", JSON.stringify(localLogin));
+    localStorage.setItem("UserScore",JSON.stringify(selectedAnswer));
     console.log(localLogin);
     alert("are you sure to submit ")
 
@@ -718,19 +721,20 @@ function scoreQuiz() {
   let optionSelected = false;
   selectOption.forEach((opt) => {
     if (opt.checked) {
-      let alreadySelected = false;
 
-      for(let i=0; i<selectedAnswer.length; i++){
-        if(selectedAnswer[i].index === index){
+
+      let alreadySelected = false;
+      for(let i=0; i<selectedId.length; i++){
+        if(selectedId[i].index === index){
           alreadySelected = true;
           alert("already slected")
           break
         }
       }
       if(!alreadySelected){
-        selectedAnswer.push({ answerId: opt.id, index: index });
+        selectedId.push({ answerId:opt.id, index:index});
+    console.log("selected id",selectedId);
       }
-
 
       optionSelected = true;
       if (opt.id === localQuizz[index].ans) {

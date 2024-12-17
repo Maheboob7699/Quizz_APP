@@ -86,7 +86,8 @@ home.addEventListener("click", function () {
     table.appendChild(headerRow);
 
     sortedDetail.forEach((user, index) => {
-
+                   console.log("index is",index);
+                   
         let row = document.createElement("tr");
         let tdSrNo = document.createElement("td");
         tdSrNo.textContent = index + 1;
@@ -112,14 +113,24 @@ home.addEventListener("click", function () {
 
         actionButton.addEventListener("click", function () {
             let userView = JSON.parse(localStorage.getItem("UserViewDetails"));
-            console.log(user);
-            
+            console.log(userView);
             console.log("index is",index);
+        
+            let UserScore = JSON.parse(localStorage.getItem("UserScore"));
+            console.log(UserScore[index]);  
+            let particularScore ;
+             particularScore = UserScore[index];
+                      
+            console.log("index is", index);
             userName.innerText = userView[index].name;
             userEmail.innerText = userView[index].email;
             let questionsRender = userView[index].questions;
+        
+
+            let commonOptions = "options";
             questionsRender.forEach((data) => {
-                console.log(data.q);
+                
+
                 let testStore = document.createElement("div");
                 testStore.className = "test-store";
 
@@ -135,7 +146,9 @@ home.addEventListener("click", function () {
 
 
                 let option1div = document.createElement("div");
-                option1div.className="option-1";
+                option1div.className = `${commonOptions} option-1`;
+                option1div.id = "a";
+
                 let option1heading = document.createElement("h3"); 
                 option1heading.textContent = "Option 1"; 
                 let option1 = document.createElement("div"); 
@@ -144,7 +157,9 @@ home.addEventListener("click", function () {
                 option1div.appendChild(option1);
 
                 let option2div = document.createElement("div");
-                option2div.className="option-2";
+                option2div.className = `${commonOptions} option-2`;
+                option2div.id = "b";
+
                 let option2heading = document.createElement("h3"); 
                 option2heading.textContent = "Option 2"; 
                 let option2 = document.createElement("div"); 
@@ -153,7 +168,8 @@ home.addEventListener("click", function () {
                 option2div.appendChild(option2);
 
                 let option3div = document.createElement("div");
-                option3div.className="option-3";
+                option3div.className = `${commonOptions} option-3`;
+                option3div.id = "c";
                 let option3heading = document.createElement("h3"); 
                 option3heading.textContent = "Option 3"; 
                 let option3 = document.createElement("div"); 
@@ -162,7 +178,8 @@ home.addEventListener("click", function () {
                 option3div.appendChild(option3);
 
                 let option4div = document.createElement("div");
-                option4div.className="option-4";
+                option4div.className = `${commonOptions} option-4`;
+                option4div.id = "d";
                 let option4heading = document.createElement("h3"); 
                 option4heading.textContent = "Option 4"; 
                 let option4 = document.createElement("div"); 
@@ -170,23 +187,34 @@ home.addEventListener("click", function () {
                 option4div.appendChild(option4heading); 
                 option4div.appendChild(option4);
 
-
-
-              
                 testStore.appendChild(questiondiv);
                 testStore.appendChild(option1div);
                 testStore.appendChild(option2div);
                 testStore.appendChild(option3div);
                 testStore.appendChild(option4div);
+
                 testInformation.appendChild(testStore);
                 tableContainer.style.display = "none";
                 userTestDetails.style.display ="block";
-
-
+            
             })
 
+            let optionStore = document.querySelectorAll(".options");
+
+            particularScore.forEach((score,index) => {
+                // optionStore.forEach((opt) => {
+                //     if (opt.id === score.answerId) {
+                //         console.log("id is", score.answerId);
+                //         opt.style.color = "red";  // Apply color to the matching option
+                //     }
+                // });
+                console.log(score.answerId,index);
+                
+            });
 
         })
+
+       
 
     })
     tableContainer.appendChild(table);
