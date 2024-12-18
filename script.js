@@ -412,7 +412,7 @@ function start() {
   }
 
 }
-
+let userIndex = 0;
 const questionsAndAnswers = [
   {
     q: "What is HTML?",
@@ -629,6 +629,8 @@ for (let i = 0; i < 10; i++) {
 }
 
 
+ console.log("userIndex is",userIndex);
+ 
 
  localUser = JSON.parse(localStorage.getItem("UserViewDetails")) || [];
 
@@ -638,9 +640,10 @@ for (let i = 0; i < 10; i++) {
     localUser[i].questions = randomQuestion; 
   }
   
-    if(!localUser[i].questions === localUser[i].questions){
-      localUser[i].questions = randomQuestion; 
-    }
+  else if (localUser[i].questions !== randomQuestion) {
+    localUser[i].questions = randomQuestion;
+  }
+    
     
   
 }
@@ -738,9 +741,10 @@ function render(index) {
     localStorage.setItem("UserDetail", JSON.stringify(localLogin));
     localStorage.setItem("UserScore",JSON.stringify(selectedAnswer));
     console.log(localLogin);
+    userIndex++;
     alert("are you sure to submit ")
 
-    window.location.href = "dashboard.html";
+    // window.location.href = "dashboard.html";
   }
 }
 
