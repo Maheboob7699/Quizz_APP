@@ -635,23 +635,24 @@ for (let i = 0; i < 10; i++) {
  localUser = JSON.parse(localStorage.getItem("UserViewDetails")) || [];
 
 
- for (let i = 0; i < localUser.length; i++) {
+ for (let i = userIndex; i < localUser.length; i++) {
   if (localUser[i].questions === "") {
     localUser[i].questions = randomQuestion; 
+    
   }
   
   else if (localUser[i].questions !== randomQuestion) {
     localUser[i].questions = randomQuestion;
+    
   }
     
-    
-  
 }
 
 
 
-localStorage.setItem("quizzData", JSON.stringify(randomQuestion));
+
 localStorage.setItem("UserViewDetails", JSON.stringify(localUser));
+localStorage.setItem("quizzData", JSON.stringify(randomQuestion));
  
 
 
@@ -739,12 +740,15 @@ function render(index) {
     }
     selectedAnswer.push(selectedId)
     localStorage.setItem("UserDetail", JSON.stringify(localLogin));
-    localStorage.setItem("UserScore",JSON.stringify(selectedAnswer));
     console.log(localLogin);
     userIndex++;
     alert("are you sure to submit ")
 
-    // window.location.href = "dashboard.html";
+   
+
+    window.location.href = "dashboard.html";
+    localStorage.setItem("quizzData", JSON.stringify(localUser));
+    localStorage.setItem("UserScore",JSON.stringify(selectedAnswer));
   }
 }
 
