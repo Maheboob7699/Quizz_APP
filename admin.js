@@ -114,23 +114,35 @@ home.addEventListener("click", function () {
       
         actionButton.addEventListener("click", function () {
             let userView = JSON.parse(localStorage.getItem("UserViewDetails"));
-            console.log(userView);
+            console.log("userview is",userView);
             console.log("index is", index);
         
             let UserScore = JSON.parse(localStorage.getItem("UserScore"));
             console.log(UserScore[index]);  
+           
+            
             let particularScore = UserScore[index];
+            let ScoreData =  particularScore[index];
+            console.log(ScoreData);
+            
 
             
         
             console.log("index is", index);
             userName.innerText = userView[index].name;
             userEmail.innerText = userView[index].email;
-            let questionsRender = userView[index].questions;  
+            let questionsRender = userView[index].questions; 
+            
+            let particularQuestion = questionsRender[index];
+            
+    
+           
+            console.log(questionsRender);
+             
         
             let commonOptions = "options";
         
-            questionsRender.forEach((data, questionIndex) => {
+            particularQuestion.forEach((data, questionIndex) => {
                 
                 let testStore = document.createElement("div");
                 testStore.className = `test-store question-${questionIndex}`;
@@ -201,13 +213,13 @@ home.addEventListener("click", function () {
                 userTestDetails.style.display = "block";
         
                
-                console.log("particluar score id", particularScore[questionIndex].answerId);
+                
                 
                 let allOptions = testStore.querySelectorAll(`.${commonOptions}`);
 
                
                 allOptions.forEach((option) => {
-                    if (option.id === particularScore[questionIndex].answerId) {
+                    if (option.id === ScoreData[questionIndex].answerId) {
                         console.log("Matched option id:", option.id);
                        
                         option.style.backgroundColor = "blue";  

@@ -14,6 +14,12 @@ let signupPasswordError = document.querySelector(".sigunp-password-error");
 let signupUserError = document.querySelector(".sigunp-user-error");
 
 let localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
+let setIndex = 0;
+let localIndex = JSON.parse(localStorage.getItem("userIndex"));
+// localStorage.setItem("userIndex",JSON.stringify(setIndex));
+
+console.log("localIndex is",localIndex);
+
 
 
 function signUp() {
@@ -156,7 +162,7 @@ function signUp() {
       localLogin.push(loginDetail);
       localStorage.setItem("UserDetail", JSON.stringify(localLogin))
       // localUser.push(userDetails)
-      // localStorage.setItem("UserViewDetails", JSON.stringify(localUser))
+    
 
 
       userFullName.value = "",
@@ -276,7 +282,7 @@ function Login() {
           name: localLogin[i].name, // Assuming this is a form field
           email: email.value, // Assuming this is a form field
           date: new Date(),
-          questions: "", // Store quiz questions or data
+          questions:[], // Store quiz questions or data
       };
 
       localUser.push(userDetails); // Push user data to the local storage array
@@ -412,7 +418,7 @@ function start() {
   }
 
 }
-let userIndex = 0;
+
 const questionsAndAnswers = [
   {
     q: "What is HTML?",
@@ -629,32 +635,16 @@ for (let i = 0; i < 10; i++) {
 }
 
 
- console.log("userIndex is",userIndex);
+
  
 
  localUser = JSON.parse(localStorage.getItem("UserViewDetails")) || [];
 
 
- for (let i = userIndex; i < localUser.length; i++) {
-  if (localUser[i].questions === "") {
-    localUser[i].questions = randomQuestion; 
     
-  }
-  
-  else if (localUser[i].questions !== randomQuestion) {
-    localUser[i].questions = randomQuestion;
-    
-  }
-    
-}
-
-
-
-
 localStorage.setItem("UserViewDetails", JSON.stringify(localUser));
 localStorage.setItem("quizzData", JSON.stringify(randomQuestion));
  
-
 
 let localQuizz = JSON.parse(localStorage.getItem("quizzData"));
 localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
@@ -679,6 +669,7 @@ let index = 0;
 let score = 0;
 let progress = 10;
 let selectedAnswer = JSON.parse(localStorage.getItem("UserScore"))||[];
+let select=[];
 let selectedId=[];
 let currentIndex = 0;
 
@@ -738,16 +729,19 @@ function render(index) {
       }
 
     }
-    selectedAnswer.push(selectedId)
+    select.push(selectedId);
+    selectedAnswer.push(select)
+    setIndex++;
+    localStorage.setItem("userIndex",JSON.stringify(setIndex))
     localStorage.setItem("UserDetail", JSON.stringify(localLogin));
     console.log(localLogin);
-    userIndex++;
+  
     alert("are you sure to submit ")
 
    
 
-    window.location.href = "dashboard.html";
-    localStorage.setItem("quizzData", JSON.stringify(localUser));
+    // window.location.href = "dashboard.html";
+    localStorage.setItem("quizzData", JSON.stringify(randomQuestion));
     localStorage.setItem("UserScore",JSON.stringify(selectedAnswer));
   }
 }
@@ -770,8 +764,14 @@ function scoreQuiz() {
         }
       }
       if(!alreadySelected){
-        selectedId.push({ answerId:opt.id, index:index});
-    console.log("selected id",selectedId);
+        let answerSet={ 
+        answerId:opt.id,
+        index:index,
+        }
+
+        selectedId.push(answerSet);
+       
+    console.log("selected id",select);
       }
 
       optionSelected = true;
