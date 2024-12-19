@@ -1,4 +1,3 @@
-let localQuizz = JSON.parse(localStorage.getItem("quizzData"));
 
 let home = document.querySelector(".home");
 let quizz = document.querySelector(".quizz-menu");
@@ -114,121 +113,125 @@ home.addEventListener("click", function () {
       
         actionButton.addEventListener("click", function () {
             let userView = JSON.parse(localStorage.getItem("UserViewDetails"));
-            console.log("userview is",userView);
-            console.log("index is", index);
         
-            let UserScore = JSON.parse(localStorage.getItem("UserScore"));
-            console.log(UserScore[index]);  
+         console.log(userView);
+         
+
+
+            // let userView = JSON.parse(localStorage.getItem("UserViewDetails"));
+            // console.log("userview is",userView);
+            // console.log("index is", index);
+        
+            // let UserScore = JSON.parse(localStorage.getItem("UserScore"));
+            // console.log(UserScore[index]);  
            
             
-            let particularScore = UserScore[index];
-            let ScoreData =  particularScore[index];
-            console.log(ScoreData);
+            // let particularScore = UserScore[index];
+            // let ScoreData =  particularScore[index];
+            // console.log(ScoreData);
             
 
             
         
-            console.log("index is", index);
-            userName.innerText = userView[index].name;
-            userEmail.innerText = userView[index].email;
-            let questionsRender = userView[index].questions; 
+            // console.log("index is", index);
+            // userName.innerText = userView[index].name;
+            // userEmail.innerText = userView[index].email;
+            // let questionsRender = userView[index].questions; 
             
-            let particularQuestion = questionsRender[index];
+            // let particularQuestion = questionsRender[index];
             
     
            
-            console.log(questionsRender);
+            // console.log(questionsRender);
              
         
-            let commonOptions = "options";
+            // let commonOptions = "options";
+            // particularQuestion.forEach((data, questionIndex) => {
+            //     let testStore = document.createElement("div");
+            //     testStore.className = `test-store question-${questionIndex}`;
         
-            particularQuestion.forEach((data, questionIndex) => {
-                
-                let testStore = document.createElement("div");
-                testStore.className = `test-store question-${questionIndex}`;
+            //     let questiondiv = document.createElement("div");
+            //     questiondiv.className = "question";
+            //     let questionHeading = document.createElement("h3");
+            //     questionHeading.textContent = "Question";
+            //     let question = document.createElement("div");
+            //     question.textContent = data.q;
         
-                let questiondiv = document.createElement("div");
-                questiondiv.className = "question";
-                let questionHeading = document.createElement("h3");
-                questionHeading.textContent = "Question";
-                let question = document.createElement("div");
-                question.textContent = data.q;
+            //     questiondiv.appendChild(questionHeading);
+            //     questiondiv.appendChild(question);
         
-                questiondiv.appendChild(questionHeading);
-                questiondiv.appendChild(question);
+            //     // Option 1
+            //     let option1div = document.createElement("div");
+            //     option1div.className = `${commonOptions} option-1`;  
+            //     option1div.id = "a";  
+            //     let option1heading = document.createElement("h3");
+            //     option1heading.textContent = "Option 1";
+            //     let option1 = document.createElement("div");
+            //     option1.textContent = data.a;
+            //     option1div.appendChild(option1heading);
+            //     option1div.appendChild(option1);
         
-                // Option 1
-                let option1div = document.createElement("div");
-                option1div.className = `${commonOptions} option-1`;  
-                option1div.id = "a";  
-                let option1heading = document.createElement("h3");
-                option1heading.textContent = "Option 1";
-                let option1 = document.createElement("div");
-                option1.textContent = data.a;
-                option1div.appendChild(option1heading);
-                option1div.appendChild(option1);
+            //     // Option 2
+            //     let option2div = document.createElement("div");
+            //     option2div.className = `${commonOptions} option-2`;  
+            //     option2div.id = "b"; 
+            //     let option2heading = document.createElement("h3");
+            //     option2heading.textContent = "Option 2";
+            //     let option2 = document.createElement("div");
+            //     option2.textContent = data.b;
+            //     option2div.appendChild(option2heading);
+            //     option2div.appendChild(option2);
         
-                // Option 2
-                let option2div = document.createElement("div");
-                option2div.className = `${commonOptions} option-2`;  
-                option2div.id = "b"; 
-                let option2heading = document.createElement("h3");
-                option2heading.textContent = "Option 2";
-                let option2 = document.createElement("div");
-                option2.textContent = data.b;
-                option2div.appendChild(option2heading);
-                option2div.appendChild(option2);
+            //     // Option 3
+            //     let option3div = document.createElement("div");
+            //     option3div.className = `${commonOptions} option-3`;  
+            //     option3div.id = "c"; 
+            //     let option3heading = document.createElement("h3");
+            //     option3heading.textContent = "Option 3";
+            //     let option3 = document.createElement("div");
+            //     option3.textContent = data.c;
+            //     option3div.appendChild(option3heading);
+            //     option3div.appendChild(option3);
         
-                // Option 3
-                let option3div = document.createElement("div");
-                option3div.className = `${commonOptions} option-3`;  
-                option3div.id = "c"; 
-                let option3heading = document.createElement("h3");
-                option3heading.textContent = "Option 3";
-                let option3 = document.createElement("div");
-                option3.textContent = data.c;
-                option3div.appendChild(option3heading);
-                option3div.appendChild(option3);
+            //     // Option 4
+            //     let option4div = document.createElement("div");
+            //     option4div.className = `${commonOptions} option-4`;  
+            //     option4div.id = "d";  
+            //     let option4heading = document.createElement("h3");
+            //     option4heading.textContent = "Option 4";
+            //     let option4 = document.createElement("div");
+            //     option4.textContent = data.d;
+            //     option4div.appendChild(option4heading);
+            //     option4div.appendChild(option4);
         
-                // Option 4
-                let option4div = document.createElement("div");
-                option4div.className = `${commonOptions} option-4`;  
-                option4div.id = "d";  
-                let option4heading = document.createElement("h3");
-                option4heading.textContent = "Option 4";
-                let option4 = document.createElement("div");
-                option4.textContent = data.d;
-                option4div.appendChild(option4heading);
-                option4div.appendChild(option4);
+            //     testStore.appendChild(questiondiv);
+            //     testStore.appendChild(option1div);
+            //     testStore.appendChild(option2div);
+            //     testStore.appendChild(option3div);
+            //     testStore.appendChild(option4div);
         
-                testStore.appendChild(questiondiv);
-                testStore.appendChild(option1div);
-                testStore.appendChild(option2div);
-                testStore.appendChild(option3div);
-                testStore.appendChild(option4div);
+            //     testInformation.appendChild(testStore);
         
-                testInformation.appendChild(testStore);
-        
-                tableContainer.style.display = "none";
-                userTestDetails.style.display = "block";
+            //     tableContainer.style.display = "none";
+            //     userTestDetails.style.display = "block";
         
                
                 
                 
-                let allOptions = testStore.querySelectorAll(`.${commonOptions}`);
+            //     let allOptions = testStore.querySelectorAll(`.${commonOptions}`);
 
                
-                allOptions.forEach((option) => {
-                    if (option.id === ScoreData[questionIndex].answerId) {
-                        console.log("Matched option id:", option.id);
+            //     allOptions.forEach((option) => {
+            //         if (option.id === ScoreData[questionIndex].answerId) {
+            //             console.log("Matched option id:", option.id);
                        
-                        option.style.backgroundColor = "blue";  
-                    }
-                });
+            //             option.style.backgroundColor = "blue";  
+            //         }
+            //     });
                 
                 
              
-            });
+            // });
         });
         
         

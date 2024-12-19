@@ -15,6 +15,7 @@ let signupUserError = document.querySelector(".sigunp-user-error");
 
 let localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
 let setIndex = 0;
+localStorage.setItem("userIndex", JSON.stringify(setIndex));
 let localIndex = JSON.parse(localStorage.getItem("userIndex"));
 // localStorage.setItem("userIndex",JSON.stringify(setIndex));
 
@@ -282,7 +283,8 @@ function Login() {
           name: localLogin[i].name, // Assuming this is a form field
           email: email.value, // Assuming this is a form field
           date: new Date(),
-          questions:[], // Store quiz questions or data
+          questions:[],
+         // Store quiz questions or data
       };
 
       localUser.push(userDetails); // Push user data to the local storage array
@@ -636,13 +638,22 @@ for (let i = 0; i < 10; i++) {
 
 
 
- 
+// localIndex = JSON.parse(localStorage.getItem("userIndex"));
 
- localUser = JSON.parse(localStorage.getItem("UserViewDetails")) || [];
+// localUser = JSON.parse(localStorage.getItem("UserViewDetails")) || [];
+// for(let i=0; i<localUser.length; i++){
+//   let questionset = {
+//      quest: randomQuestion,
+//      score:0,
+//   }
+//   localUser[i].questions.push(questionset)
+// }
 
 
-    
-localStorage.setItem("UserViewDetails", JSON.stringify(localUser));
+
+
+   
+// localStorage.setItem("UserViewDetails", JSON.stringify(localUser));
 localStorage.setItem("quizzData", JSON.stringify(randomQuestion));
  
 
@@ -668,9 +679,8 @@ let currentUser = document.querySelector(".current-user");
 let index = 0;
 let score = 0;
 let progress = 10;
-let selectedAnswer = JSON.parse(localStorage.getItem("UserScore"))||[];
-let select=[];
-let selectedId=[];
+
+let selectedId=[]
 let currentIndex = 0;
 
 for (let i = 0; i < localLogin.length; i++) {
@@ -680,8 +690,6 @@ for (let i = 0; i < localLogin.length; i++) {
 }
 
 currentUser.innerHTML = ` Hi ${localLogin[currentIndex].name}`;
-
-
 
 let logout = false;
 function logoutBtn() {
@@ -696,6 +704,51 @@ function logoutBtn() {
   }
 
 }
+
+
+function scoreQuiz() {
+  let optionSelected = false;
+  selectOption.forEach((opt) => {
+    if (opt.checked) {
+
+    
+      console.log(selectedId);
+      
+      let alreadySelected = false;
+      for(let i=0; i<selectedId.length; i++){
+        if(selectedId[i].index === index){
+          alreadySelected = true;
+          alert("already slected")
+          break
+        }
+      }
+      if(!alreadySelected){
+        selectedId.push({id:opt.id, index:index});
+        console.log(selectedId);
+      }
+
+      optionSelected = true;
+      if (opt.id === localQuizz[index].ans) {
+        score += 10;
+       
+        console.log(score);
+      }
+      opt.checked = false;
+      index++;
+      progress += 10;
+    }
+  });
+
+
+  if (!optionSelected) {
+    alert("Please select an option before proceeding!");
+    return;
+  }
+}
+
+
+
+
 
 function render(index) {
   if (index <= localQuizz.length - 1) {
@@ -729,10 +782,20 @@ function render(index) {
       }
 
     }
-    select.push(selectedId);
-    selectedAnswer.push(select)
-    setIndex++;
-    localStorage.setItem("userIndex",JSON.stringify(setIndex))
+
+    localUser = JSON.parse(localStorage.getItem("UserViewDetails")) || [];
+
+for (let i = 0; i < localUser.length; i++) {
+ 
+    let questionset = {
+        quest: localQuizz,
+        score: score, 
+        selectedId:selectedId,
+    };
+    localUser[i].questions.push(questionset);
+}
+
+localStorage.setItem("UserViewDetails", JSON.stringify(localUser));
     localStorage.setItem("UserDetail", JSON.stringify(localLogin));
     console.log(localLogin);
   
@@ -740,7 +803,7 @@ function render(index) {
 
    
 
-    // window.location.href = "dashboard.html";
+    window.location.href = "dashboard.html";
     localStorage.setItem("quizzData", JSON.stringify(randomQuestion));
     localStorage.setItem("UserScore",JSON.stringify(selectedAnswer));
   }
@@ -749,49 +812,7 @@ function render(index) {
 
 
 
-function scoreQuiz() {
-  let optionSelected = false;
-  selectOption.forEach((opt) => {
-    if (opt.checked) {
 
-
-      let alreadySelected = false;
-      for(let i=0; i<selectedId.length; i++){
-        if(selectedId[i].index === index){
-          alreadySelected = true;
-          alert("already slected")
-          break
-        }
-      }
-      if(!alreadySelected){
-        let answerSet={ 
-        answerId:opt.id,
-        index:index,
-        }
-
-        selectedId.push(answerSet);
-       
-    console.log("selected id",select);
-      }
-
-      optionSelected = true;
-      if (opt.id === localQuizz[index].ans) {
-        score += 10;
-        console.log(selectedAnswer);
-        console.log(score);
-      }
-      opt.checked = false;
-      index++;
-      progress += 10;
-    }
-  });
-
-
-  if (!optionSelected) {
-    alert("Please select an option before proceeding!");
-    return;
-  }
-}
 
 
 function previousData() {
