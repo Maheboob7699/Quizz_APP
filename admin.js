@@ -135,7 +135,9 @@ home.addEventListener("click", function () {
           
         let userDetials = userView[index].questions;
          userDetials.forEach((data,i)=>{
-            console.log("data is",data.quest);
+            console.log("i is",i);
+        
+        
 
             let row = document.createElement("tr");
             row.className="userDetails"
@@ -146,7 +148,7 @@ home.addEventListener("click", function () {
             let tdDate = document.createElement("td");
             tdDate.textContent = userView[index].Date;
             let tdScores = document.createElement("td");
-            tdScores.textContent = user.quizzScore;
+            tdScores.textContent = data.score ;
             let tdResult = document.createElement("td");
             let resultButton = document.createElement("button");
             tdResult.classList = "result-btn"
@@ -162,6 +164,7 @@ home.addEventListener("click", function () {
         //    after click  on result then particular user result  is shown
 
             let particularData = userView[index].questions;
+            console.log(particularData,i);
             console.log(particularData[i].quest);
             particularQuestion = particularData[i].quest;
 
