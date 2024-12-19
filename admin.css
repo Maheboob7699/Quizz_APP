@@ -123,6 +123,14 @@ body {
  
 }
 
+.particualr-user{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
 .test-store{
   width: 98%;
   height: auto;
@@ -614,3 +622,40 @@ td {
   margin-top: 5px;
 
 }
+
+/* particular user */
+.particualr-user{
+  position: absolute;
+  top: 70px;
+  width: 84%;
+  left: 137px;
+}
+
+
+.particualr-user table {
+  border-collapse: collapse; /* Collapses borders into a single border */
+  width: 100%; /* Adjusts the width of the table to fit its content */
+}
+
+.particualr-user table td {
+  border: 1px solid black; /* Single solid black border around each cell */
+  padding: 8px; /* Adds space inside the cell */
+  text-align: center; /* Align text to the left (optional) */
+}
+
+/* Optional: Style the table header if there is one (not part of your current HTML, but useful if you decide to add headers) */
+.particualr-user table th {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+  background-color: #daf0f3;
+  text-align: center; /* Light gray background for header */
+}
+
+
+.particualr-user table .result-btn{
+  background: transparent;
+  color: blue;
+}
+
+
