@@ -1,8 +1,27 @@
+localUser
 
+let localIndex = JSON.parse(localStorage.getItem("setIndex")) || 0;
+console.log('Initial localIndex:', localIndex);
+let localUser = JSON.parse(localStorage.getItem("UserViewDetails")) || [];
+console.log('Initial localUser:', localUser);
+console.log('Current page path:', window.location.pathname);
+let currentPage = window.location.pathname.split('/').pop();
+console.log('Current page filename:', currentPage);
+if (currentPage === "signup.html") {
+    if (localIndex === 0) {
+        console.log("First time visiting signup.html, setting localIndex to 0");
+    } else {
+        console.log("On signup.html page, incrementing localIndex");
+        localIndex++;
+    }
+}
+localStorage.setItem("setIndex", JSON.stringify(localIndex));
+localStorage.setItem("UserViewDetails", JSON.stringify(localUser));
 
 
 
 // Signup
+
 
 let signupEmail = document.querySelector("#signIn-inpt");
 let signupPassword = document.querySelector("#sigIn-pass");
@@ -205,7 +224,7 @@ let upperCasepattern = /[A-Z]/;
 let lowerCasePattern = /[a-z]/;
 localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
 
-let localUser = JSON.parse(localStorage.getItem("UserViewDetails")) || [];
+ localUser = JSON.parse(localStorage.getItem("UserViewDetails")) || [];
 
 
 
@@ -775,29 +794,25 @@ function render(index) {
 
     }
     
-    let localIndex = JSON.parse(localStorage.getItem("setIndex")) || 0;
-
-let localUser = JSON.parse(localStorage.getItem("UserViewDetails")) || [];
-
-for (let i = localIndex; i < localUser.length; i++) {
  
-  if (localUser[i]) {
-      if (!localUser[i].questions) {
-          localUser[i].questions = [];
-      }
+ localUser = JSON.parse(localStorage.getItem("UserViewDetails")) || [];
+for(let i = localIndex; i<localUser.length; i++){
 
-      let questionset = {
-          quest: localQuizz,
-          score: score,
-          selectedId: selectedId,
-      };
+    let questionset = {
+                quest: localQuizz,
+                score: score,
+                selectedId: selectedId,
+           
+      }
       localUser[i].questions.push(questionset);
-  }
+ 
 }
 
+// if (window.location.pathname.includes("signUp.html")) {
+//   localIndex++;
+// }
 
-localIndex++;
-localStorage.setItem("setIndex", JSON.stringify(localIndex));
+// localStorage.setItem("setIndex", JSON.stringify(localIndex));
 
 localStorage.setItem("UserViewDetails", JSON.stringify(localUser));
     localStorage.setItem("UserDetail", JSON.stringify(localLogin));
