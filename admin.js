@@ -132,13 +132,18 @@ home.addEventListener("click", function () {
             headerRow.appendChild(th);
         });
         table.appendChild(headerRow);
+       
           
         let userDetials = userView[index].questions;
+     
+        userDetials.forEach((data,i)=>{
+            console.log(data,i);
+            
+        })
+        
          userDetials.forEach((data,i)=>{
-            console.log("i is",i);
+            console.log(data.score);
         
-        
-
             let row = document.createElement("tr");
             row.className="userDetails"
             let tdTest = document.createElement("td");
@@ -164,16 +169,30 @@ home.addEventListener("click", function () {
         //    after click  on result then particular user result  is shown
 
             let particularData = userView[index].questions;
-            console.log(particularData,i);
+          
+             console.log(particularData[index].selectedId);
+             
+            console.log(particularData[index].selectedId);
+            let scoreData = particularData[i].selectedId;
+            let detailMAtch = scoreData[index].id;
+            console.log(detailMAtch);
+
             console.log(particularData[i].quest);
-            particularQuestion = particularData[i].quest;
+          let   particularQuestion = particularData[i].quest;
+            particularQuestion.forEach((data,index)=>{
+                console.log(data);
+                console.log("index is",index);
+                  
+            })
 
            tdResult.addEventListener("click",function(){
-
-            particularQuestion.forEach((data, questionIndex)=>{
+            particularQuestion.forEach((data, quizzIndex)=>{
+                console.log("questionIndex is",i);
+                console.log("data is",data);
+                
                 let commonOptions = "options";
                 let testStore = document.createElement("div");
-                testStore.className = `test-store question-${questionIndex}`;
+                testStore.className = `test-store question-${quizzIndex}`;
 
                 let questiondiv = document.createElement("div");
                 questiondiv.className = "question";
@@ -242,6 +261,17 @@ home.addEventListener("click", function () {
                 particualrUser.appendChild(testStore);
                 let userDetails = document.querySelector(".userDetails");
                 userDetails.style.display="none"
+
+
+                  let allOptions = testStore.querySelectorAll(`.${commonOptions}`);
+
+                allOptions.forEach((option) => {
+                    if (option.id === scoreData[quizzIndex].id) {
+                        console.log("Matched option id:", option.id); 
+                        option.style.backgroundColor = "blue";  
+                    }
+                });
+
             })
             
 
@@ -250,6 +280,10 @@ home.addEventListener("click", function () {
             table.appendChild(row);
             particularUser.appendChild(table);
             console.log(table);
+
+
+            console.log("i is", i);
+            
             
          })
 
