@@ -2,7 +2,6 @@
 
 
 
-
 // Signup
 
 let signupEmail = document.querySelector("#signIn-inpt");
@@ -15,17 +14,10 @@ let signupUserError = document.querySelector(".sigunp-user-error");
 
 let localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
 let setIndex = 0;
-localStorage.setItem("userIndex", JSON.stringify(setIndex));
-let localIndex = JSON.parse(localStorage.getItem("userIndex"));
+
 // localStorage.setItem("userIndex",JSON.stringify(setIndex));
 
-console.log("localIndex is",localIndex);
-
-
-
 function signUp() {
- 
-
 
   let random = Math.floor(Math.random() * localLogin.length)
   console.log(random);
@@ -782,18 +774,30 @@ function render(index) {
       }
 
     }
+    
+    let localIndex = JSON.parse(localStorage.getItem("setIndex")) || 0;
 
-    localUser = JSON.parse(localStorage.getItem("UserViewDetails")) || [];
+let localUser = JSON.parse(localStorage.getItem("UserViewDetails")) || [];
 
-for (let i = 0; i < localUser.length; i++) {
+for (let i = localIndex; i < localUser.length; i++) {
  
-    let questionset = {
-        quest: localQuizz,
-        score: score, 
-        selectedId:selectedId,
-    };
-    localUser[i].questions.push(questionset);
+  if (localUser[i]) {
+      if (!localUser[i].questions) {
+          localUser[i].questions = [];
+      }
+
+      let questionset = {
+          quest: localQuizz,
+          score: score,
+          selectedId: selectedId,
+      };
+      localUser[i].questions.push(questionset);
+  }
 }
+
+
+localIndex++;
+localStorage.setItem("setIndex", JSON.stringify(localIndex));
 
 localStorage.setItem("UserViewDetails", JSON.stringify(localUser));
     localStorage.setItem("UserDetail", JSON.stringify(localLogin));
