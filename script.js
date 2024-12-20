@@ -1,22 +1,24 @@
-localUser
 
+
+// let localIndex = JSON.parse(localStorage.getItem("setIndex")) || 0;
+// console.log('Initial localIndex:', localIndex);
+
+
+// console.log('Current page path:', window.location.pathname);
+// let currentPage = window.location.pathname.split('/').pop();
+// console.log('Current page filename:', currentPage);
+// if (currentPage === "signup.html") {
+//     if (localIndex === 0) {
+//         console.log("First time visiting signup.html, setting localIndex to 0");
+//     } else {
+//         console.log("On signup.html page, incrementing localIndex");
+//         localIndex++;
+//     }
+// }
 let localIndex = JSON.parse(localStorage.getItem("setIndex")) || 0;
-console.log('Initial localIndex:', localIndex);
-let localUser = JSON.parse(localStorage.getItem("UserViewDetails")) || [];
-console.log('Initial localUser:', localUser);
-console.log('Current page path:', window.location.pathname);
-let currentPage = window.location.pathname.split('/').pop();
-console.log('Current page filename:', currentPage);
-if (currentPage === "signup.html") {
-    if (localIndex === 0) {
-        console.log("First time visiting signup.html, setting localIndex to 0");
-    } else {
-        console.log("On signup.html page, incrementing localIndex");
-        localIndex++;
-    }
-}
+
 localStorage.setItem("setIndex", JSON.stringify(localIndex));
-localStorage.setItem("UserViewDetails", JSON.stringify(localUser));
+// localStorage.setItem("UserViewDetails", JSON.stringify(localUser));
 
 
 
@@ -32,7 +34,7 @@ let signupPasswordError = document.querySelector(".sigunp-password-error");
 let signupUserError = document.querySelector(".sigunp-user-error");
 
 let localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
-let setIndex = 0;
+
 
 // localStorage.setItem("userIndex",JSON.stringify(setIndex));
 
@@ -224,7 +226,7 @@ let upperCasepattern = /[A-Z]/;
 let lowerCasePattern = /[a-z]/;
 localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
 
- localUser = JSON.parse(localStorage.getItem("UserViewDetails")) || [];
+ let localUser = JSON.parse(localStorage.getItem("UserViewDetails")) || [];
 
 
 
@@ -808,11 +810,11 @@ for(let i = localIndex; i<localUser.length; i++){
  
 }
 
-// if (window.location.pathname.includes("signUp.html")) {
-//   localIndex++;
-// }
+if (window.location.pathname.includes("signUp.html")) {
+  localIndex++;
+}
 
-// localStorage.setItem("setIndex", JSON.stringify(localIndex));
+localStorage.setItem("setIndex", JSON.stringify(localIndex));
 
 localStorage.setItem("UserViewDetails", JSON.stringify(localUser));
     localStorage.setItem("UserDetail", JSON.stringify(localLogin));
