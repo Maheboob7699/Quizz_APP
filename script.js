@@ -15,9 +15,9 @@
 //         localIndex++;
 //     }
 // }
-let localIndex = JSON.parse(localStorage.getItem("setIndex")) || 0;
+// let localIndex = JSON.parse(localStorage.getItem("setIndex")) || 0;
 
-localStorage.setItem("setIndex", JSON.stringify(localIndex));
+// localStorage.setItem("setIndex", JSON.stringify(localIndex));
 // localStorage.setItem("UserViewDetails", JSON.stringify(localUser));
 
 
@@ -174,6 +174,8 @@ function signUp() {
       
       // }
       localLogin.push(loginDetail);
+      console.log("login detail is");
+      
       localStorage.setItem("UserDetail", JSON.stringify(localLogin))
       // localUser.push(userDetails)
     
@@ -225,6 +227,10 @@ let numberPattern = /\d/;
 let upperCasepattern = /[A-Z]/;
 let lowerCasePattern = /[a-z]/;
 localLogin = JSON.parse(localStorage.getItem("UserDetail")) || [];
+console.log(localLogin.length-1);
+
+let localIndex = localLogin.length-1;
+localStorage.setItem("setIndex", JSON.stringify(localIndex));
 
  let localUser = JSON.parse(localStorage.getItem("UserViewDetails")) || [];
 
@@ -299,7 +305,7 @@ function Login() {
           questions:[],
          // Store quiz questions or data
       };
-
+       
       localUser.push(userDetails); // Push user data to the local storage array
       localStorage.setItem("UserViewDetails", JSON.stringify(localUser)); 
         window.location.href = "quizz.html";
