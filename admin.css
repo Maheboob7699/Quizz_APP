@@ -4,6 +4,8 @@ body {
 }
 
 
+
+
 .admin-navbar {
   height: 60px;
   width: 100%;
@@ -68,27 +70,23 @@ body {
 
 /* user personal test details  */
 
-.user-personal-details{
+
+.test-information{
+  width: 100%;
+  height: auto;
+  background-color: aqua;
+
+}
+.user-test-information{
   width: 88%;
   height: 600px;
-  /* background-color: aqua; */
+  background-color: aqua;
   border-radius: 10px;
   position: absolute;
   top: 100px;
   display: none;
 }
 
-.user-information{
-  display: flex;
-    gap: 10px;
-    height: 50px;
-    width: 96%;
-    border-radius: 3px;
-    margin-left: 10px;
-    margin-top: 10px;
-    background-color: #FFFFFF;
-    box-shadow: 0px 8px 16px 0px #1C1C1E1A;
-}
 .user-information h2{
   padding-left: 10px;
   margin-top: 8px;
@@ -112,25 +110,30 @@ body {
     justify-content: space-around;
     align-items: center;
 }
-.test-information{
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  /* border: 1px solid grey; */
+
+
+
+.particualr-user{
   width: 100%;
   height: auto;
+  /* background-color: yellow; */
+  display: none;
+}
+
+.particualr-user #user-information{
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  height: 50px;
   margin-top: 10px;
+  background-color: #FFFFFF;
+    box-shadow: 0px 8px 16px 0px #1C1C1E1A;
  
 }
 
-.particualr-user{
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
-  height: auto;
-  margin-top: 10px;
-}
+#user-information 
+
+
 .test-store{
   width: 98%;
   height: auto;

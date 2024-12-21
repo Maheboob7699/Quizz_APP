@@ -26,12 +26,12 @@ let sumbitCreateQuestion = document.querySelector(".sumbit-create-question");
 let quizzRender = document.querySelector(".quizz-show");
 let cancleDetail = document.querySelector(".cancel-details");
 
-let userTestDetails = document.querySelector(".user-personal-details");
+
 let userName = document.querySelector(".user-name");
 let userEmail = document.querySelector(".user-email");
 let particularUser = document.querySelector(".particualr-user");
 
-
+let userInformation = document.querySelector(".user-information");
 let displayQuestion = document.querySelector(".display-question");
 let displayOption1 = document.querySelector(".display-option1");
 let displayOption2 = document.querySelector(".display-option2");
@@ -60,7 +60,7 @@ sideBar.addEventListener("click", function () {
 
 
 cancleButton.addEventListener("click", function () {
-    createQuestion.style.display = "none";
+    createQuestion.style.display = "block";
 
 })
 // home
@@ -88,6 +88,8 @@ home.addEventListener("click", function () {
 
     sortedDetail.forEach((user, userIndex) => {
                    console.log("index is", userIndex);
+                   console.log("user is", user);
+                   
 
         let row = document.createElement("tr");
         let tdSrNo = document.createElement("td");
@@ -118,7 +120,9 @@ home.addEventListener("click", function () {
 
     // view result button
         actionButton.addEventListener("click", function () {
-
+            tableContainer.style.display="none";
+             console.log(sortedDetail[userIndex].name);
+             
             console.log(userIndex);
             let userView = JSON.parse(localStorage.getItem("UserViewDetails"));
             console.log(userView[userIndex].questions);
@@ -127,7 +131,6 @@ home.addEventListener("click", function () {
                 console.log(selectId);
            
             
-
             let table = document.createElement("table");
             table.className="userDetails";
             let headerRow = document.createElement("tr");
@@ -145,6 +148,16 @@ home.addEventListener("click", function () {
             
 
             userDetials.forEach((userData,userDataIndex)=>{
+                particularUser.style.display ="block";
+                scoreRender = JSON.parse(localStorage.getItem("UserDetail")) || [];
+                sortedDetail = scoreRender.sort((a, b) => b.score - a.score);
+                
+                console.log(sortedDetail[userIndex].name);
+                console.log(sortedDetail[userIndex].email);
+                userName.innerHTML = sortedDetail[userIndex].name;
+                userEmail.innerHTML = sortedDetail[userIndex].email;
+                console.log(particularUser);
+                
                 let selectedIdAnswer =userView[userIndex].questions[userDataIndex]; // 
                 let selectId= selectedIdAnswer.selectedId; // Access the;
                     console.log(selectId);
@@ -169,14 +182,11 @@ home.addEventListener("click", function () {
 
                 let questionDisplay = userData.quest;
                 console.log(questionDisplay);
-                questionDisplay.forEach((data)=>{
-                    console.log(data);
-                    
-                })
-                
+            
                  tdResult.addEventListener("click",function(){
+               let userDetails = document.querySelector(".userDetails");
+                 userDetails.style.display= "none";
                    questionDisplay.forEach((data, dataIndex)=>{
-
                     let commonOptions = "options";
                     let testStore = document.createElement("div");
                     testStore.className = `test-store question-${dataIndex}`;
@@ -265,20 +275,18 @@ home.addEventListener("click", function () {
                 table.appendChild(row);
                 console.log(table);
          particularUser.appendChild(table);  
+        
             })
             
             // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX//
-
-
-
-        userData.style.display="none";
-        
+        // userData.style.display="none";
         
         });
         
          // view result button end
     })
     tableContainer.appendChild(table);
+    
 })
 
 // user click on quizz add amd remove quizz
@@ -289,7 +297,7 @@ quizz.addEventListener("click", function () {
 
     adminStart.style.display = "none";
     tableContainer.style.display = "none";
-    userTestDetails.style.display="none";
+    // userTestDetails.style.display="none";
     quizzSection.style.display = "block";
 
     if (quizzContainer.querySelector("table")) {
