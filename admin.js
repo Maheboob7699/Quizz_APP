@@ -1,9 +1,108 @@
+// login
+  
+let email = document.querySelector("#email-inpt");
+let password = document.querySelector("#pass-inpt");
+let loginBTn = document.querySelector(".login-btn");
+let emailAlert = document.querySelector(".email-alert");
+let passwordAlert = document.querySelector(".password-alert");
+let passordDisplay = document.querySelector(".password-display")
+let hidePassword = document.querySelector(".hide-password");
+let showPassword = document.querySelector(".show-password");
+
+let specialSymbol = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+let patternSymbol = /^[a-zA-Z0-9!@#\$%\^\&*_=+-]{8,12}$/;
+let numberPattern = /\d/;
+let upperCasepattern = /[A-Z]/;
+let lowerCasePattern = /[a-z]/;
+
+let adminEmail  = "admin@gmail.com";
+let adminPassword = "mumbai1@";
+function Login() {
+  if (email.value == "" && password.value == "") {
+    emailAlert.innerHTML = "Email is Empty";
+    passwordAlert.innerHTML = "Password is Empty";
+
+  }
+  else if (email.value.length < 6) {
+    emailAlert.innerHTML = "email is less than 6 ";
+    email.value = "";
+
+    return;
+  }
+
+  else if (!email.value.includes("@")) {
+    emailAlert.innerHTML = "Special character '@' is missing.";
+    email.value = "";
+
+    return;
+  }
+  else if (!email.value.includes(".com")) {
+    emailAlert.innerHTML = "'com' is missing.";
+    email.value = "";
+    return;
+  }
+
+
+  else if (!specialSymbol.test(email.value)) {
+    alert(" email is not valid");
+    email.value = "";
+    return
+  }
+
+  else if (password.value == "") {
+    passwordAlert.innerHTML = "Password is Empty";
+  }
+
+
+  else if (!numberPattern.test(password.value)) {
+    passwordAlert.innerHTML = "Password must contain at least one number";
+    password.value = "";
+    return;
+  }
+  else if (!patternSymbol.test(password.value)) {
+    passwordAlert.innerHTML = "Password must be , and contain at least one special character";
+    password.value = "";
+    return;
+  }
+
+  else if (!lowerCasePattern.test(password.value)) {
+    passwordAlert.innerHTML = "Password must contain at least one lowercase letter";
+    password.value = "";
+    return;
+  }
+
+  else if(email.value === adminEmail && password.value === adminPassword){
+          window.location.href = "admin.html";
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// login-end //
 
 let home = document.querySelector(".home");
+let user = document.querySelector(".user-menu");
 let quizz = document.querySelector(".quizz-menu");
+let logoutUser = document.querySelector(".admin-logout");
+let logoutUserDetail = document.querySelector(".logout-user-detials");
+let logout = document.querySelector(".logout");
 let quizzSection = document.querySelector(".quizz-section");
 let quizzContainer = document.querySelector(".quizz-conatiner");
 let testInformation = document.querySelector(".particualr-user");
+let partciularTestDetail = document.querySelector(".particualr-user-test-detail");
+let particualrUserTest = document.querySelector(".particular-user-test");
+let particualrUserScore = document.querySelector(".particualr-user-score");
+let particualrUserDate = document.querySelector(".particualr-user-date");
 let userData  = document.querySelector(".user-data");
 let sideBar = document.querySelector(".bar");
 let addQuestion = document.querySelector(".add-question");
@@ -31,7 +130,7 @@ let userName = document.querySelector(".user-name");
 let userEmail = document.querySelector(".user-email");
 let particularUser = document.querySelector(".particualr-user");
 
-let userInformation = document.querySelector(".user-information");
+// let userInformation = document.querySelector(".user-information");
 let displayQuestion = document.querySelector(".display-question");
 let displayOption1 = document.querySelector(".display-option1");
 let displayOption2 = document.querySelector(".display-option2");
@@ -52,6 +151,28 @@ let editSelectAnswer = document.querySelector("#edit-select-answer");
 let editCancleButton = document.querySelector(".edit-cancle-button");
 let submitEditButton = document.querySelector(".sumbit-edit-question");
 
+
+// logoutUser.addEventListener("click",function(){
+//     // logoutUserDetail.style.display="none";
+//     console.log("KKSJSH");
+    
+// })
+
+logoutUser.addEventListener("click",function(){
+    console.log("KHKSH<JS");
+    logoutUserDetail.style.display="block";
+    logoutUserDetail.style.display="flex";
+    logoutUserDetail.style.flexDirection = "column"
+    
+    
+})
+
+
+logout.addEventListener("click",function(){
+    alert("are you sure to logout");
+    window.location.href = "adminLogin.html";
+})
+
 sideBar.addEventListener("click", function () {
     this.classList.add('rotate');
 
@@ -60,15 +181,31 @@ sideBar.addEventListener("click", function () {
 
 
 cancleButton.addEventListener("click", function () {
-    createQuestion.style.display = "block";
+    createQuestion.style.display = "none";
 
 })
 // home
-home.addEventListener("click", function () {
+ home.addEventListener("click", function () {
     home.classList.add('clicked');
+    adminStart.style.display = "block";
     quizz.classList.remove('clicked');
-    tableContainer.style.display = "block";
+    tableContainer.style.display = "none";
+    quizzSection.style.display = "none";
+    quizzRender.style.display = "none";
+    cancleDetail.style.display = "none";
+    particularUser.style.display = "none";
+    
+
+})
+
+
+// User
+user.addEventListener("click", function () {
+    user.classList.add('clicked');
     adminStart.style.display = "none";
+    quizz.classList.remove('clicked');
+    home.classList.remove('clicked');
+    tableContainer.style.display = "block";
     quizzSection.style.display = "none";
 
 
@@ -148,6 +285,8 @@ home.addEventListener("click", function () {
             
 
             userDetials.forEach((userData,userDataIndex)=>{
+                console.log(userData.date);
+                
                 particularUser.style.display ="block";
                 scoreRender = JSON.parse(localStorage.getItem("UserDetail")) || [];
                 sortedDetail = scoreRender.sort((a, b) => b.score - a.score);
@@ -161,6 +300,10 @@ home.addEventListener("click", function () {
                 let selectedIdAnswer =userView[userIndex].questions[userDataIndex]; // 
                 let selectId= selectedIdAnswer.selectedId; // Access the;
                     console.log(selectId);
+                    particualrUserTest.innerText = `Test ${userDataIndex + 1}`;
+                    particualrUserScore.innerText=`Score ${userData.score}`
+                    particualrUserDate.innerText  = `Test Date:- ${userData.date}`
+
     
                 let row = document.createElement("tr");
                 row.className="userDetails"
@@ -169,12 +312,12 @@ home.addEventListener("click", function () {
                 let tdName = document.createElement("td");
                 tdName.textContent = userView[userIndex].name;
                 let tdDate = document.createElement("td");
-                tdDate.textContent = userView[userIndex].Date;
+                tdDate.textContent = userData.date;
                 let tdScores = document.createElement("td");
                 tdScores.textContent = userData.score ;
                 let tdResult = document.createElement("td");
                 let resultButton = document.createElement("button");
-                tdResult.classList = "result-btn"
+                resultButton.className = "result-btn"
                 resultButton.textContent = "result";
                 tdResult.appendChild(resultButton);
 
@@ -184,12 +327,20 @@ home.addEventListener("click", function () {
                 console.log(questionDisplay);
             
                  tdResult.addEventListener("click",function(){
+                    partciularTestDetail.style.display="block";
+                    partciularTestDetail.style.display="flex";
+                    
+
+
                let userDetails = document.querySelector(".userDetails");
                  userDetails.style.display= "none";
                    questionDisplay.forEach((data, dataIndex)=>{
+                    console.log(data.ans);
+                    
                     let commonOptions = "options";
                     let testStore = document.createElement("div");
                     testStore.className = `test-store question-${dataIndex}`;
+                    testStore.classList.add="test-store";
 
                         //   question
                     let questiondiv = document.createElement("div");
@@ -258,10 +409,13 @@ home.addEventListener("click", function () {
 
                     let allOptions = testStore.querySelectorAll(`.${commonOptions}`);
                      allOptions.forEach((option) => {
-                       if (option.id === selectId[dataIndex].id) {
-                        console.log("Matched option id:", option.id); 
-                        option.style.backgroundColor = "blue";  
-                        }
+                    
+                      if(option.id === selectId[dataIndex].id){
+                        option.style.backgroundColor = "orange";
+                      }
+
+
+            
                      });
                    })
                  })
@@ -278,9 +432,7 @@ home.addEventListener("click", function () {
         
             })
             
-            // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX//
-        // userData.style.display="none";
-        
+            // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX//        
         });
         
          // view result button end
@@ -294,11 +446,12 @@ home.addEventListener("click", function () {
 quizz.addEventListener("click", function () {
     quizz.classList.add('clicked');
     home.classList.remove('clicked');
-
+    user.classList.remove('clicked');
     adminStart.style.display = "none";
     tableContainer.style.display = "none";
     // userTestDetails.style.display="none";
     quizzSection.style.display = "block";
+    particularUser.style.display = "none";
 
     if (quizzContainer.querySelector("table")) {
         return;
@@ -442,6 +595,7 @@ quizz.addEventListener("click", function () {
         localQuizz.unshift(insertQuestionandAns);
         localStorage.setItem("quizzData", JSON.stringify(localQuizz));
         showQuizz();
+        createQuestion.style.display = "none";
     })
 
 })

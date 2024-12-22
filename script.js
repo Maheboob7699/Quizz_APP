@@ -1,27 +1,5 @@
 
 
-// let localIndex = JSON.parse(localStorage.getItem("setIndex")) || 0;
-// console.log('Initial localIndex:', localIndex);
-
-
-// console.log('Current page path:', window.location.pathname);
-// let currentPage = window.location.pathname.split('/').pop();
-// console.log('Current page filename:', currentPage);
-// if (currentPage === "signup.html") {
-//     if (localIndex === 0) {
-//         console.log("First time visiting signup.html, setting localIndex to 0");
-//     } else {
-//         console.log("On signup.html page, incrementing localIndex");
-//         localIndex++;
-//     }
-// }
-// let localIndex = JSON.parse(localStorage.getItem("setIndex")) || 0;
-
-// localStorage.setItem("setIndex", JSON.stringify(localIndex));
-// localStorage.setItem("UserViewDetails", JSON.stringify(localUser));
-
-
-
 // Signup
 
 
@@ -805,10 +783,22 @@ function render(index) {
  
  localUser = JSON.parse(localStorage.getItem("UserViewDetails")) || [];
 for(let i = localIndex; i<localUser.length; i++){
+  const date = new Date();  // Use the current date and time
+
+  // Format the day, month, and year
+  const day = date.getDate().toString().padStart(2, '0'); // Ensure two digits for the day
+  const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Month is 0-indexed
+  const year = date.getFullYear().toString().slice(-2); // Get last two digits of the year
+  
+  // Format the date as "dd-mm-yy"
+  const formattedDate = `${day}-${month}-${year}`;
+  
+  console.log(formattedDate); // Check the formatted date
 
     let questionset = {
                 quest: localQuizz,
                 score: score,
+                date: formattedDate,
                 selectedId: selectedId,
            
       }
@@ -816,11 +806,6 @@ for(let i = localIndex; i<localUser.length; i++){
  
 }
 
-if (window.location.pathname.includes("signUp.html")) {
-  localIndex++;
-}
-
-localStorage.setItem("setIndex", JSON.stringify(localIndex));
 
 localStorage.setItem("UserViewDetails", JSON.stringify(localUser));
     localStorage.setItem("UserDetail", JSON.stringify(localLogin));
@@ -881,7 +866,9 @@ function quizzPage() {
 
 // Dashboard
 let scoreRender = JSON.parse(localStorage.getItem("UserDetail")) || [];
-let sortedDetail = scoreRender.sort((a, b) => b.score - a.score);
+let sortedDetail = scoreRender.sort((a, b) => b.quizzScore - a.quizzScore);
+console.log(sortedDetail);
+
 
 
 

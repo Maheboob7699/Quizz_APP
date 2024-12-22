@@ -1,10 +1,215 @@
 body {
 
   font-family: "Roboto", sans-serif;
+  /* background-color: rgb(104, 228, 104); */
+}
+/*  admin login */
+body{
+
+  font-family: "Roboto", sans-serif;
+}
+.login-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+
+}
+.required{
+  color: red;
+}
+
+.quizz-img {
+  width: 326.6px;
+  height: 330.98px;
+  margin-bottom: 120px;
+
+}
+
+.login-form {
+
+  height: 512px;
+  width: 440px;
+  margin-left: 140px;
+  margin-top: 100px;
+  
+
+
+}
+
+.login-form h1 {
+  font-family: "Roboto", sans-serif;
+}
+
+.login-form p {
+  color: gray;
+}
+.sigunp-user-error{
+  color: red;
+}
+
+.email-alert{
+  color: red;
+}
+
+.password-alert{
+  color: red;
+}
+
+.login-form div {
+  margin-top: 25px;
 }
 
 
+#user-inpt{
+  width: 400px;
+  height: 40px;
+  gap: 0px;
+  opacity: 0px;
+  border-radius: 10px;
+  margin-top: 10px;
+  border: 1px solid #344054;
+  padding-left: 18px;
+}
 
+#email-inpt{
+  width: 400px;
+  height: 40px;
+  gap: 0px;
+  opacity: 0px;
+  border-radius: 10px;
+  margin-top: 10px;
+  border: 1px solid #344054;
+  padding-left: 20px;
+}
+
+#pass-inpt{
+  width: 300px;
+  border: none;
+  outline: none;
+  margin-left: -18px;
+}
+
+.password-input{
+  width: 417px;
+  height: 40px;
+  gap: 0px;
+  opacity: 0px;
+  border-radius: 10px;
+  border: 1px solid #344054;
+  display: flex
+;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.password-display .hide-password{
+ position: relative;
+ top: -13px;
+}
+.password-display .show-password
+{
+  display: none;
+  position: relative;
+  top: -13px;
+}
+.login-google-icon{
+  background-color: rgb(243, 245, 247);
+  box-shadow: 0px 8px 16px 0px #1C1C1E1A;
+  width: 418px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.login-google-icon div img{
+  margin-bottom: 17px;
+}
+
+
+/* .google-icon {
+  color: #1C1C1E;
+  margin-bottom: 10px;
+} */
+
+.login-btn {
+  width: 418px;
+  height: 43px;
+  padding: 12px 24px 12px 24px;
+  font-size: 1.2rem;
+  gap: 4px;
+  border-radius: 10px;
+  opacity: 0px;
+   margin-top: 10px;
+  background-color: #F3BD00;
+  border: none;
+
+
+}
+
+.signup-btn {
+  width: Fill (440px)px;
+  height: Hug (60px)px;
+  padding: 16px 20px 16px 20px;
+  gap: 8px;
+  border-radius: 8px 0px 0px 0px;
+  opacity: 0px;
+
+
+}
+
+.google-icon {
+  background-color: rgb(243, 245, 247);
+  box-shadow: 0px 8px 16px 0px #1C1C1E1A;
+  width: 90%;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.google-icon div {
+  margin-top: 3px;
+}
+
+.google-icon div i {
+  margin-top: -130px;
+
+}
+
+.google-icon p {
+  padding-left: 20px;
+  color: black;
+
+}
+
+.sign-up {
+  font-weight: 400;
+  color: #344054;
+  font-family: inter;
+  line-height: 19.2px;
+  margin-left: 120px;
+}
+
+.sign-up span {
+  font-weight: 700;
+  color: #0948B4;
+  line-height: 19.2px;
+}
+
+.sign-up span a{
+  text-decoration: none;
+  color: #0948B4;
+}
+
+/* login end */
 
 .admin-navbar {
   height: 60px;
@@ -54,13 +259,45 @@ body {
 
 }
 
+.logout-user-detials{ 
+  height: 300px;
+  height: 150px;
+  width: 250px;
+  background-color: rgb(197, 221, 197);
+  position: absolute;
+  top: 75px;
+  left: 81%;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.admin-logout{
+  cursor: pointer;
+}
+
+
+
+
+.logout-user-detials .logout{
+  width: 109px;
+  height: 30px;
+  border-radius: 7px;
+  border: none;
+  background-color: burlywood;
+
+}
 .menu-section p {
   padding-top: 10px;
 
 }
 
 .menu-section {
-  width: 150px;
+  width: 170px;
   height: 100vh;
 
 
@@ -97,25 +334,31 @@ body {
 .particualr-user #user-information{
   display: flex;
   gap: 20px;
-  width: 100%;
+  width: 99%;
   height: 50px;
   margin-top: 10px;
+  margin-left: 50px;
   background-color: #FFFFFF;
+  border-radius: 7px;
     box-shadow: 0px 8px 16px 0px #1C1C1E1A;
  
 }
 
 
 .test-store{
-  width: 98%;
+  width: 99%;
   height: auto;
   /* border: 1px solid grey; */
+  gap: 20px;
   background-color: #FFFFFF;
   box-shadow: 0px 8px 16px 0px #1C1C1E1A;
-  margin-left: 10px;
+  margin-left: 50px;
   border-radius: 10px;
+  margin-top: 10px;
 
 }
+
+
 .options {
   border-radius: 7px;
    height: 30px;
@@ -131,6 +374,7 @@ body {
   align-items: center;
   gap: 10px;
   margin-left: 10px;
+  margin-top: 5px;
 }
 
 .option-2{
@@ -138,6 +382,7 @@ body {
   align-items: center;
   gap: 10px;
   margin-left: 10px;
+  margin-top: 5px;
 }
 
 .option-3{
@@ -145,6 +390,7 @@ body {
   align-items: center;
   gap: 10px;
   margin-left: 10px;
+  margin-top: 5px;
 }
 
 .option-4{
@@ -152,12 +398,17 @@ body {
   align-items: center;
   gap: 10px;
   margin-left: 10px;
+  margin-top: 7px;
 }
 
 
 /* user personal  test details  end */
 
 .home {
+  cursor: pointer;
+}
+
+.user-menu{
   cursor: pointer;
 }
 
@@ -182,6 +433,11 @@ body {
 .home.clicked span {
   color: orange;
   /* Change this to your desired clicked color */
+}
+
+.user-menu.clicked i,
+.user-menu.clicked span {
+  color: orange;
 }
 
 .user-menu {
@@ -215,6 +471,7 @@ body {
   font-size: 3rem;
   text-align: center;
   padding-top: 170px;
+  display: none;
 }
 
 table {
@@ -262,6 +519,7 @@ th {
   background-color: green;
   border: none;
   height: 25px;
+  width: 175px;
   border-radius: 5px;
   color: white;
   margin-left: 84%;
@@ -568,7 +826,7 @@ td {
   border-radius: 6px;
 }
 
-.cancle-button{
+.edit-cancle-button{
   border-radius: 4px;
   height: 25px;
   width: 20px;
@@ -577,10 +835,10 @@ td {
    right: 20px;
 }
 
-#edit-cancle-button i{
+.edit-cancle-button i{
   padding-left: 1px;
 }
-#eidt-cancle-button:hover{
+.edit-cancle-button:hover{
   background-color: red;
   border-radius: 4px;
   height: 25px;
@@ -590,13 +848,24 @@ td {
    right: 20px;
 }
 
-#eidt-cancle-button i{
-
+.edit-cancle-button i{
   margin: auto;
   margin-left: 4px;
   margin-top: 5px;
 
 }
+
+.sumbit-edit-question{
+  background-color: #4524a9;
+  color: #FFFFFF;
+  height: 27px;
+  width: 77px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 223px;
+  margin-top: 15px;
+}
+
 
 /* particular user */
 .particualr-user{
@@ -606,10 +875,38 @@ td {
   left: 137px;
 }
 
+.particualr-user-test-detail{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 99%;
+  height: 50px;
+  margin-top: 10px;
+  margin-left: 50px;
+  background-color: #FFFFFF;
+  border-radius: 7px;
+    box-shadow: 0px 8px 16px 0px #1C1C1E1A;
+    display: none;
+}
+
+.particualr-user-test-detail .particualr-user-test{
+  margin-left: 10px;
+}
+.particualr-user-test-detail .particualr-user-time{
+  margin-right: 10px;
+}
+
+.particualr-user h2{
+  margin-left: 20px;
+
+}
+
 
 .particualr-user table {
-  border-collapse: collapse; /* Collapses borders into a single border */
-  width: 100%; /* Adjusts the width of the table to fit its content */
+  border-collapse: collapse; 
+  margin-left: 50px;/* Collapses borders into a single border */
+  width: 99%; /* Adjusts the width of the table to fit its content */
 }
 
 .particualr-user table td {
@@ -631,6 +928,7 @@ td {
 .particualr-user table .result-btn{
   background: transparent;
   color: blue;
+  border: none;
 }
 
 
