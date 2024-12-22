@@ -335,7 +335,7 @@ user.addEventListener("click", function () {
                let userDetails = document.querySelector(".userDetails");
                  userDetails.style.display= "none";
                    questionDisplay.forEach((data, dataIndex)=>{
-                    console.log(data.ans);
+                    console.log(data);
                     
                     let commonOptions = "options";
                     let testStore = document.createElement("div");
@@ -410,9 +410,30 @@ user.addEventListener("click", function () {
                     let allOptions = testStore.querySelectorAll(`.${commonOptions}`);
                      allOptions.forEach((option) => {
                     
-                      if(option.id === selectId[dataIndex].id){
-                        option.style.backgroundColor = "orange";
-                      }
+                     if(option.id === selectId[dataIndex].id && selectId[dataIndex].id === data.ans){
+                        option.style.backgroundColor = "green";
+                     }
+                     if(option.id === selectId[dataIndex].id && selectId[dataIndex].id!== data.ans){
+                       option.style.backgroundColor = "red";
+                       console.log("option.id === data.ans" , option.id , data.ans)
+
+                       allOptions.forEach((option) => {
+                        if(option.id == data.ans){
+                            option.style.backgroundColor = "grey";
+                           }
+                       })
+
+                       
+                     }
+                     
+
+
+                    //   if(option.id === selectId[dataIndex].id){
+                    //     option.style.backgroundColor = "orange";
+
+
+                    //   }
+
 
 
             
