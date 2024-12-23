@@ -77,22 +77,12 @@ function Login() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 // login-end //
 
 let home = document.querySelector(".home");
 let user = document.querySelector(".user-menu");
 let quizz = document.querySelector(".quizz-menu");
+let menuSection = document.querySelector(".menu-section");
 let logoutUser = document.querySelector(".admin-logout");
 let logoutUserDetail = document.querySelector(".logout-user-detials");
 let logout = document.querySelector(".logout");
@@ -104,7 +94,7 @@ let particualrUserTest = document.querySelector(".particular-user-test");
 let particualrUserScore = document.querySelector(".particualr-user-score");
 let particualrUserDate = document.querySelector(".particualr-user-date");
 let userData  = document.querySelector(".user-data");
-let sideBar = document.querySelector(".bar");
+let sideBar = document.querySelector(".side-bar");
 let addQuestion = document.querySelector(".add-question");
 let adminStart = document.querySelector(".admin-start");
 let cancleButton = document.querySelector(".cancle-button");
@@ -130,7 +120,7 @@ let userName = document.querySelector(".user-name");
 let userEmail = document.querySelector(".user-email");
 let particularUser = document.querySelector(".particualr-user");
 
-// let userInformation = document.querySelector(".user-information");
+
 let displayQuestion = document.querySelector(".display-question");
 let displayOption1 = document.querySelector(".display-option1");
 let displayOption2 = document.querySelector(".display-option2");
@@ -152,11 +142,6 @@ let editCancleButton = document.querySelector(".edit-cancle-button");
 let submitEditButton = document.querySelector(".sumbit-edit-question");
 
 
-// logoutUser.addEventListener("click",function(){
-//     // logoutUserDetail.style.display="none";
-//     console.log("KKSJSH");
-    
-// })
 
 logoutUser.addEventListener("click",function(){
     console.log("KHKSH<JS");
@@ -173,9 +158,16 @@ logout.addEventListener("click",function(){
     window.location.href = "adminLogin.html";
 })
 
+let menuShow = true;
 sideBar.addEventListener("click", function () {
-    this.classList.add('rotate');
-
+    if (menuShow) {
+        menuSection.style.display = "none";
+        menuShow = false;
+    } 
+    else {
+        menuSection.style.display = "block";
+        menuShow = true;
+    }
 })
 
 
@@ -187,6 +179,7 @@ cancleButton.addEventListener("click", function () {
 // home
  home.addEventListener("click", function () {
     home.classList.add('clicked');
+    user.classList.remove('clicked');
     adminStart.style.display = "block";
     quizz.classList.remove('clicked');
     tableContainer.style.display = "none";
@@ -262,6 +255,8 @@ user.addEventListener("click", function () {
              
             console.log(userIndex);
             let userView = JSON.parse(localStorage.getItem("UserViewDetails"));
+            console.log(userView[userIndex]);
+            
             console.log(userView[userIndex].questions);
             let selectedIdAnswer =userView[userIndex].questions[0]; // 
             let selectId= selectedIdAnswer.selectedId; // Access the;
@@ -285,7 +280,7 @@ user.addEventListener("click", function () {
             
 
             userDetials.forEach((userData,userDataIndex)=>{
-                console.log(userData.date);
+                console.log(userDataIndex);
                 
                 particularUser.style.display ="block";
                 scoreRender = JSON.parse(localStorage.getItem("UserDetail")) || [];
@@ -298,12 +293,10 @@ user.addEventListener("click", function () {
                 console.log(particularUser);
                 
                 let selectedIdAnswer =userView[userIndex].questions[userDataIndex]; // 
+                
                 let selectId= selectedIdAnswer.selectedId; // Access the;
                     console.log(selectId);
-                    particualrUserTest.innerText = `Test ${userDataIndex + 1}`;
-                    particualrUserScore.innerText=`Score ${userData.score}`
-                    particualrUserDate.innerText  = `Test Date:- ${userData.date}`
-
+            
     
                 let row = document.createElement("tr");
                 row.className="userDetails"
@@ -329,14 +322,20 @@ user.addEventListener("click", function () {
                  tdResult.addEventListener("click",function(){
                     partciularTestDetail.style.display="block";
                     partciularTestDetail.style.display="flex";
+                    particualrUserTest.innerText = `Test ${userDataIndex + 1}`;
+                    particualrUserScore.innerText=`Score ${userData.score}`
+                    particualrUserDate.innerText  = `Test Date:- ${userData.date}`
                     
 
 
                let userDetails = document.querySelector(".userDetails");
                  userDetails.style.display= "none";
                    questionDisplay.forEach((data, dataIndex)=>{
-                    console.log(data);
+                    console.log(data,dataIndex);
+                   
                     
+
+        
                     let commonOptions = "options";
                     let testStore = document.createElement("div");
                     testStore.className = `test-store question-${dataIndex}`;
@@ -411,7 +410,7 @@ user.addEventListener("click", function () {
                      allOptions.forEach((option) => {
                     
                      if(option.id === selectId[dataIndex].id && selectId[dataIndex].id === data.ans){
-                        option.style.backgroundColor = "green";
+                        option.style.backgroundColor = 'rgb(97 219 97)';
                      }
                      if(option.id === selectId[dataIndex].id && selectId[dataIndex].id!== data.ans){
                        option.style.backgroundColor = "red";

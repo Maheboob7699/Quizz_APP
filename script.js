@@ -783,17 +783,12 @@ function render(index) {
  
  localUser = JSON.parse(localStorage.getItem("UserViewDetails")) || [];
 for(let i = localIndex; i<localUser.length; i++){
-  const date = new Date();  // Use the current date and time
-
-  // Format the day, month, and year
-  const day = date.getDate().toString().padStart(2, '0'); // Ensure two digits for the day
-  const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Month is 0-indexed
-  const year = date.getFullYear().toString().slice(-2); // Get last two digits of the year
-  
-  // Format the date as "dd-mm-yy"
+  const date = new Date();
+  const day = date.getDate().toString().padStart(2, '0'); 
+  const month = (date.getMonth() + 1).toString().padStart(2, '0'); 
+  const year = date.getFullYear().toString().slice(-2);
   const formattedDate = `${day}-${month}-${year}`;
-  
-  console.log(formattedDate); // Check the formatted date
+  console.log(formattedDate);
 
     let questionset = {
                 quest: localQuizz,

@@ -226,11 +226,20 @@ body{
 
 .techpatshala-img {
   margin-left: 30px;
+  object-fit: contain;
 }
 
 .admin-bar {
   margin-left: 40px;
 }
+
+.side-bar{
+  margin-left: 59px;
+  font-size: 1.6rem;
+}
+
+
+
 
 .admin-main {
   height: 600px;
@@ -251,11 +260,13 @@ body{
 
 .admin-section p {
   padding-right: 30px;
+  font-size: 1.4rem;
 }
 
 
 .admin-section i {
   margin: auto;
+  font-size: 1.4rem;
 
 }
 
@@ -273,6 +284,7 @@ body{
   gap: 20px;
   justify-content: center;
   align-items: center;
+  z-index: 1;
   display: none;
 }
 
@@ -292,18 +304,25 @@ body{
 
 }
 .menu-section p {
+  font-size: 1.3rem;
   padding-top: 10px;
+  padding-left: 10px
 
+}
+
+.remove-menu {
+  display: none;
 }
 
 .menu-section {
   width: 170px;
   height: 100vh;
-
-
-  box-shadow: 0px 8px 16px 0px #1C1C1E1A;
-
+box-shadow: 0px 8px 16px 0px #1C1C1E1A;
+/* display: none; */
 }
+
+
+
 
 /* user personal test details  */
 
@@ -327,12 +346,14 @@ body{
 .particualr-user{
   width: 100%;
   height: auto;
-  /* background-color: yellow; */
+ 
   display: none;
+  z-index: 0;
 }
 
 .particualr-user #user-information{
   display: flex;
+  align-items: center;
   gap: 20px;
   width: 99%;
   height: 50px;
@@ -406,14 +427,17 @@ body{
 
 .home {
   cursor: pointer;
+  margin-left: 8px;
 }
 
 .user-menu{
   cursor: pointer;
+  margin-left: 9px;
 }
 
 .quizz-menu {
   cursor: pointer;
+  margin-left: 8px;
 }
 
 .home span {
@@ -873,6 +897,17 @@ td {
   top: 70px;
   width: 84%;
   left: 137px;
+}
+
+/* .user-name{
+  padding-bottom: 4px;
+}
+.user-email{
+  padding-bottom: 4px;
+} */
+
+.options h3{
+  padding-left: 10px;
 }
 
 .particualr-user-test-detail{

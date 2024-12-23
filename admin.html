@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,238 +13,220 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
+
 <body>
 
     <div class="admin-navbar">
         <div class="">
-          <div class="techpatshala-img"> <img src="techpatshala.svg" alt=""></div>
-           <div class="logout-user-button"> <i class="fa-solid fa-bars admin-bar bar"></i></div>
+            <div class="techpatshala-img"> <img src="techpatshala.svg" alt=""></div>
+            <div class="side-bar"> <i class="fa-solid fa-bars admin-bar bar"></i></div>
         </div>
 
-    <div class="admin-section">
-        <p>admin</p>
-       <div class="admin-logout"> <i class="fa-solid fa-circle-user"></i></i></div>
-    </div>
-</div>
-
-<div class="logout-user-detials">
-    <div class="logout-user-name">admin</div>
-    <div class="logout-user-email">admin@gmail.com</div>
-    <button class="logout">logout</button>
-</div>
-
-<div class="admin-main">
-    <div class="menu-section">
-        <p>Menu</p>
-        <div class="home"><i class="fa-solid fa-house"></i><span>Home</span></div>
-
-        <div class="user-menu"><i class="fa-solid fa-user"></i> <span>User</span></div>
-        <div class="quizz-menu"><i class="fa-regular fa-circle-question"></i> <span>Quizz</span></div>
+        <div class="admin-section">
+            <p>admin</p>
+            <div class="admin-logout"> <i class="fa-solid fa-circle-user"></i></i></div>
+        </div>
     </div>
 
-     <div class="user-data">
-        <div class="admin-start">welcome to login page !!!</div>
+    <div class="logout-user-detials">
+        <div class="logout-user-name">admin</div>
+        <div class="logout-user-email">admin@gmail.com</div>
+        <button class="logout">logout</button>
+    </div>
 
-        <div id="table-container"></div>
+    <div class="admin-main">
+        <div class="menu-section">
+            <p>Menu</p>
+            <div class="home"><i class="fa-solid fa-house"></i><span>Home</span></div>
 
-        <div class="quizz-section">
-            <h1>MCQ Question Lists</h1>
-          <button class="add-question">Add new Question</button>
-          <div class="quizz-conatiner"></div>
+            <div class="user-menu"><i class="fa-solid fa-user"></i> <span>User</span></div>
+            <div class="quizz-menu"><i class="fa-regular fa-circle-question"></i> <span>Quizz</span></div>
         </div>
 
-        <div class="create-questions">
-            <h3>Create Question</h3>
-            <div class="cancle-button">
-                <i class="fa-solid fa-xmark"></i>
-            </div>
-            <div class="set-question">
+        <div class="user-data">
+            <div class="admin-start">welcome to login page !!!</div>
 
-                <div class="question-add">
-                    <label for="">
-                        Question <span>*</span><br>
-                    </label>
-                    <textarea id="question-input" name="w3review" rows="3" cols="40">
+            <div id="table-container"></div>
+
+            <div class="quizz-section">
+                <h1>MCQ Question Lists</h1>
+                <button class="add-question">Add new Question</button>
+                <div class="quizz-conatiner"></div>
+            </div>
+
+            <div class="create-questions">
+                <h3>Create Question</h3>
+                <div class="cancle-button">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                <div class="set-question">
+
+                    <div class="question-add">
+                        <label for="">
+                            Question <span>*</span><br>
+                        </label>
+                        <textarea id="question-input" name="w3review" rows="3" cols="40">
                    </textarea>
-                </div>
+                    </div>
 
-                <div class="option1-add">
-                    <label for="">
-                        Option 1<span>*</span><br>
-                    </label>
-                     <input type="text" id="option1-input">
-                </div>
+                    <div class="option1-add">
+                        <label for="">
+                            Option 1<span>*</span><br>
+                        </label>
+                        <input type="text" id="option1-input">
+                    </div>
 
-                <div class="option2-add">
-                    <label for="">
-                        Option 2 <span>*</span><br>
-                    </label>
-                     <input type="text" id="option2-input">
-                </div>
+                    <div class="option2-add">
+                        <label for="">
+                            Option 2 <span>*</span><br>
+                        </label>
+                        <input type="text" id="option2-input">
+                    </div>
 
-                <div class="option3-add">
-                    <label for="">
-                        Option 3 <span>*</span><br>
-                    </label>
-                     <input type="text" id="option3-input">
-                </div>
+                    <div class="option3-add">
+                        <label for="">
+                            Option 3 <span>*</span><br>
+                        </label>
+                        <input type="text" id="option3-input">
+                    </div>
 
-                <div class="option4-add">
-                    <label for="">
-                        Option 4 <span>*</span><br>
-                    </label>
-                     <input type="text" id="option4-input">
-                </div>
+                    <div class="option4-add">
+                        <label for="">
+                            Option 4 <span>*</span><br>
+                        </label>
+                        <input type="text" id="option4-input">
+                    </div>
 
-                <div class="select-option">
-                    <select name="" id="select-answer">
-                        <option value="a">a</option>
-                        <option value="b">b</option>
-                        <option value="c">c</option>
-                        <option value="d">d</option>
-                    </select>
+                    <div class="select-option">
+                        <select name="" id="select-answer">
+                            <option value="a">a</option>
+                            <option value="b">b</option>
+                            <option value="c">c</option>
+                            <option value="d">d</option>
+                        </select>
+                    </div>
                 </div>
+                <button class="sumbit-create-question">sumbit</button>
             </div>
-            <button class="sumbit-create-question">sumbit</button>
-        </div>
-        <div class="quizz-show">
-            <div class="display-quizz-data">
-                <h2>Question Details </h2>
-                <div class="cancel-details">
-                     <i class="fa-solid fa-xmark"></i>
-                   </div>
-                 <div class="quizz-display">
-                  <div>
-                     Question
-                    <h3 class="display-question"></h3>
- 
-                  </div>
-               <div>
-                  option a
-                   <h3 class="display-option1"></h3>
-               </div>
-                <div>
-                    option b
-                    <h3 class="display-option2"></h3>
-                </div>
+            <div class="quizz-show">
+                <div class="display-quizz-data">
+                    <h2>Question Details </h2>
+                    <div class="cancel-details">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                    <div class="quizz-display">
+                        <div>
+                            Question
+                            <h3 class="display-question"></h3>
 
-                <div>
-                  option c
-                  <h3 class="display-option3"></h3> 
-                </div>
+                        </div>
+                        <div>
+                            option a
+                            <h3 class="display-option1"></h3>
+                        </div>
+                        <div>
+                            option b
+                            <h3 class="display-option2"></h3>
+                        </div>
 
-              <div>
-               option d
-               <h3 class="display-option4"></h3> 
-              </div>
+                        <div>
+                            option c
+                            <h3 class="display-option3"></h3>
+                        </div>
 
-              <div>
-                Correct Answer
-                <h3 class="display-answer"></h3> 
-              </div>
-         </div>
-     </div>             `
-        </div>
+                        <div>
+                            option d
+                            <h3 class="display-option4"></h3>
+                        </div>
 
-        <!-- edit -->
-        <div class="edit-questions">
-            <h3>Edit Question</h3>
-            <div class="edit-cancle-button">
-                <i class="fa-solid fa-xmark"></i>
+                        <div>
+                            Correct Answer
+                            <h3 class="display-answer"></h3>
+                        </div>
+                    </div>
+                </div> `
             </div>
-            <div class="edit-question">
 
-                <div class="edit-question-add">
-                    <label for="">
-                        Question <span>*</span><br>
-                    </label>
-                    <textarea id="edit-question-input" name="w3review" rows="3" cols="40">
+            <!-- edit -->
+            <div class="edit-questions">
+                <h3>Edit Question</h3>
+                <div class="edit-cancle-button">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                <div class="edit-question">
+
+                    <div class="edit-question-add">
+                        <label for="">
+                            Question <span>*</span><br>
+                        </label>
+                        <textarea id="edit-question-input" name="w3review" rows="3" cols="40">
                    </textarea>
-                </div>
+                    </div>
 
-                <div class="option1-add">
-                    <label for="">
-                        Option 1<span>*</span><br>
-                    </label>
-                     <input type="text" id="edit-option1-input">
-                </div>
+                    <div class="option1-add">
+                        <label for="">
+                            Option 1<span>*</span><br>
+                        </label>
+                        <input type="text" id="edit-option1-input">
+                    </div>
 
-                <div class="option2-add">
-                    <label for="">
-                        Option 2 <span>*</span><br>
-                    </label>
-                     <input type="text" id="edit-option2-input">
-                </div>
+                    <div class="option2-add">
+                        <label for="">
+                            Option 2 <span>*</span><br>
+                        </label>
+                        <input type="text" id="edit-option2-input">
+                    </div>
 
-                <div class="option3-add">
-                    <label for="">
-                        Option 3 <span>*</span><br>
-                    </label>
-                     <input type="text" id="edit-option3-input">
-                </div>
+                    <div class="option3-add">
+                        <label for="">
+                            Option 3 <span>*</span><br>
+                        </label>
+                        <input type="text" id="edit-option3-input">
+                    </div>
 
-                <div class="option4-add">
-                    <label for="">
-                        Option 4 <span>*</span><br>
-                    </label>
-                     <input type="text" id="edit-option4-input">
-                </div>
+                    <div class="option4-add">
+                        <label for="">
+                            Option 4 <span>*</span><br>
+                        </label>
+                        <input type="text" id="edit-option4-input">
+                    </div>
 
-                <div class="select-option">
-                    <select name="" id="edit-select-answer">
-                        <option value="a">a</option>
-                        <option value="b">b</option>
-                        <option value="c">c</option>
-                        <option value="d">d</option>
-                    </select>
+                    <div class="select-option">
+                        <select name="" id="edit-select-answer">
+                            <option value="a">a</option>
+                            <option value="b">b</option>
+                            <option value="c">c</option>
+                            <option value="d">d</option>
+                        </select>
+                    </div>
                 </div>
+                <button class="sumbit-edit-question">sumbit</button>
             </div>
-            <button class="sumbit-edit-question">sumbit</button>
+            <div class="test-information"></div>
+
         </div>
 
-
-        <!-- <div class="user-personal-detail">
-            <div class="user-information">
-               <h2 id="user-name">  </h2> 
-               <h2 id="user-email"></h2>
+        <div class="particualr-user">
+            <div id="user-information">
+                <h2 class="user-name"></h2>
+                <h2 class="user-email"></h2>
             </div>
-            <div class="user-test-details">
-                <div class="test-information"></div>
-            </div>
-        </div> -->
 
-        <!--  -->
-      
-             <div class="test-information"></div>
-
-       
-              
-         
-     </div>
-
-     <!-- personal user test details -->
-
-     <!-- particualr user detail -->
-      <div class="particualr-user">
-        <div id="user-information">
-            <h2 class="user-name"></h2> 
-            <h2 class="user-email"></h2>
-         </div>
-
-         <di class="particualr-user-test-detail">
-            <div class="particular-user-test">Test1</div>
-            <div class="particualr-user-score">Score</div>
-            <div class="particualr-user-date">test Date</div>
-            <div class="particualr-user-time">Time Taken</div>
-         </div>
-      </div>
+            <di class="particualr-user-test-detail">
+                <div class="particular-user-test">Test1</div>
+                <div class="particualr-user-score">Score</div>
+                <div class="particualr-user-date">test Date</div>
+                <div class="particualr-user-time">Time Taken</div>
+        </div>
+    </div>
 
 
 
-     
-</div>
+
+    </div>
 
     <script src="admin.js"></script>
-    <!-- <script>admin()</script> -->
+
 </body>
+
 </html>
