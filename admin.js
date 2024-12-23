@@ -171,7 +171,6 @@ sideBar.addEventListener("click", function () {
 })
 
 
-
 cancleButton.addEventListener("click", function () {
     createQuestion.style.display = "none";
 
